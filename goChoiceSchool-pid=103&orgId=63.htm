@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>杭州市义务教育阶段新生入学管理平台</title>
+<link href="css/style.css"  rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+<script type="text/javascript" src="js/web/common.js" ></script>
+ <script type="text/javascript">
+	$(document).ready(function() {
+		$($(".menu_ul").find("li")[2]).addClass("active");
+		$("#search_btn2").click(function(){
+			$("#type").val("1");
+			queryForm.submit();
+		});
+	});
+</script>
+</head>
+<body style="background: #F2F2F2;">
+	<div id="header">
+ <div class="topbj" id="top">
+		<div class="top">
+			<div class="top_info">
+				 <div class="l_f">
+				 	<span id="currDate"></span>       
+			  	 	您好，欢迎来到杭州市2019年义务教育阶段新生报名系统！ 
+				 </div>
+				 <div class="r_f" id="user_div">
+				 	 　　<a href="javascript:void(0);" onclick="AddFavorite(window.location,document.title)">添加收藏</a>
+				 </div>
+			</div>
+		</div>
+		<div style="clear:both"></div>
+		<div class="menu">
+			  <div class="logo">
+			  	 <div class="l_f">
+			  	 	 <h1 style="color: #fff; font-size: 36px; font-weight: 600;">杭州市2019年义务教育阶段新生报名系统</h1> 
+			  	 </div>
+			  	 <ul class="menu_ul">
+			  	 	<li><a href="goIndex-orgId=103.htm" >首页</a></li>
+			  	 	<li><a href="areanewlist.htm" >新闻中心</a></li>
+			  	 	<li><a href="goChoiceSchool-pid=103.htm" >学校介绍</a></li>
+			  	 	<li><a href="goIndex-orgId=103&message=0.htm" >我要报名</a></li>
+			  	 	<li><a href="goIndex-message=0&orgId=103.htm" >查看进度</a></li>
+			  	 </ul>
+			  </div>
+		</div>
+	</div>
+</div>
+    <div id= "content">
+    	  <div class="second_bg" >
+           	  &nbsp;
+            </div>
+          <h2 align="center" style="margin-top: 30px; color: #000000; margin-bottom: 30px;">学校介绍</h2>
+          <div class="content" style="background: #ffffff; border: 1px solid #DCDCDC;position: relative;">
+            <div class="city_div" style="position: absolute;left: 200px;top:25px;">
+          		<ul class="city_ul">
+           				               				                 				        <li>
+						      	 	<a href="goChoiceSchool-pid=103&orgId=48.htm"  class="acl-name ">
+						      	 	北湖区 
+						      	 	</a>
+					           		<div class="trigon_div  none "></div>
+					           	</li>
+           				                 				        <li>
+						      	 	<a href="goChoiceSchool-pid=103&orgId=63.htm"  class="acl-name  on ">
+						      	 	苏仙区 
+						      	 	</a>
+					           		<div class="trigon_div "></div>
+					           	</li>
+           				                 				        <li>
+						      	 	<a href="goChoiceSchool-pid=103&orgId=99.htm"  class="acl-name ">
+						      	 	高新区(六十七完小) 
+						      	 	</a>
+					           		<div class="trigon_div  none "></div>
+					           	</li>
+           				                 				        <li>
+						      	 	<a href="goChoiceSchool-pid=103&orgId=105.htm"  class="acl-name ">
+						      	 	市直属 
+						      	 	</a>
+					           		<div class="trigon_div  none "></div>
+					           	</li>
+           				                 				        <li>
+						      	 	<a href="goChoiceSchool-pid=103&orgId=139.htm"  class="acl-name ">
+						      	 	桂阳县 
+						      	 	</a>
+					           		<div class="trigon_div  none "></div>
+					           	</li>
+           				                 				        <li>
+						      	 	<a href="goChoiceSchool-pid=103&orgId=140.htm"  class="acl-name ">
+						      	 	临武县 
+						      	 	</a>
+					           		<div class="trigon_div  none "></div>
+					           	</li>
+           				                 				        <li>
+						      	 	<a href="goChoiceSchool-pid=103&orgId=141.htm"  class="acl-name ">
+						      	 	嘉禾县 
+						      	 	</a>
+					           		<div class="trigon_div  none "></div>
+					           	</li>
+           				                 				        <li>
+						      	 	<a href="goChoiceSchool-pid=103&orgId=142.htm"  class="acl-name ">
+						      	 	资兴市 
+						      	 	</a>
+					           		<div class="trigon_div  none "></div>
+					           	</li>
+           				                 				        <li>
+						      	 	<a href="goChoiceSchool-pid=103&orgId=143.htm"  class="acl-name ">
+						      	 	永兴县 
+						      	 	</a>
+					           		<div class="trigon_div  none "></div>
+					           	</li>
+           				                 				        <li>
+						      	 	<a href="goChoiceSchool-pid=103&orgId=144.htm"  class="acl-name ">
+						      	 	宜章县 
+						      	 	</a>
+					           		<div class="trigon_div  none "></div>
+					           	</li>
+           				                 				        <li>
+						      	 	<a href="goChoiceSchool-pid=103&orgId=145.htm"  class="acl-name ">
+						      	 	汝城县 
+						      	 	</a>
+					           		<div class="trigon_div  none "></div>
+					           	</li>
+           				                 				        <li>
+						      	 	<a href="goChoiceSchool-pid=103&orgId=147.htm"  class="acl-name ">
+						      	 	安仁县 
+						      	 	</a>
+					           		<div class="trigon_div  none "></div>
+					           	</li>
+           				                 				               				  </ul>
+           				  </div>
+          	<div style="text-align: center; margin-top: 30px; margin-bottom: 20px;position: relative;">
+          		<form action="javascript:if(confirm('http://cz.xsbmxt.cn/goChoiceSchool?pid=103&orgId=0?schoolName=  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='http://cz.xsbmxt.cn/goChoiceSchool?pid=103&orgId=0?schoolName='"  name="queryForm" id="queryForm" method="post" style="margin-top: 70px;">
+          		查找学校：<input class="inp_b" name="schoolName" value="" id="schoolName" placeholder="请输入学校名称"/><input type="submit" id="search_btn" class="btn_b" value="搜索"/>
+          		</form>
+          	</div>
+                          <ul class="school_ul">
+                            	<li style="height: 80px;">
+	              	 <a href="goSchoolInfo-id=48&orgId=63.htm"  target="_blank">
+	              	 		              	 		<img src="images/school.png"  style="float: left;" height="53" width="53"/>
+	              	 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+							<p class="title">杭州市十二完小</p>
+							<p class="ctn">地址：湖南省杭州市苏仙区苏仙北路17号</p>
+							<p class="ctn">招生热线：2875619     </p>
+						</div>
+					</a>
+				</li>
+                            	<li style="height: 80px;">
+	              	 <a href="goSchoolInfo-id=49&orgId=63.htm"  target="_blank">
+	              	 		              	 		<img src="images/school.png"  style="float: left;" height="53" width="53"/>
+	              	 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+							<p class="title">杭州市一完小</p>
+							<p class="ctn">地址：湖南省杭州市苏仙区城东路5号</p>
+							<p class="ctn">招生热线：2886985  </p>
+						</div>
+					</a>
+				</li>
+                            	<li style="height: 80px;">
+	              	 <a href="goSchoolInfo-id=50&orgId=63.htm"  target="_blank">
+	              	 		              	 		<img src="images/school.png"  style="float: left;" height="53" width="53"/>
+	              	 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+							<p class="title">杭州市二十九完小</p>
+							<p class="ctn">地址：湖南省杭州市苏仙区苏园路9号</p>
+							<p class="ctn">招生热线：  </p>
+						</div>
+					</a>
+				</li>
+                            	<li style="height: 80px;">
+	              	 <a href="goSchoolInfo-id=51&orgId=63.htm"  target="_blank">
+	              	 		              	 		<img src="images/school.png"  style="float: left;" height="53" width="53"/>
+	              	 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+							<p class="title">杭州市十三完小</p>
+							<p class="ctn">地址：湖南省杭州市苏仙区苏仙南肖家洞巷3号</p>
+							<p class="ctn">招生热线：2885387     </p>
+						</div>
+					</a>
+				</li>
+                            	<li style="height: 80px;">
+	              	 <a href="goSchoolInfo-id=52&orgId=63.htm"  target="_blank">
+	              	 		              	 		<img src="images/school.png"  style="float: left;" height="53" width="53"/>
+	              	 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+							<p class="title">杭州市五完小</p>
+							<p class="ctn">地址：湖南省杭州市苏仙区南塔路2号</p>
+							<p class="ctn">招生热线：0735-2170348  </p>
+						</div>
+					</a>
+				</li>
+                            	<li style="height: 80px;">
+	              	 <a href="goSchoolInfo-id=55&orgId=63.htm"  target="_blank">
+	              	 		              	 		<img src="images/school.png"  style="float: left;" height="53" width="53"/>
+	              	 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+							<p class="title">杭州市四完小</p>
+							<p class="ctn">地址：湖南省杭州市苏仙区曹家坪45号</p>
+							<p class="ctn">招生热线：0735—7673971    </p>
+						</div>
+					</a>
+				</li>
+                            	<li style="height: 80px;">
+	              	 <a href="goSchoolInfo-id=79&orgId=63.htm"  target="_blank">
+	              	 		              	 		<img src="images/school.png"  style="float: left;" height="53" width="53"/>
+	              	 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+							<p class="title">杭州市启明学校初中部(苏仙区)</p>
+							<p class="ctn">地址：湖南省杭州市苏仙区青年大道（原宇通驾校内，可乘27、13、51、22路公交车到香雪桥东站或龙门池站）</p>
+							<p class="ctn">招生热线：    </p>
+						</div>
+					</a>
+				</li>
+                            	<li style="height: 80px;">
+	              	 <a href="goSchoolInfo-id=80&orgId=63.htm"  target="_blank">
+	              	 		              	 		<img src="images/school.png"  style="float: left;" height="53" width="53"/>
+	              	 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+							<p class="title">杭州市启明学校小学部(苏仙区)</p>
+							<p class="ctn">地址：湖南省杭州市苏仙区杭州市青年大道（原宇通驾校内，可乘27、13、51、22路公交车到香雪桥东站或龙门池站）</p>
+							<p class="ctn">招生热线：   </p>
+						</div>
+					</a>
+				</li>
+                            	<li style="height: 80px;">
+	              	 <a href="goSchoolInfo-id=81&orgId=63.htm"  target="_blank">
+	              	 		              	 		<img src="images/school.png"  style="float: left;" height="53" width="53"/>
+	              	 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+							<p class="title">杭州市八中</p>
+							<p class="ctn">地址：湖南省杭州市苏仙区曹家湾25号</p>
+							<p class="ctn">招生热线： 2110453    </p>
+						</div>
+					</a>
+				</li>
+                            	<li style="height: 80px;">
+	              	 <a href="goSchoolInfo-id=83&orgId=63.htm"  target="_blank">
+	              	 		              	 		<img src="images/school.png"  style="float: left;" height="53" width="53"/>
+	              	 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+							<p class="title">苏园中学(初中部)</p>
+							<p class="ctn">地址：湖南省杭州市苏仙区东岭路1号</p>
+							<p class="ctn">招生热线：2898506 </p>
+						</div>
+					</a>
+				</li>
+                            	<li style="height: 80px;">
+	              	 <a href="goSchoolInfo-id=84&orgId=63.htm"  target="_blank">
+	              	 		              	 		<img src="images/school.png"  style="float: left;" height="53" width="53"/>
+	              	 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+							<p class="title">湘南中学</p>
+							<p class="ctn">地址：湖南省杭州市苏仙区郴县路12号</p>
+							<p class="ctn">招生热线：0735—2856538      2856958、2856398</p>
+						</div>
+					</a>
+				</li>
+                            	<li style="height: 80px;">
+	              	 <a href="goSchoolInfo-id=95&orgId=63.htm"  target="_blank">
+	              	 		              	 		<img src="images/school.png"  style="float: left;" height="53" width="53"/>
+	              	 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+							<p class="title">杭州市二十七完小</p>
+							<p class="ctn">地址：湖南省杭州市苏仙区郴县路与观山大道交汇处</p>
+							<p class="ctn">招生热线：    </p>
+						</div>
+					</a>
+				</li>
+                            	<li style="height: 80px;">
+	              	 <a href="goSchoolInfo-id=96&orgId=63.htm"  target="_blank">
+	              	 		              	 		<img src="../storage.xsbmxt.com/fl_619fa82016714549a9f67f64905a0b1d.png"  style="float: left;" height="53" width="53"/>
+	              	 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+							<p class="title">杭州市二十八完小</p>
+							<p class="ctn">地址：湖南省杭州市苏仙区卜里坪社区</p>
+							<p class="ctn">招生热线：   0735-2253754 </p>
+						</div>
+					</a>
+				</li>
+                            	<li style="height: 80px;">
+	              	 <a href="goSchoolInfo-id=97&orgId=63.htm"  target="_blank">
+	              	 		              	 		<img src="images/school.png"  style="float: left;" height="53" width="53"/>
+	              	 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+							<p class="title">湘南小学</p>
+							<p class="ctn">地址：湖南省杭州市苏仙区郴县路1号（湘南中学旁）</p>
+							<p class="ctn">招生热线：8333269  </p>
+						</div>
+					</a>
+				</li>
+                            	<li style="height: 80px;">
+	              	 <a href="goSchoolInfo-id=99&orgId=63.htm"  target="_blank">
+	              	 		              	 		<img src="images/school.png"  style="float: left;" height="53" width="53"/>
+	              	 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+							<p class="title">苏园中学(小学部)</p>
+							<p class="ctn">地址：湖南省杭州市苏仙区东岭路1号</p>
+							<p class="ctn">招生热线：2896995   </p>
+						</div>
+					</a>
+				</li>
+                            	<li style="height: 80px;">
+	              	 <a href="goSchoolInfo-id=101&orgId=63.htm"  target="_blank">
+	              	 		              	 		<img src="images/school.png"  style="float: left;" height="53" width="53"/>
+	              	 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+							<p class="title">柿竹园学校(初中部)</p>
+							<p class="ctn">地址：</p>
+							<p class="ctn">招生热线： </p>
+						</div>
+					</a>
+				</li>
+                            	<li style="height: 80px;">
+	              	 <a href="goSchoolInfo-id=104&orgId=63.htm"  target="_blank">
+	              	 		              	 		<img src="images/school.png"  style="float: left;" height="53" width="53"/>
+	              	 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+							<p class="title">柿竹园学校(小学部)</p>
+							<p class="ctn">地址：</p>
+							<p class="ctn">招生热线：  0735-2612680</p>
+						</div>
+					</a>
+				</li>
+                            	<li style="height: 80px;">
+	              	 <a href="goSchoolInfo-id=119&orgId=63.htm"  target="_blank">
+	              	 		              	 		<img src="../storage.xsbmxt.com/fl_c0f64faf682e417298e4b0a7a9880b30.png"  style="float: left;" height="53" width="53"/>
+	              	 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+							<p class="title">苏仙中学</p>
+							<p class="ctn">地址：湖南省杭州市苏仙区苏仙南路 40号</p>
+							<p class="ctn">招生热线： 0735-2629642        </p>
+						</div>
+					</a>
+				</li>
+                        	  </ul>
+                      </div>
+    </div>
+   <div id= "footer" > <div style="clear:both;"></div>
+	<div class="bottom" style="height: 120px; padding-top: 10px;">
+		<div style="padding-bottom: 0; width:1000px; margin: auto;">
+			<div style="width: 700px; float: left; text-align: left;">
+				<p>主办单位：杭州市教育局</p>
+				<p>技术支持：湖南亿谷科技发展股份有限公司　　技术支持电话：4008087989（周一至周五：8：30-17：30）</p>
+				<p><a href="http://beian.miit.gov.cn/"  style="color: #fff;" target="_blank">湘ICP备14004282号-9</a>　　　</p><p><a href="gologin.htm"  style="color: #fff;" target="_blank">管理员登录入口</a></p>
+			</div>
+			  <div style="float: right; padding-left: 30px;">
+				<img src="images/wechat.jpg"  width="90" height="90"/>
+				<p>【微信扫一扫】</p>
+			</div>
+		</div>
+	</div>
+ 
+</div>
+</body>
+</html>

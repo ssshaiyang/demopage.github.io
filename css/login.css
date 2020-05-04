@@ -1,0 +1,25 @@
+*{margin:0; padding:0; outline:none; list-style:none}
+body{color:#555;  font-family: "Arial","����" ; margin:auto; font-size:14px; background:url("../images/login_bg.png")  no-repeat cen#3399FF #2483EB; }
+a{ color:#333333; text-decoration:none;}
+img{ margin:0px; padding:0px; border:0px;}
+ 
+.panel{width: 1240px; *width:1240px; margin: auto; min-height: 400px;}
+.toppanel{margin: auto; height: 40px;}
+
+.topbg{ background-color: #1D61A8; height: 36px; line-height: 36px; min-width: 1280px;}
+.l_f{float: left; color: #B2C8E1; font-size: 12px; background: url("../images/w_icon.png") no-repeat left center; padding-left: 30px; margin-left: 20px;}
+.r_f{float: right; color: #B2C8E1; font-size: 12px;}
+.r_f a{background: #439ACB; padding: 5px 10px; color: #ffffff; border-radius: 5px;-webkit-border-radius: 5px; -moz-border-radius: 5px; margin-right: 20px;}
+.button_an{ width: 350px; height: 35px; line-height: 35px; background: #4198CA; font-size:16px; color: #ffffff; font-weight: bold; border: 1px solid #4198CA;border-radius: 5px;-webkit-border-radius: 5px; -moz-border-radius: 5px; cursor: pointer;}
+.button_an:hover{background: #3399FF;}
+
+.land{width: 1240px; *width:1240px; text-align: center; background: url("../images/land.png") no-repeat center top; height: 620px;}
+.land .land_bj{padding-top: 300px; padding-left: 330px;}
+
+.dlfs{padding-left: 290px; text-align: left; height: 30px;}
+
+.box{border: 1px solid #BAC7D2; padding-left:30px; border-radius: 5px;-webkit-border-radius: 5px; -moz-border-radius: 5px; height: 40px; line-height: 40px; width: 320px; margin-bottom:20px;}
+.box.u{background: url("../images/user.png") no-repeat left center #ECF5FA;}
+.box.p{background: url("../images/lock.png") no-repeat left center #ECF5FA;}
+
+.bottom{height: 40px; line-height: 40px; text-align: center; color: #ffffff; margin-top:70px; padding-left: 320px;}

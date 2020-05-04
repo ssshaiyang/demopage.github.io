@@ -1,0 +1,1073 @@
+var ctx = "";
+
+function IsHKID(str) {
+	 var strValidChars ="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	 if(str.length < 8) return false;
+	 if(str.charAt(str.length-3) =='('&& str.charAt(str.length-1) ==')')
+	 str = str.substring(0, str.length - 3) + str.charAt(str.length -2);
+	 str = str.toUpperCase();
+	 var hkidPat = /^([A-Z]{1,2})([0-9]{6})([A0-9])$/;
+	 var matchArray = str.match(hkidPat);
+	 if(matchArray ==null) return false;
+	 return true;
+}
+
+function IsTWID(str) { 
+	 if(str.length < 10) return false; 
+	 var hkidPat = /^([A-Z]{1})([0-9]{9})$/;
+	 var matchArray = str.match(hkidPat);
+	 if(matchArray ==null) return false;
+	 return true;
+}
+
+
+$(function(){
+	$("#identityCard").focus(function(){
+		 
+	}).blur(function(){
+		 var identityCard = this.value;
+		 var b = idCardNoUtil.checkIdCardNo(identityCard);
+		 if(!b){
+			 if(!IsHKID(identityCard) && !IsTWID(identityCard)){
+				 msgAlert("warning","提示", "身份证号码输入有误");
+				 return false;
+			 }
+		 }
+		 var idCardInfo = idCardNoUtil.getIdCardInfo(identityCard);
+		 var birthday2 = idCardInfo.birthday;
+		 $("#birthday").val(birthday2);
+		 var id = $("#id").val();
+		 //验证身份证号码是否已经报名
+		 $.ajax({
+				type : "POST",
+				url : ctx + "/gowechat/hasIdentityCard",
+				data : {identityCard:identityCard,id:id},
+				dataType : "json",
+				async:false,
+				success : function(data) {
+					 if(data=="0"){
+						 alert("该身份证号码已经报名，不允许重复报！");
+						 return false;
+					 }
+				}
+		});
+	});
+});
+
+function validate(){
+	var b = true;
+	$(".required").each(function(){
+		if($.trim(this.value) == ''){
+			b = false; 
+			this.style.backgroundColor = "pink";
+		} else {
+			this.style.backgroundColor = "#ffffff";
+		}
+	});
+	return b;
+}
+
+function saveEnrollment(status){
+	var areaId = $("#areaId").val();
+	if(areaId==''){
+		 msgAlert("warning", "提示", "请选择所报区域");
+		  return false;
+	}
+	var category = $("#category").val();
+	  if(category == ""){
+		  msgAlert("warning", "提示", "请选择类型");
+		  return false;
+	  }
+	if(areaId == 141 && (category == 3 || category == null || category == undefined)){
+		$("#category").val("");
+		 msgAlert("warning", "提示", "请选择类型");
+		 return false;
+	}
+	 
+	if(areaId != 142 && (category == 8 || category == null || category == undefined)){
+		$("#category").val("");
+		 msgAlert("warning", "提示", "请选择类型");
+		 return false;
+	}
+	  var type = $("input[name='type']:checked").val();
+	  if(type == undefined){
+		  msgAlert("warning", "提示", "请选择申请学段");
+		  return false;
+	  }
+	  var name = $("#name").val();
+	  name = $.trim(name);
+	  validate();
+	  if(name == ''){
+		  msgAlert("warning", "提示", "请填写学生姓名");
+		  $("#name")[0].focus();
+		  return false;
+	  }
+	  var gender = $("input[name='gender']:checked").val();
+	  if(gender == undefined){
+		  msgAlert("warning", "提示", "请选择性别");
+		  return false;
+	  }
+	  var identityCard = $("#identityCard").val();
+	  identityCard = $.trim(identityCard);
+	  if(identityCard == ''){
+		  msgAlert("warning", "提示", "请输入学生身份证号码");
+		  $("#identityCard")[0].focus();
+		  return false;
+	  }
+	  var b = idCardNoUtil.checkIdCardNo(identityCard);
+	  if(!b){
+		  msgAlert("warning","提示", "学生身份证号码输入有误");
+		  $("#identityCard")[0].focus();
+		  return false;
+	  }
+	  if(b){
+		  var birthday = $("#birthday").val();
+		  if(birthday == ''){
+			  msgAlert("warning","提示", "请选择输入出生日期");
+			  $("#birthday")[0].focus();
+			  return false;
+		  }
+		  var idCardInfo = idCardNoUtil.getIdCardInfo(identityCard);
+		  var birthday2 = idCardInfo.birthday;
+		  //判断日期是否一致
+		  birthday = birthday.replace("年","-").replace("月","-").replace("日","");
+		  if(birthday2 != birthday){
+			  msgAlert("warning","提示", "出生日期与身份证上的日期不一致");
+			  return false;
+		  }  
+		  if(type == 0){
+			 //申请小学,判断是否年满6周岁
+			  var date1 = new Date();
+			  var date2 = new Date(birthday2);
+			  var year = date1.getFullYear() - date2.getFullYear();
+			  if(year < 6 || year > 10){
+				  msgAlert("warning","提示", "年龄不符合招生要求,必须是8月31号前满6周岁");
+				  return false;
+			  }
+			  //判断恰好等于6周岁时,判断是否满足条件
+			  if(year == 6){
+				  if(date2.getMonth() > 7){
+					  msgAlert("warning","提示", "年龄不符合招生要求,必须是8月31号前满6周岁");
+					  return false;
+				  }
+			  }
+		  }
+	  }
+	  if(status == 1){ //提交
+	  var health = $("#health").val();
+	  if(health == ''){
+		  msgAlert("warning", "提示", "请选择健康状况");
+		  return false;
+	  }
+	  var nation = $("#nation").val();
+	  if(nation == ''){
+		  msgAlert("warning", "提示", "请选择民族");
+		  return false;
+	  }
+	  //非小学判断是否输入毕业学校
+	  var school = $("#school").val();
+	  if(school == ''){
+		  if(type == 0){
+			  msgAlert("warning", "提示", "请输入毕业幼儿园");
+		  } else {
+			  msgAlert("warning", "提示", "请输入毕业学校");
+		  }
+			 return false;
+	 }
+	  if(school.lenght < 4){
+			 if(type == 0){
+				 msgAlert("warning", "提示", "请输入真实的毕业幼儿园");
+			 } else {
+				 msgAlert("warning", "提示", "请输入真实的毕业学校");
+			 }
+			 $("#school")[0].focus();
+			 return false;
+	 }
+	  if(type==1){
+		  var number = $("#number").val();
+		  if(number==''){
+			  msgAlert("warning", "提示", "请输入国网学籍号");
+			  return false;
+		  }
+		  var m = "G" + identityCard;
+		  var m2 = "L" + identityCard;
+		  if(number != m && number.length != m2.length){
+			  msgAlert("warning", "提示", "国网学籍号格式输入错误,必须为 G＋身份证号或者 L+与身份证位数一致的随机学籍号。");
+			  return false;
+		  }
+	  }
+	  var hukouProvince = $("#hukouProvince").val();
+	  if(hukouProvince == ''){
+		  msgAlert("warning", "提示", "请选择户口所在省");
+		  return false;
+	  }
+	  var hukouCity = $("#hukouCity").val();
+	  if(hukouCity == ''){
+		  msgAlert("warning", "提示", "请选择户口所在市");
+		  return false;
+	  }
+	  if(category == 1 || category == 3){
+		  if(hukouCity != "杭州市"){
+			  msgAlert("warning","提示", "您选择的户口所在市错误，不符合常住居民人员子女！");
+			  return false;
+		  }
+	  }
+	  var hukouArea = $("#hukouArea").val();
+	  if(hukouArea == '' && hukouProvince != '台湾省'){
+		  msgAlert("warning","提示", "请选择户口所在市、县级市");
+		  return false;
+	  }
+	  if(hukouArea=="北湖区" || hukouArea=="苏仙区" || hukouArea=="桂阳县" || hukouArea=="汝城县" || hukouArea=="资兴市"){
+		  var hukoujd = $("#hukoujd").val();
+		  if(hukoujd==''){
+			  msgAlert("warning","提示", "请选择户口所在街道！");
+			  return false;
+		  }
+		  var hukouShequ = $("#hukouShequ").val();
+		  if(hukouArea=="桂阳县"){
+			  if(hukoujd=='龙潭街道' || hukoujd == '鹿峰街道'){
+				  if(hukouShequ==undefined || hukouShequ==''){
+					  msgAlert("warning","提示", "请选择户口所在社区！");
+					  return false;
+				  }
+			  }
+		  } else {
+			  if(hukouShequ==undefined || hukouShequ==''){
+				  msgAlert("warning","提示", "请选择户口所在社区！");
+				  return false;
+			  }  
+		  }
+	  } else if(hukouArea == "临武县"){
+		  var hukoujd = $("#hukoujd").val();
+		  if(hukoujd==''){
+			  msgAlert("warning","提示", "请选择户口所在街道！");
+			  return false;
+		  }
+	  }
+	  var hukouAddre = $("#hukouAddre").val();
+	  hukouAddre = $.trim(hukouAddre);
+	  if(hukouAddre == ''){
+		  msgAlert("warning", "提示", "请输入户口地址");
+		  return false;
+	  }
+	  
+	  var zufangAddre = $("#zufangAddre").val();
+	  zufangAddre = $.trim(zufangAddre);
+	  if(zufangAddre ==''){
+		  msgAlert("warning","提示", "请选择现居住地所在区");
+		  $("#fangchanAddre")[0].focus();
+		  return false;
+	  }
+	  
+	  if(zufangAddre == "北湖区" || zufangAddre == "苏仙区" || zufangAddre == "桂阳县" || zufangAddre == "汝城县" || zufangAddre == "资兴市"){
+		  var zufangjd = $("#zufangjd").val();
+		  if(zufangjd==''){
+			  msgAlert("warning","提示", "请选择现居住地所在街道！");
+			  return false;
+		  }
+		  var zufangshequ = $("#zufangshequ").val();
+		  if(zufangshequ==undefined || zufangshequ==''){
+			  msgAlert("warning","提示", "请选择现居住地所在社区！");
+			  return false;
+		  }
+	  } else if(zufangAddre == "临武县"){
+		  var zufangjd = $("#zufangjd").val();
+		  if(zufangjd==''){
+			  msgAlert("warning","提示", "请选择现居住地所在街道！");
+			  return false;
+		  }
+	  }
+	  var fangchanAddre = $("#fangchanAddre").val();
+	  fangchanAddre = $.trim(fangchanAddre);
+	  if(fangchanAddre == ''){
+	  	 msgAlert("warning","提示", "请输入现居住地所在楼盘、小区或门牌号");
+	  	$("#fangchanAddre")[0].focus();
+		  return false;
+	  }
+	  
+	  if(areaId == 147) { //安仁县
+			var pianqu = $("#pianqu").val();
+			if(pianqu == ''){
+				msgAlert("warning","提示", "请选择居住地所属招生片区");
+				  return false;
+			}
+		  }
+	  
+		  var name1 = $("#name1").val();
+		  if(name1==''){
+			  msgAlert("warning","提示", "请输入第一位监护人姓名");
+			  $("#name1")[0].focus();
+			  return false;
+		  }
+		  
+		  var name2 = $("#name2").val();
+		  if(name2==''){
+			  msgAlert("warning","提示", "请输入第二位监护人姓名");
+			  $("#name2")[0].focus();
+			  return false;
+		  }
+		  
+		  var relation1 = $("#relation1").val();
+		  if(relation1==''){
+			  msgAlert("warning","提示", "请选择第一位监护人与学生关系");
+			  return false;
+		  }
+		  
+		  var relation2 = $("#relation2").val();
+		  if(relation2==''){
+			  msgAlert("warning","提示", "请选择第二位监护人与学生关系");
+			  return false;
+		  }
+		  var telephone1 = $("#telephone1").val();
+		  if(telephone1==''){
+			  msgAlert("warning","提示", "请输入第一位监护人联系电话");
+			  $("#telephone1")[0].focus();
+			  return false;
+		  }
+		  b = isPhone(telephone1);
+		  if(!b){
+			  msgAlert("warning","提示", "请输入第一位监护人联系电话填写有误");
+			  $("#telephone1")[0].focus();
+			  return false;
+		  }
+		  
+		  var telephone2 = $("#telephone2").val();
+		  if(telephone2==''){
+			  msgAlert("warning","提示", "请输入第二位监护人联系电话");
+			  $("#telephone2")[0].focus();
+			  return false;
+		  }
+		  b = isPhone(telephone2);
+		  if(!b){
+			  msgAlert("warning","提示", "请输入第二位监护人联系电话填写有误");
+			  $("#telephone2")[0].focus();
+			  return false;
+		  }
+		  
+		  var identityCard1 = $("#identityCard1").val();
+		  if(identityCard1==''){
+			  msgAlert("warning","提示", "请输入第一位监护人身份证号码");
+			  $("#identityCard1")[0].focus();
+			  return false;
+		  }
+		  b = idCardNoUtil.checkIdCardNo(identityCard1);
+		  if(!b){
+			  msgAlert("warning","提示", "第一位监护人身份证号码输入有误");
+			  $("#identityCard1")[0].focus();
+			  return false;
+		  }
+		  var identityCard2 = $("#identityCard2").val();
+		  if(identityCard2==''){
+			  msgAlert("warning","提示", "请输入第二位监护人身份证号码");
+			  $("#identityCard2")[0].focus();
+			  return false;
+		  }
+		  b = idCardNoUtil.checkIdCardNo(identityCard2);
+		  if(!b){
+			  msgAlert("warning","提示", "第二位监护人身份证号码输入有误");
+			  $("#identityCard2")[0].focus();
+			  return false;
+		  }
+		  
+		  if(!(category == 6 || category == 7)){
+			  if(areaId != 141){
+				  var fangchaLB = $("#fangchaLB").val();
+				  if(fangchaLB==''){
+					  msgAlert("warning","提示", "请选择现居住房产类别");
+					  return false;
+				  }
+				  
+				  var fangchaCode = $("#fangchaCode").val();
+				  if(fangchaCode==''){
+					  msgAlert("warning","提示", "请输入对应现居住房产信息对应的编号");
+					  $("#fangchaCode")[0].focus();
+					  return false;
+				  }
+				  
+				  var fangchaName = $("#fangchaName").val();
+				  if(fangchaName==''){
+					  msgAlert("warning","提示", "请输入对应现居住房产信息对应的姓名");
+					  $("#fangchaName")[0].focus();
+					  return false;
+				  }
+				  
+				  var fangchaIden = $("#fangchaIden").val();
+				  if(fangchaIden==''){
+					  msgAlert("warning","提示", "请输入对应现居住房产信息对应的身份证号");
+					  $("#fangchaIden")[0].focus();
+					  return false;
+				  }
+			  } else if(areaId == 141 && category == 9){
+				  var fangchaLB = $("#fangchaLB").val();
+				  if(fangchaLB==''){
+					  msgAlert("warning","提示", "请选择现居住房产类别");
+					  return false;
+				  }
+				  
+				  var fangchaCode = $("#fangchaCode").val();
+				  if(fangchaCode==''){
+					  msgAlert("warning","提示", "请输入对应现居住房产信息对应的编号");
+					  $("#fangchaCode")[0].focus();
+					  return false;
+				  }
+				  
+				  var fangchaName = $("#fangchaName").val();
+				  if(fangchaName==''){
+					  msgAlert("warning","提示", "请输入对应现居住房产信息对应的姓名");
+					  $("#fangchaName")[0].focus();
+					  return false;
+				  }
+				  
+				  var fangchaIden = $("#fangchaIden").val();
+				  if(fangchaIden==''){
+					  msgAlert("warning","提示", "请输入对应现居住房产信息对应的身份证号");
+					  $("#fangchaIden")[0].focus();
+					  return false;
+				  }  
+			  }
+		  }
+		  
+		//桂阳县
+		  if(areaId == 139){
+			  var zlsCode = $("#zlsCode").val();
+			  if(zlsCode==''){
+				  msgAlert("warning","提示", "请输入桂阳自来水开户信息-用水户号");
+				  $("#zlsCode")[0].focus();
+				  return false;
+			  }
+			  
+			  var zlsName = $("#zlsName").val();
+			  if(zlsName==''){
+				  msgAlert("warning","提示", "请输入桂阳自来水开户信息-姓名");
+				  $("#zlsName")[0].focus();
+				  return false;
+			  }
+			  
+			  var zlsIden = $("#zlsIden").val();
+			  if(zlsIden==''){
+				  msgAlert("warning","提示", "请输入桂阳自来水开户信息-身份证号");
+				  $("#zlsIden")[0].focus();
+				  return false;
+			  }
+		  }
+		  
+		  var hkb_div = $("#hkb_div").html();
+		  hkb_div = $.trim(hkb_div);
+		  if(hkb_div == ''){
+			  msgAlert("warning","提示", "请上传学生户口薄");
+			  return false;
+		  }
+		  
+		  if(type == 0){
+			  if(areaId != 141){
+				  var cszm_div = $("#cszm_div").html();
+				  cszm_div = $.trim(cszm_div);
+				  if(cszm_div == ''){
+					  msgAlert("warning","提示", "请上传儿童出生医学证");
+					  return false;
+				  }  
+			  }
+			  var ymjz_div = $("#ymjz_div").html();
+			  ymjz_div = $.trim(ymjz_div);
+			  if(ymjz_div == ''){
+				  if(areaId == 63 || areaId == 178 || areaId == 99 || areaId == 105){
+					  msgAlert("warning","提示", "请上传儿童预防接种查验证明");
+				  } else {
+					  msgAlert("warning","提示", "请上传儿童预防接种证照片");
+				  }
+				  return false;
+			  }
+		  } 
+		  
+		  var jhrhkb_div = $("#jhrhkb_div").html();
+		  jhrhkb_div = $.trim(jhrhkb_div);
+		  if(jhrhkb_div == ''){
+			  msgAlert("warning","提示", "请上传父母双方或其他法定监护人户口薄照片");
+			  return false;
+		  }
+		  
+		  if(areaId != 141){
+			  var jhrsfz_div = $("#jhrsfz_div").html();
+			  jhrsfz_div = $.trim(jhrsfz_div);
+			  if(jhrsfz_div == ''){
+				  msgAlert("warning","提示", "请上传父母双方或其他法定监护人身份证照片");
+				  return false;
+			  }
+			  
+			  var fczj_div = $("#fczj_div").html();
+			  fczj_div = $.trim(fczj_div);
+			  if(fczj_div == ''){
+				  msgAlert("warning","提示", "请上传居住/房屋证件处上传对应证件");
+				  return false;
+			  }
+		  } else if(areaId == 141 && category == 9){
+			  var fczj_div = $("#fczj_div").html();
+			  fczj_div = $.trim(fczj_div);
+			  if(fczj_div == ''){
+				  msgAlert("warning","提示", "请上传居住/房屋证件处上传对应证件");
+				  return false;
+			  }
+		  }
+		  
+		  if(category == 2){
+			  var jrzj_div = $("#jrzj_div").html();
+			  jrzj_div = $.trim(jrzj_div);
+			  if(jrzj_div == ''){
+				  msgAlert("warning","提示", "请上传军人证");
+				  return false;
+			  }
+		  }
+		  
+		  if(category == 7){
+			  var gsCode = $('#gsCode').val();
+			  if(gsCode == ''){
+				  msgAlert("warning","提示", "请填写营业执照编号（统一社会信用代码）");
+				  $('#gsCode')[0].focus();
+				  return false;
+			  }
+			  var gsName = $('#gsName').val();
+			  if(gsName == ''){
+				  msgAlert("warning","提示", "请填写法定代表人");
+				  $('#gsName')[0].focus();
+				  return false;
+			  }
+			  var gsIden = $('#gsIden').val();
+			  if(gsIden == ''){
+				  msgAlert("warning","提示", "请填写法定代表人身份证号");
+				  $('#gsIden')[0].focus();
+				  return false;
+			  }
+			  
+			  if(areaId == 147) { //安仁县
+					var gsdname = $("#gsdname").val();
+					if(gsdname == ''){
+						  msgAlert("warning","提示", "请填写实体店名称");
+						  $('#gsdname')[0].focus();
+						  return false;
+					 }
+					var gsaddress = $("#gsaddress").val();
+					if(gsaddress == ''){
+						  msgAlert("warning","提示", "请填写经商详细地址");
+						  $('#gsaddress')[0].focus();
+						  return false;
+					 }
+				  }
+			  
+			  var yfzz_div = $("#yfzz_div").html();
+			  yfzz_div = $.trim(yfzz_div);
+			  if(yfzz_div == ''){
+				  msgAlert("warning","提示", "请上传营业执照");
+				  return false;
+			  }
+			  
+		  }
+		  
+		  if(category == 6){
+			  
+			  if(areaId == 147) { //安仁县
+					var wgunit = $("#wgunit").val();
+					if(wgunit == ''){
+						  msgAlert("warning","提示", "请填写父母务工单位");
+						  $('#wgunit')[0].focus();
+						  return false;
+					 }
+					var wgaddr = $("#wgaddr").val();
+					if(wgaddr == ''){
+						  msgAlert("warning","提示", "请填写务工单位详细地址");
+						  $('#wgaddr')[0].focus();
+						  return false;
+					 }
+			}
+			  
+			  var bahmc_div = $("#bahmc_div").html();
+			  bahmc_div = $.trim(bahmc_div);
+			  if(bahmc_div == ''){
+				  if(areaId == 141){
+					  msgAlert("warning","提示", "请上传用人单位为其父母一方依法缴纳社会保险费凭证和劳务合同照片");
+				  } else {
+					  msgAlert("warning","提示", "请上传父母双方依法缴纳社会保险费凭证照片");
+				  }
+				  return false;
+			  }
+		  }
+		  
+		//桂阳县
+		  if(areaId == 139){
+			  var other_div = $("#other_div").html();
+			  other_div = $.trim(other_div);
+			  if(other_div == ''){
+				  msgAlert("warning","提示", "请上传半年以上水电缴费发或历史水电查询截图");
+				  return false;
+			  }
+		  }
+		  
+		  //嘉禾县
+		  if(areaId == 141 && category == 9){
+			  var other_div = $("#other_div").html();
+			  other_div = $.trim(other_div);
+			  if(other_div == ''){
+				  msgAlert("warning","提示", "请上传半年以上水电缴费发或历史水电查询截图");
+				  return false;
+			  }
+		  }
+		  
+		  //安仁县
+		  if(areaId == 147 && category == 9){
+			  var dlsyjl_div = $("#dlsyjl_div").html();
+			  dlsyjl_div = $.trim(dlsyjl_div);
+			  if(dlsyjl_div == ''){
+				  msgAlert("warning","提示", "请上传电力使用记录");
+				  return false;
+			  }
+			  var zlssyjl_div = $("#zlssyjl_div").html();
+			  zlssyjl_div = $.trim(zlssyjl_div);
+			  if(zlssyjl_div == ''){
+				  msgAlert("warning","提示", "请上传自来水使用记录");
+				  return false;
+			  }
+		  }
+		  
+	  }
+	  $("#status").val(status);
+	  msgSubmit();
+	  $.ajax({
+			type : "POST",
+			url : ctx + "/gowechat/saveEnrollStudent.do",
+			data : $("#myForm").serialize(),
+			dataType : "json",
+			success : function(data) {
+				hideSubmit();
+				if(data.key == '0') {
+					msgAlert("warning", "提示", "操作失败");
+				} else if(data.key == 'view'){ 
+					msgAlert("warning", "提示", "该身份证号的学生已报名,不允许重复报名");
+				} else if(data.key == 'audit'){
+					msgAlert("warning","提示", "此学生身份证号为在读学籍，不能重复报名，具体事项咨询教育局");
+				} else {
+					if(status == 0){
+						var arr = data.key.split(",");
+						$("#id").val(arr[0]);
+						$("#number2").val(arr[1]);
+						$(".p_div").find("input").val("");
+						msgAlert("success", "提示", "保存成功");
+					} else {
+						alert("资料已上传,等待所在区域部门审核结果，审核通过后打印报名表到学校申请预录。");
+						location.href=ctx+"/gowechat/getEnrollStudentList";
+					}
+				}
+			}
+		});
+}
+
+/**
+ * 根据学校名称搜索学校
+ */
+function searchSchool(ty, page){
+	var schoolName = $("#schoolName").val();
+	schoolName = $.trim(schoolName);
+	 
+	var openId = $("#openId").val();
+	 
+	var total = $("#total").val();
+	if(total == ''){
+		total = '0';
+	}
+	var pid = $("#pid").val();
+	var type2 = $("#type2").val();
+	msgSubmit();
+	  $.ajax({
+			type : "POST",
+			url : ctx + "/gowechat/findSchoolInfoByConditions",
+			data : {schoolName:schoolName,page:page, total:total, pid:pid, type:type2},
+			dataType : "json",
+			success : function(data) {
+				var htmls = "";
+				if(data != null && data.length > 0){
+					for(i in data){
+						htmls += "<li style=\"height: 80px;\"><a href=\"" + ctx + "/gowechat/getSchoolInfo?openId=" + openId + "&id=" + data[i].id + "&pid=" + pid + "\" target=\"_self\">";
+						if(data[i].logo != null && data[i].logo != undefined && data[i].logo != ''){
+							htmls += "<img src=\"" + data[i].logo + "\" style=\"float: left;\" height=\"53\" width=\"53\"/>";
+						} else {
+							htmls += "<img src=\"" + ctx + "/images/school.png\" style=\"float: left;\" height=\"53\" width=\"53\"/>";
+						}
+						htmls += "<div style=\"float: left; margin-left: 10px; width: 72%;white-space:normal;\">";
+						htmls += "<p class=\"title\">" + data[i].organization.full_name + "</p>";
+						htmls += "<p class=\"ctn\">地址：" + data[i].organization.org_province + data[i].organization.org_city + data[i].organization.org_area + data[i].organization.org_addr + "</p>";
+						htmls += "<p class=\"ctn\">招生热线：" + data[i].tel + "</p>";
+						htmls += "</div>";
+						htmls += "</a></li>";
+					}
+				} else {
+					if(ty == 1){
+						htmls = "<li>查询无结果</li>";
+					}
+				}
+				if(ty == 1){
+					$(".g_ul").html(htmls);
+				} else {
+					$(".g_ul").append(htmls);
+				}
+				hideSubmit();
+			}
+		});
+}
+
+//加载待审核报名信息
+function loadAuditStudent(){
+	var orgId = $("#orgId").val();
+	var status = $("#status").val();
+	var page = $("#page").val();
+	var userId = $("#userId").val();
+	msgSubmit();
+	$.ajax({
+		type : "POST",
+		url : ctx + "/gowechat/auditStudentList",
+		data : {orgId:orgId,status:status,page:page},
+		dataType : "json",
+		success : function(data) {
+			var htmls = "";
+			if(data != null && data.total > 0){
+				$("#totalSize").val(data.total);
+				 $(".totalSize").html("共" + data.total + "条数据");
+				 for(var i in data.rows){
+					 htmls += "<div class=\"head t_bg spec\">";
+					 htmls += "<div class=\"tt\"><span>【" + data.rows[i].name + "】学生</span></div></div>";
+					 htmls += "<div class=\"info\">";
+					 htmls += "<p>学生身份证号：" + data.rows[i].identityCard + "</p>";
+					 if(data.rows[i].gender == 'M'){
+						 htmls += "<p>学生性别：男</p>";
+					 } else {
+						 htmls += "<p>学生性别：女</p>";
+					 }
+					 htmls += "<p>户口所省市区：" + data.rows[i].hukouProvince + data.rows[i].hukouCity + data.rows[i].hukouArea + "</p>"; 
+					 htmls += "<p style=\"text-align: right;\">";
+					 htmls += "<a href=\"" + ctx + "/gowechat/getEnrollStudentById?id=" + data.rows[i].id + "&operation=audit&userId=" + userId + "\" class=\"button orange_btn\" style=\"width: 2em;\">审核</a>";
+					 htmls += "</p>";
+					 htmls += "</div>";
+				 }
+				 $(".g_ul").append(htmls);
+			} 
+			hideSubmit();
+		},error:function(){
+			hideSubmit();
+		}
+	});
+}
+
+//微信端教师登录
+function login(){
+	var username = $("#username").val();
+	username = $.trim(username);
+	if(username == ''){
+		msgAlert("warning", "提示", "请输入用户名");
+		return false;
+	}
+	var password = $("#password").val();
+	password = $.trim(password);
+	if(password == ''){
+		msgAlert("warning", "提示", "请输入密码");
+		return false;
+	}
+	loginForm.submit();
+}
+
+//微信端绑定帐号
+function loginOnlineUser(){
+	var username = $("#username").val();
+	username = $.trim(username);
+	if(username == ''){
+		msgAlert("warning", "提示", "请输入手机号码");
+		return false;
+	}
+	var password = $("#password").val();
+	password = $.trim(password);
+	if(password == ''){
+		msgAlert("warning", "提示", "请输入密码");
+		return false;
+	}
+	loginForm.submit();	
+}
+
+function uploadFile(type){
+	$("#file_type").val(type);
+	$("#upload_file").click();
+}
+
+//初审
+function auditEnrollment(status){
+	$("#status").val(status);
+	$(".mask_s").addClass("s_opacity");
+	var htmls = "";
+	if(status == 1){
+		htmls = "<div style='background-color:#fff;color:#000000;'>该学生信息审核通过,已被学校录取,<p><a href=\"javascript:void(0);\" onclick=\"auditPass();\" class=\"button orange_btn\" style=\"width: 4em;\">确认发送</a></p></div>";
+	} else {
+		htmls = "填写不通过原因<div style='background-color:#fff;color:#000000;'><textarea style='width:80%;height:6em;' name='ideatxt' id='ideatxt'>证件及信息填写不符合要求</textarea><p><a href=\"javascript:void(0);\" onclick=\"auditNoPass();\" class=\"button orange_btn\" style=\"width: 4em;\">确认发送</a></p></div>";
+	}
+	msgSubmit();
+	$(".msg_submit").html(htmls);
+}
+
+function auditPass(){
+	$.ajax({
+		type : "POST",
+		url : ctx + "/gowechat/auditEnrollment",
+		data : $("#myForm").serialize(),
+		dataType : "json",
+		success : function(data) {
+			hideSubmit();
+			if(data.key == '0') {
+				msgAlert("warning", "提示", "操作失败");
+			} else { 
+				msgAlert("success", "提示", "提交成功");
+				history.go(-1);
+			}
+		}
+	});
+}
+
+function auditNoPass(){
+	var ideatxt = $("#ideatxt").val();
+	ideatxt = $.trim(ideatxt);
+	if(ideatxt == ''){
+		hideSubmit();
+		msgAlert("warning", "提示", "请填写不通过原因");
+		return false;
+	}
+	$("#idea").val(ideatxt);
+	$.ajax({
+		type : "POST",
+		url : ctx + "/gowechat/auditEnrollment",
+		data : $("#myForm").serialize(),
+		dataType : "json",
+		success : function(data) {
+			hideSubmit();
+			if(data.key == '0') {
+				msgAlert("warning", "提示", "操作失败");
+			} else { 
+				msgAlert("success", "提示", "提交成功");
+				history.go(-1);
+			}
+		}
+	});
+}
+
+//加载报名统计情况
+function loadReportList(){
+	var orgId = $("#orgId").val();
+	var startDate = $("#startDate").val();
+	/*if(startDate == ''){
+		var d = new Date();
+		//d.setDate(d.getDate() - 1);
+		startDate = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+		alert(startDate);
+		$("#startDate").val(startDate);
+	}*/
+	var endDate = $("#endDate").val();
+	msgSubmit();
+	$.ajax({
+		type : "POST",
+		url : ctx + "/gowechat/reportEnrollment",
+		data : {orgId:orgId, startDate:startDate, endDate:endDate},
+		dataType : "json",
+		success : function(data) {
+			var totalCnt = 0;
+			var wxCnt = 0;
+			var wsCnt = 0;
+			var xcCnt = 0;
+			var tgCnt = 0;
+			var wtgCnt = 0;
+			var wshCnt = 0;
+			var lqCnt = 0;
+			if(data != null){
+				for(var i in data){
+					totalCnt += parseInt(data[i].type);
+					if(data[i].source == 0){ //微信
+						wxCnt += parseInt(data[i].type);
+					} else if(data[i].source == 1){ //网上
+						wsCnt += parseInt(data[i].type);
+					} else if(data[i].source == 2){//现场
+						xcCnt += parseInt(data[i].type);
+					}
+					if(data[i].status == 2){
+						tgCnt += parseInt(data[i].type);
+					} else if(data[i].status == 3){
+						wtgCnt += parseInt(data[i].type);
+					} else if(data[i].status == 1){
+						wshCnt += parseInt(data[i].type);
+					} else if(data[i].status == 4){
+						lqCnt += parseInt(data[i].type);
+					}
+				}
+				$("#totalCnt").html(totalCnt);
+				$("#wxCnt").html(wxCnt);
+				$("#wsCnt").html(wsCnt);
+				$("#xcCnt").html(xcCnt);
+				$("#tgCnt").html(tgCnt);
+				$("#wtgCnt").html(wtgCnt);
+				$("#wshCnt").html(wshCnt);
+				$("#lqCnt").html(lqCnt);
+			}
+			hideSubmit();
+		}
+	});
+	
+}
+
+//验证手机号码
+function isPhone(s){
+	var patrn = /^\d{8,11}$/i;
+	if(!patrn.exec(s)){
+		return false;
+	} 
+	return true;
+}
+
+function is_weixn(){  
+    var ua = navigator.userAgent.toLowerCase();  
+    if(ua.match(/MicroMessenger/i)=="micromessenger") {  
+        return true;  
+    } else {  
+        return false;  
+    }  
+}
+
+/**
+ * 	保存学籍信息
+ */
+function saveRoll(){
+	if(!validate()){
+		msgAlert("warning", "提示", "红色标记的必须填写");
+		  return false;
+	}
+	var identityCard = $("#identityCard").val();
+	 identityCard = $.trim(identityCard);
+	 if(identityCard != ''){
+		  if(!idCardNoUtil.checkIdCardNo(identityCard)){
+			  msgAlert("warning", "提示", "身份证件号输入有误");
+			  return false;
+		  }
+	 }
+	 var identityCard1 = $("#identityCard1").val();
+	 identityCard1 = $.trim(identityCard1);
+	 if(identityCard1 != ''){
+		  var identityType1 = $("#identityType1").val();
+		  if(identityType1 == '居民身份证'){
+			  if(!idCardNoUtil.checkIdCardNo(identityCard1)){
+				  msgAlert("warning", "提示", "第一位家庭成员身份证号输入有误");
+				  return false;
+			  }
+		  }
+	 }
+	 var identityCard2 = $("#identityCard2").val();
+	 identityCard2 = $.trim(identityCard2);
+	 if(identityCard2 != ''){
+		  var identityType2 = $("#identityType2").val();
+		  if(identityType2 == '居民身份证'){
+			  if(!idCardNoUtil.checkIdCardNo(identityCard2)){
+				  msgAlert("warning", "提示", "第二位家庭成员身份证号输入有误");
+				  return false;
+			  }
+		  }
+	 }
+	 msgSubmit();
+	  $.ajax({
+			type : "POST",
+			url : ctx + "/gowechat/saveRoll",
+			data : $("#myForm").serialize(),
+			dataType : "json",
+			success : function(data) {
+				hideSubmit();
+				if(data.key == '0') {
+					msgAlert("warning", "提示", "保存失败");
+				} else {
+					msgAlert("success", "提示", "保存成功");
+				}
+			}
+		});
+}
+
+
+function register(){
+	var userName = $("#userName").val();
+	userName = $.trim(userName);
+	if(userName == ''){
+		 msgAlert("warning","提示", "请填写手机号码");
+		 return false;
+	}
+	var myreg = /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1})|(16[0-9]{1})|(19[0-9]{1}))+\d{8})$/;
+	if(!myreg.test(userName)){ 
+		msgAlert("warning","提示", "手机号码格式错误");
+		return false;
+	}
+	var identityCard = $("#identityCard").val();
+	identityCard = $.trim(identityCard);
+	if(identityCard == ''){
+		 msgAlert("warning","提示", "请填写身份证号");
+		 return false;
+	}
+	var b = idCardNoUtil.checkIdCardNo(identityCard);
+	  if(!b){
+		  msgAlert("warning","提示", "身份证号码输入有误");
+		  return false;
+	  }
+	var password = $("#password").val();
+	var reg=/^\w{5,17}$/;
+	if(!reg.test(password)){
+		 msgAlert("warning","提示", "密码格式不正确");
+		 return false;
+	}
+	var surePassword = $("#surePassword").val();
+	if(password != surePassword){
+		 msgAlert("warning","提示", "密码不一致");
+		 return false;
+	}
+	msgSubmit();
+	$.ajax({
+		type : "POST",
+		url : "../saveRegister",
+		data : $("#myForm").serialize(),
+		dataType : "json",
+		success : function(data) {
+			hideSubmit();
+			if(data.key == '0'){
+				msgAlert("warning","提示", "您输入的信息有误，请重新输入！");
+			} else if(data.key == '2'){
+				msgAlert("warning","提示", "该手机号码已经存在");
+			} else {
+				alert("注册成功！");
+				location.href = ctx + "/wechat/user.jsp"; 
+			}
+		}
+	});
+}
+
+//选择房产信息
+function changeFangcha(){
+	var fangchaLB = $('#fangchaLB').val();
+	if(fangchaLB != ''){
+		var code = "编号：";
+		if(fangchaLB == 1){
+			code = "不动产权证编号";
+		} else if(fangchaLB == 2){
+			code = "房屋产权证编号";
+		} else if(fangchaLB == 3){
+			code = "预告登记证编号";
+		} else if(fangchaLB == 4){
+			code = "购房合同网签号";
+		} else if(fangchaLB == 5){
+			code = "类别、编号";
+		}
+		$('.fctd').eq(0).find('label').html(code);
+		$('#fangchaName').val($('#name1').val());
+		$('#fangchaIden').val($('#identityCard1').val());
+		$('#juzhuName').val($('#name1').val());
+		$('#juzhuIden').val($('#identityCard1').val());
+		$('#gsName').val($('#name1').val());
+		$('#gsIden').val($('#identityCard1').val());
+		$('#shebaoName').val($('#name1').val());
+		$('#shebaoIden').val($('#identityCard1').val());
+		$('.fctd').show();
+	} else {
+		$('.fctd').hide();
+	}
+}

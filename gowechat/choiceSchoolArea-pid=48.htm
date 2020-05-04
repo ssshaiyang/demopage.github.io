@@ -1,0 +1,427 @@
+
+ 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>学校介绍</title>
+  
+
+  
+
+<meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
+<meta content="telephone=no, address=no" name="format-detection">
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+
+<link rel="stylesheet" type="text/css" href="../css/app.css-20190411.css" >
+
+<script type="text/javascript" src="../js/jquery-1.8.3.min.js" ></script>
+
+  <script type="text/javascript" src="../js/wechat/app.info.js" ></script>
+  <script type="text/javascript" src="../js/wechat/validate.js-20170407" ></script>
+  <script type="text/javascript">
+  function onBridgeReady(){
+	  WeixinJSBridge.call('hideOptionMenu');
+	 }
+
+	 if (typeof WeixinJSBridge == "undefined"){
+	     if( document.addEventListener ){
+	         document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+	     }else if (document.attachEvent){
+	         document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+	         document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+	     }
+	 }else{
+	     onBridgeReady();
+	 } 
+	 
+  var page = 1;
+  $(document).ready(function(){
+	  
+	  ctx = "";
+  });
+  
+  $(window).scroll(function () {
+      var scrollTop = $(this).scrollTop();
+      var scrollHeight = $(document).height();
+      var windowHeight = $(this).height();
+      if (scrollTop + windowHeight == scrollHeight) {
+    	var totalPage = $("#totalPage").val();
+    	 
+    	if(totalPage == '' || totalPage == '0'){
+    		return;
+    	}
+    	if(totalPage == page){
+    		return;
+    	}
+    	
+		page = page + 1;
+		 
+		searchSchool(0, page);
+      }
+  });
+  
+  function searchSchool2(){
+	  page = 1;
+	  searchSchool(1, 1);
+  }
+  </script>
+</head>
+  
+  <body>
+  		<div data-role="page" class="containter">
+			<div data-role="header" class="head bg">
+				<div class="l_span search">学校介绍</div>
+	  		</div>
+			<section class="body" data-role="body">
+				<div class="goodslist">
+					  <div style="text-align: center; margin-top: 2px;">
+					    <input type="hidden" name="openId" id="openId" value=""/>
+					    <input type="hidden" name="totalPage" id="totalPage" value="2"/>
+					    <input type="hidden" name="total" id="total" value="31"/>
+					    <input type="hidden" name="pid" id="pid" value="48"/>
+					    <input type="hidden" name="type" id="type2" value=""/>
+					  	<input class="u_search" name="schoolName" id="schoolName" placeholder="请输入学校名称"/><input type="button" class="u_search_btn" value="　" onclick="searchSchool2();"/>
+					  </div>
+					  <ul class="g_ul">
+					  	
+					  		<li style="height: 80px;">
+						  		<a href="getSchoolInfo-openId=&id=53&pid=48.htm"  target="_self" style="padding-top: 1px;">
+						  			
+						  				
+						  				
+						  					<img src="../images/school.png"  style="float: left;" height="53" width="53"/>
+						  				
+						  			
+							  		<div style="float: left; margin-left: 10px; width: 72%;white-space:normal;">
+							  			<p class="title">杭州市二完小</p>
+							  			<p class="ctn">地址：湖南省杭州市北湖区北湖路32号</p>
+							  			 
+							  		</div>
+						  		</a>
+						  	</li>
+					  	
+					  		<li style="height: 80px;">
+						  		<a href="getSchoolInfo-openId=&id=54&pid=48.htm"  target="_self" style="padding-top: 1px;">
+						  			
+						  				
+						  				
+						  					<img src="../images/school.png"  style="float: left;" height="53" width="53"/>
+						  				
+						  			
+							  		<div style="float: left; margin-left: 10px; width: 72%;white-space:normal;">
+							  			<p class="title">杭州市四十三完小</p>
+							  			<p class="ctn">地址：湖南省杭州市北湖区骆仙街道高壁村（新107国道与同心路交叉路口向西前行100米）</p>
+							  			 
+							  		</div>
+						  		</a>
+						  	</li>
+					  	
+					  		<li style="height: 80px;">
+						  		<a href="getSchoolInfo-openId=&id=56&pid=48.htm"  target="_self" style="padding-top: 1px;">
+						  			
+						  				
+						  				
+						  					<img src="../images/school.png"  style="float: left;" height="53" width="53"/>
+						  				
+						  			
+							  		<div style="float: left; margin-left: 10px; width: 72%;white-space:normal;">
+							  			<p class="title">杭州市五中</p>
+							  			<p class="ctn">地址：湖南省杭州市北湖区竹叶冲路11号</p>
+							  			 
+							  		</div>
+						  		</a>
+						  	</li>
+					  	
+					  		<li style="height: 80px;">
+						  		<a href="getSchoolInfo-openId=&id=57&pid=48.htm"  target="_self" style="padding-top: 1px;">
+						  			
+						  				
+						  				
+						  					<img src="../images/school.png"  style="float: left;" height="53" width="53"/>
+						  				
+						  			
+							  		<div style="float: left; margin-left: 10px; width: 72%;white-space:normal;">
+							  			<p class="title">杭州市三完小</p>
+							  			<p class="ctn">地址：湖南省杭州市北湖区杭州市东风路4号</p>
+							  			 
+							  		</div>
+						  		</a>
+						  	</li>
+					  	
+					  		<li style="height: 80px;">
+						  		<a href="getSchoolInfo-openId=&id=58&pid=48.htm"  target="_self" style="padding-top: 1px;">
+						  			
+						  				
+						  				
+						  					<img src="../images/school.png"  style="float: left;" height="53" width="53"/>
+						  				
+						  			
+							  		<div style="float: left; margin-left: 10px; width: 72%;white-space:normal;">
+							  			<p class="title">杭州市十九完小</p>
+							  			<p class="ctn">地址：湖南省杭州市北湖区人民西路24号</p>
+							  			 
+							  		</div>
+						  		</a>
+						  	</li>
+					  	
+					  		<li style="height: 80px;">
+						  		<a href="getSchoolInfo-openId=&id=59&pid=48.htm"  target="_self" style="padding-top: 1px;">
+						  			
+						  				
+						  				
+						  					<img src="../images/school.png"  style="float: left;" height="53" width="53"/>
+						  				
+						  			
+							  		<div style="float: left; margin-left: 10px; width: 72%;white-space:normal;">
+							  			<p class="title">杭州市十八完小</p>
+							  			<p class="ctn">地址：湖南省杭州市北湖区工业大道38号</p>
+							  			 
+							  		</div>
+						  		</a>
+						  	</li>
+					  	
+					  		<li style="height: 80px;">
+						  		<a href="getSchoolInfo-openId=&id=60&pid=48.htm"  target="_self" style="padding-top: 1px;">
+						  			
+						  				
+						  				
+						  					<img src="../images/school.png"  style="float: left;" height="53" width="53"/>
+						  				
+						  			
+							  		<div style="float: left; margin-left: 10px; width: 72%;white-space:normal;">
+							  			<p class="title">杭州市二十完小</p>
+							  			<p class="ctn">地址：湖南省杭州市北湖区香雪路4号</p>
+							  			 
+							  		</div>
+						  		</a>
+						  	</li>
+					  	
+					  		<li style="height: 80px;">
+						  		<a href="getSchoolInfo-openId=&id=61&pid=48.htm"  target="_self" style="padding-top: 1px;">
+						  			
+						  				
+						  				
+						  					<img src="../images/school.png"  style="float: left;" height="53" width="53"/>
+						  				
+						  			
+							  		<div style="float: left; margin-left: 10px; width: 72%;white-space:normal;">
+							  			<p class="title">杭州市十七完小</p>
+							  			<p class="ctn">地址：湖南省杭州市北湖区下湄桥街道铜坑湖村</p>
+							  			 
+							  		</div>
+						  		</a>
+						  	</li>
+					  	
+					  		<li style="height: 80px;">
+						  		<a href="getSchoolInfo-openId=&id=63&pid=48.htm"  target="_self" style="padding-top: 1px;">
+						  			
+						  				
+						  				
+						  					<img src="../images/school.png"  style="float: left;" height="53" width="53"/>
+						  				
+						  			
+							  		<div style="float: left; margin-left: 10px; width: 72%;white-space:normal;">
+							  			<p class="title">杭州市十一完小</p>
+							  			<p class="ctn">地址：湖南省杭州市北湖区南岭大道黄毛奎巷36号</p>
+							  			 
+							  		</div>
+						  		</a>
+						  	</li>
+					  	
+					  		<li style="height: 80px;">
+						  		<a href="getSchoolInfo-openId=&id=65&pid=48.htm"  target="_self" style="padding-top: 1px;">
+						  			
+						  				
+						  				
+						  					<img src="../images/school.png"  style="float: left;" height="53" width="53"/>
+						  				
+						  			
+							  		<div style="float: left; margin-left: 10px; width: 72%;white-space:normal;">
+							  			<p class="title">杭州市四十一完小</p>
+							  			<p class="ctn">地址：湖南省杭州市北湖区香雪路369号</p>
+							  			 
+							  		</div>
+						  		</a>
+						  	</li>
+					  	
+					  		<li style="height: 80px;">
+						  		<a href="getSchoolInfo-openId=&id=66&pid=48.htm"  target="_self" style="padding-top: 1px;">
+						  			
+						  				
+						  				
+						  					<img src="../images/school.png"  style="float: left;" height="53" width="53"/>
+						  				
+						  			
+							  		<div style="float: left; margin-left: 10px; width: 72%;white-space:normal;">
+							  			<p class="title">杭州市第三十九完全小学</p>
+							  			<p class="ctn">地址：湖南省杭州市民权路东湾居民区</p>
+							  			 
+							  		</div>
+						  		</a>
+						  	</li>
+					  	
+					  		<li style="height: 80px;">
+						  		<a href="getSchoolInfo-openId=&id=67&pid=48.htm"  target="_self" style="padding-top: 1px;">
+						  			
+						  				
+						  				
+						  					<img src="../images/school.png"  style="float: left;" height="53" width="53"/>
+						  				
+						  			
+							  		<div style="float: left; margin-left: 10px; width: 72%;white-space:normal;">
+							  			<p class="title">杭州市十六完小</p>
+							  			<p class="ctn">地址：湖南省杭州市青年大道43号</p>
+							  			 
+							  		</div>
+						  		</a>
+						  	</li>
+					  	
+					  		<li style="height: 80px;">
+						  		<a href="getSchoolInfo-openId=&id=68&pid=48.htm"  target="_self" style="padding-top: 1px;">
+						  			
+						  				
+						  				
+						  					<img src="../images/school.png"  style="float: left;" height="53" width="53"/>
+						  				
+						  			
+							  		<div style="float: left; margin-left: 10px; width: 72%;white-space:normal;">
+							  			<p class="title">杭州市二十二完小</p>
+							  			<p class="ctn">地址：湖南省杭州市北湖区五岭大道12号</p>
+							  			 
+							  		</div>
+						  		</a>
+						  	</li>
+					  	
+					  		<li style="height: 80px;">
+						  		<a href="getSchoolInfo-openId=&id=69&pid=48.htm"  target="_self" style="padding-top: 1px;">
+						  			
+						  				
+						  				
+						  					<img src="../images/school.png"  style="float: left;" height="53" width="53"/>
+						  				
+						  			
+							  		<div style="float: left; margin-left: 10px; width: 72%;white-space:normal;">
+							  			<p class="title">杭州市二十二中(小学部)</p>
+							  			<p class="ctn">地址：湖南省杭州市杭州市国庆南路延伸段槐树下村</p>
+							  			 
+							  		</div>
+						  		</a>
+						  	</li>
+					  	
+					  		<li style="height: 80px;">
+						  		<a href="getSchoolInfo-openId=&id=70&pid=48.htm"  target="_self" style="padding-top: 1px;">
+						  			
+						  				
+						  				
+						  					<img src="../images/school.png"  style="float: left;" height="53" width="53"/>
+						  				
+						  			
+							  		<div style="float: left; margin-left: 10px; width: 72%;white-space:normal;">
+							  			<p class="title">杭州市四中</p>
+							  			<p class="ctn">地址：湖南省杭州市北湖区工业大道37号（下湄桥温泉路）</p>
+							  			 
+							  		</div>
+						  		</a>
+						  	</li>
+					  	
+					  		<li style="height: 80px;">
+						  		<a href="getSchoolInfo-openId=&id=71&pid=48.htm"  target="_self" style="padding-top: 1px;">
+						  			
+						  				
+						  					<img src="../../storage.xsbmxt.com/fl_c8edbc5d73b94da79686591f054c7aa3.jpg"  style="float: left;" height="53" width="53"/>
+						  				
+						  				
+						  			
+							  		<div style="float: left; margin-left: 10px; width: 72%;white-space:normal;">
+							  			<p class="title">杭州市四十完小</p>
+							  			<p class="ctn">地址：湖南省杭州市杭州市南岭大道拥军支路</p>
+							  			 
+							  		</div>
+						  		</a>
+						  	</li>
+					  	
+					  		<li style="height: 80px;">
+						  		<a href="getSchoolInfo-openId=&id=73&pid=48.htm"  target="_self" style="padding-top: 1px;">
+						  			
+						  				
+						  				
+						  					<img src="../images/school.png"  style="float: left;" height="53" width="53"/>
+						  				
+						  			
+							  		<div style="float: left; margin-left: 10px; width: 72%;white-space:normal;">
+							  			<p class="title">杭州市十八中(初中部)</p>
+							  			<p class="ctn">地址：湖南省杭州市杭州市国庆北路28号</p>
+							  			 
+							  		</div>
+						  		</a>
+						  	</li>
+					  	
+					  		<li style="height: 80px;">
+						  		<a href="getSchoolInfo-openId=&id=75&pid=48.htm"  target="_self" style="padding-top: 1px;">
+						  			
+						  				
+						  				
+						  					<img src="../images/school.png"  style="float: left;" height="53" width="53"/>
+						  				
+						  			
+							  		<div style="float: left; margin-left: 10px; width: 72%;white-space:normal;">
+							  			<p class="title">杭州市九完小</p>
+							  			<p class="ctn">地址：湖南省杭州市杭州市北湖区中山西街八号</p>
+							  			 
+							  		</div>
+						  		</a>
+						  	</li>
+					  	
+					  		<li style="height: 80px;">
+						  		<a href="getSchoolInfo-openId=&id=76&pid=48.htm"  target="_self" style="padding-top: 1px;">
+						  			
+						  				
+						  				
+						  					<img src="../images/school.png"  style="float: left;" height="53" width="53"/>
+						  				
+						  			
+							  		<div style="float: left; margin-left: 10px; width: 72%;white-space:normal;">
+							  			<p class="title">杭州市九中</p>
+							  			<p class="ctn">地址：湖南省杭州市五岭广场北侧的燕泉南路29号</p>
+							  			 
+							  		</div>
+						  		</a>
+						  	</li>
+					  	
+					  		<li style="height: 80px;">
+						  		<a href="getSchoolInfo-openId=&id=78&pid=48.htm"  target="_self" style="padding-top: 1px;">
+						  			
+						  				
+						  				
+						  					<img src="../images/school.png"  style="float: left;" height="53" width="53"/>
+						  				
+						  			
+							  		<div style="float: left; margin-left: 10px; width: 72%;white-space:normal;">
+							  			<p class="title">杭州市十八中(小学部)</p>
+							  			<p class="ctn">地址：湖南省杭州市北湖区国庆北路28号</p>
+							  			 
+							  		</div>
+						  		</a>
+						  	</li>
+					  	
+					  </ul>
+				</div>
+			</section>
+			<footer>
+				<div class="bottom">
+						<a href="choiceSchoolArea-pid=48.htm"  target="_self" style="width:50%;">
+							 <i class="active"><img src="../images/all.png"  width="32" height="32"></i>
+							 <p class="active">全部</p>
+					    </a>
+					     
+					    <a href="choiceSchool.htm"  target="_self" style="width:50%;">
+							 <i ><img src="../images/s_sx.png"  width="32" height="32"></i>
+							 <p >选择地区</p>
+					    </a>
+					    
+				</div>	
+			</footer>
+	  </div>
+	
+  </body>
+</html>

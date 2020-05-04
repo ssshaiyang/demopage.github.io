@@ -1,0 +1,83 @@
+var ctx = "";
+
+function validate(){
+	var b = true;
+	$(".required").each(function(){
+		if($.trim(this.value) == ''){
+			b = false;
+			this.style.backgroundColor = "pink";
+		} else {
+			this.style.backgroundColor = "#ffffff";
+		}
+	});
+	return b;
+}
+
+function register(){
+	var userName = $("#userName").val();
+	userName = $.trim(userName);
+	if(userName == ''){
+		 msgAlert("warning","提示", "请填写手机号码");
+		 return false;
+	}
+	var myreg = /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1})|(16[0-9]{1})|(19[0-9]{1}))+\d{8})$/;
+	if(!myreg.test(userName)){ 
+		msgAlert("warning","提示", "手机号码格式错误");
+		return false;
+	}
+	var identityCard = $("#identityCard").val();
+	identityCard = $.trim(identityCard);
+	if(identityCard == ''){
+		 msgAlert("warning","提示", "请填写身份证号");
+		 return false;
+	}
+	var b = idCardNoUtil.checkIdCardNo(identityCard);
+	  if(!b){
+		  msgAlert("warning","提示", "身份证号码输入有误");
+		  return false;
+	  }
+	var password = $("#password").val();
+	var reg=/^\w{5,17}$/;
+	if(!reg.test(password)){
+		 msgAlert("warning","提示", "密码格式不正确");
+		 return false;
+	}
+	var surePassword = $("#surePassword").val();
+	if(password != surePassword){
+		 msgAlert("warning","提示", "密码不一致");
+		 return false;
+	}
+	msgSubmit();
+	$.ajax({
+		type : "POST",
+		url : ctx + "saveRegister",
+		data : $("#myForm").serialize(),
+		dataType : "json",
+		success : function(data) {
+			hideSubmit();
+			if(data.key == '0'){
+				msgAlert("warning","提示", "您输入的信息有误，请重新输入！");
+			} else if(data.key == '2'){
+				msgAlert("warning","提示", "该手机号码已经存在");
+			} else {
+				alert("注册成功，请登录！");
+				var orgId = $("#orgId").val();
+				window.location.href = ctx + "goIndex?orgId=" + orgId; 
+			}
+		}
+	});
+}
+
+function uploadFile(type){
+	$("#file_type").val(type);
+	$("#upload_file").click();
+}
+ 
+//验证手机号码
+function isPhone(s){
+	var patrn = /^\d{8,11}$/i;
+	if(!patrn.exec(s)){
+		return false;
+	} 
+	return true;
+}
