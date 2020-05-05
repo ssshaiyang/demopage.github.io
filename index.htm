@@ -40,10 +40,10 @@
 			//htmls += "<p style='text-indent:2em; color:#666; text-align:left;font-family:Microsoft YaHei; padding-bottom:10px;'>永兴县网上报名系统启动，报名截止时间7月1日-7月25日。资兴市网上报名系统启动，报名截止时间6月10日-7月10日。 请家长准备报名材料，并在规定时间内完成报名.若填报信息有误需修改，则点击“查看进度”再点击“申请修改”，等待审核通过后再点击“修改”就可以修改资料了，修改完确认无误后再点“提交”。</p>";
 
 			htmls +=
-				"<button style='width:200px; height:40px; line-height:40px; background-color:#0099FF; color:#fff; font-size:18px; font-weight:bolder; border:1px solid #0099FF;cursor:pointer;' onclick='sureSubmit2()'>我知道了</button>";
+				"<button style='width:200px; height:40px;border-radius: 20px; line-height:40px; background-color:#0099FF; color:#fff; font-size:18px; font-weight:bolder; border:1px solid #0099FF;cursor:pointer;' onclick='sureSubmit2()'>我知道了</button>";
 			htmls += "</div>";
 			$('.msg_submit').html(htmls);
-			$(".msg").css("z-index", "1003").css("left", "55%");
+			$(".msg").css("z-index", "1003").css("left", "50%").css("transform","translate(-50%,0 )");
 			$('.msg_submit').animate({
 				'top': '20%'
 			}, 1000);
@@ -80,7 +80,7 @@
 						<h1 style="color: #fff; font-size: 36px; font-weight: 600;">杭州市2020年义务教育阶段新生报名系统</h1>
 					</div>
 					<ul class="menu_ul">
-						<li><a href="goIndex-orgId=103.htm">首页</a></li>
+						<li><a href="index.htm">首页</a></li>
 						<li><a href="areanewlist.htm">新闻中心</a></li>
 						<li><a href="goChoiceSchool-pid=103.htm">学校介绍</a></li>
 						<li><a href="goIndex-orgId=103&message=0.htm">待定链接</a></li>
