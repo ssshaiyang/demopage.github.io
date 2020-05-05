@@ -1,145 +1,119 @@
-
-
- 
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>按区学校介绍</title>
-  
+	<title>按区学校介绍</title>
 
-  
 
-<meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
-<meta content="telephone=no, address=no" name="format-detection">
-<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
 
-<link rel="stylesheet" type="text/css" href="../css/app.css-20190411.css" >
 
-<script type="text/javascript" src="../js/jquery-1.8.3.min.js" ></script>
+	<meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
+	<meta content="telephone=no, address=no" name="format-detection">
+	<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		name="viewport">
 
-  <script type="text/javascript" src="../js/operation/info.bm.js" ></script>
-   <script type="text/javascript" src="../js/wechat/app.info.js" ></script>
-  <script type="text/javascript">
-	$(document).ready(function() {
-		alertInfoTestPC(); 
-	});
-	
-function alertInfoTestPC(){
-	var htmls = "<div style='background:#fff; padding:10px 10px;max-height:25em;overflow-y:auto;'><h2 style='color:red;text-align:center;'>温馨提示</h2>";
-	htmls += "<p style='text-indent:2em; color:#666; text-align:left;font-family:Microsoft YaHei; padding-top:10px; padding-bottom:10px;font-size:14px;'>各位家长，中心城区义务教育阶段新生入学网络报名已于5月30日18:00截止。因教育部门目前忙于学考和中考等重点工作，近段时间不受理新生入学咨询（含电话咨询）。6月28日-6月30日，将集中受理入学咨询、处理市中心城区户籍居民子女未网上报名和报名信息已保存但未提交等遗留问题。给您带来不便，敬请谅解！</p>";
-	htmls += "<p style='text-indent:2em; color:#666; text-align:left;font-family:Microsoft YaHei; padding-bottom:10px;font-size:14px;'>永兴县网上报名系统启动，报名截止时间7月1日-7月25日。资兴市网上报名系统启动，报名截止时间6月10日-7月10日。 请家长准备报名材料，并在规定时间内完成报名.若填报信息有误需修改，则点击“查看进度”再点击“申请修改”，等待审核通过后再点击“修改”就可以修改资料了，修改完确认无误后再点“提交”。</p>";
- 
-	htmls += "<button style='width:200px; height:40px; line-height:40px; background-color:#0099FF; color:#fff; font-size:18px; font-weight:bolder; border:1px solid #0099FF;' onclick='sureSubmit2()'>我知道了</button>";
-	htmls += "</div>";
-	$('.msg_submit').html(htmls);
-	$('.msg_submit').animate({'top': '2rem'},1000);
-    $('.mask_s').show();
-}
+	<link rel="stylesheet" type="text/css" href="../css/app.css-20190411.css">
 
-function sureSubmit2(){
-	$('.msg_submit').animate({'top': '-1000px'},10);
-	$('.mask_s').hide();
-}
-</script>
+	<script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+
+	<script type="text/javascript" src="../js/operation/info.bm.js"></script>
+	<script type="text/javascript" src="../js/wechat/app.info.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			alertInfoTestPC();
+		});
+
+		function alertInfoTestPC() {
+			var htmls =
+				"<div style='background:#fff; padding:10px 10px;max-height:25em;overflow-y:auto;'><h2 style='color:red;text-align:center;'>温馨提示</h2>";
+			htmls +=
+				"<p style='text-indent:2em; color:#666; text-align:left;font-family:Microsoft YaHei; padding-top:10px; padding-bottom:10px;font-size:14px;'>各位家长，中心城区义务教育阶段新生入学网络报名已于5月30日18:00截止。因教育部门目前忙于学考和中考等重点工作，近段时间不受理新生入学咨询（含电话咨询）。6月28日-6月30日，将集中受理入学咨询、处理市中心城区户籍居民子女未网上报名和报名信息已保存但未提交等遗留问题。给您带来不便，敬请谅解！</p>";
+			htmls +=
+				"<p style='text-indent:2em; color:#666; text-align:left;font-family:Microsoft YaHei; padding-bottom:10px;font-size:14px;'>永兴县网上报名系统启动，报名截止时间7月1日-7月25日。资兴市网上报名系统启动，报名截止时间6月10日-7月10日。 请家长准备报名材料，并在规定时间内完成报名.若填报信息有误需修改，则点击“查看进度”再点击“申请修改”，等待审核通过后再点击“修改”就可以修改资料了，修改完确认无误后再点“提交”。</p>";
+
+			htmls +=
+				"<button style='width:200px; height:40px; line-height:40px; background-color:#0099FF; color:#fff; font-size:18px; font-weight:bolder; border:1px solid #0099FF;' onclick='sureSubmit2()'>我知道了</button>";
+			htmls += "</div>";
+			$('.msg_submit').html(htmls);
+			$('.msg_submit').animate({
+				'top': '2rem'
+			}, 1000);
+			$('.mask_s').show();
+		}
+
+		function sureSubmit2() {
+			$('.msg_submit').animate({
+				'top': '-1000px'
+			}, 10);
+			$('.mask_s').hide();
+		}
+	</script>
 </head>
-  
-  <body>
-  		<div data-role="page" class="containter">
-			
-			<section class="body" data-role="body">
-				<div class="goodslist">
-					<img src="../images/wechatbg.jpg"  width="100%"/>
-					  <div style="text-align: center; margin-top: 2px;">
-					    <input type="hidden" name="openId" id="openId" value=""/>
-					  </div>
-					 <!--  <p style="text-align: center; line-height: 40px;">网上报名时间：2019-04-25 08至06-30 18</p> -->
-					  <h3 style="text-align: center; color: #2483EB;">按区学校介绍</h3>
-					  				
-					  				<div class="a_div">
-									<a href="choiceSchoolArea-pid=48&openId=.htm"  target="_self" class="button blue_btn">北湖区</a>
-									</div>
-					 	
-					  				<div class="a_div">
-									<a href="choiceSchoolArea-pid=63&openId=.htm"  target="_self" class="button blue_btn">苏仙区</a>
-									</div>
-					 	
-					  				<div class="a_div">
-									<a href="choiceSchoolArea-pid=99&openId=.htm"  target="_self" class="button blue_btn">高新区(六十七完小)</a>
-									</div>
-					 	
-					  				<div class="a_div">
-									<a href="choiceSchoolArea-pid=105&openId=.htm"  target="_self" class="button blue_btn">市直属</a>
-									</div>
-					 	
-					  				<div class="a_div">
-									<a href="choiceSchoolArea-pid=139&openId=.htm"  target="_self" class="button blue_btn">桂阳县</a>
-									</div>
-					 	
-					  				<div class="a_div">
-									<a href="choiceSchoolArea-pid=140&openId=.htm"  target="_self" class="button blue_btn">临武县</a>
-									</div>
-					 	
-					  				<div class="a_div">
-									<a href="choiceSchoolArea-pid=141&openId=.htm"  target="_self" class="button blue_btn">嘉禾县</a>
-									</div>
-					 	
-					  				<div class="a_div">
-									<a href="choiceSchoolArea-pid=142&openId=.htm"  target="_self" class="button blue_btn">资兴市</a>
-									</div>
-					 	
-					  				<div class="a_div">
-									<a href="choiceSchoolArea-pid=143&openId=.htm"  target="_self" class="button blue_btn">永兴县</a>
-									</div>
-					 	
-					  				<div class="a_div">
-									<a href="choiceSchoolArea-pid=144&openId=.htm"  target="_self" class="button blue_btn">宜章县</a>
-									</div>
-					 	
-					  				<div class="a_div">
-									<a href="choiceSchoolArea-pid=145&openId=.htm"  target="_self" class="button blue_btn">汝城县</a>
-									</div>
-					 	
-					  				<div class="a_div">
-									<a href="choiceSchoolArea-pid=147&openId=.htm"  target="_self" class="button blue_btn">安仁县</a>
-									</div>
-					 	
-					 	<div style="height: 70px; line-height: 26px; text-align: center;">如遇到系统操作问题，请咨询电话热线：4008087989<br/>（周一至周五：8：30-17：30）</div>
+
+<body>
+	<div data-role="page" class="containter">
+
+		<section class="body" data-role="body">
+			<div class="goodslist">
+				<img src="../images/wechatbg.jpg" width="100%" />
+				<div style="text-align: center; margin-top: 2px;">
+					<input type="hidden" name="openId" id="openId" value="" />
 				</div>
-				
-			</section>
-			<footer>
-				<div class="bottom">
-					    <a href="http://cz.xsbmxt.cn/wechat/user.jsp" tppabs="http://cz.xsbmxt.cn/gowechat/initEnrollStudent?openId=" target="_self" style="width:25%;">
-									<i><img src="../images/s_sx.png"  width="32" height="32"></i>
-									 <p>我要报名</p>
-							    </a>
-					    <a href="http://cz.xsbmxt.cn/wechat/user.jsp" tppabs="http://cz.xsbmxt.cn/gowechat/getEnrollStudentList" target="_self" style="width:25%;">
-							 <i  ><img src="../images/zsing.png"  width="32" height="32"></i>
-							 <p>查看进度</p>
-					    </a>
-					    <a href="http://cz.xsbmxt.cn/wechat/help.jsp" tppabs="http://cz.xsbmxt.cn/wechat/help.jsp" target="_self" style="width:25%;">
-							 <i><img src="../images/all.png"  width="32" height="32"></i>
-							 <p>操作指南</p>
-					    </a>
-					    <a href="areanewlist.htm"  target="_self" style="width:25%;">
-							 <i  ><img src="../images/p_02.png"  width="32" height="32"></i> 
-							 <p  >新闻中心</p>
-					    </a> 
-				</div>	
-			 
-						
-			</footer>
-	  </div>
+				<!--  <p style="text-align: center; line-height: 40px;">网上报名时间：2019-04-25 08至06-30 18</p> -->
+				<h3 style="text-align: center; color: #2483EB;">按区学校介绍</h3>
+
+				<div class="a_div">
+					<a href="choiceSchoolArea-pid=48&openId=.htm" target="_self" class="button blue_btn">北湖区</a>
+				</div>
+
+				<div class="a_div">
+					<a href="choiceSchoolArea-pid=63&openId=.htm" target="_self" class="button blue_btn">苏仙区</a>
+				</div>
+
+
+				<!-- <div style="height: 70px; line-height: 26px; text-align: center;">
+					如遇到系统操作问题，请咨询电话热线：4008087989<br />（周一至周五：8：30-17：30）</div> -->
+			</div>
+
+		</section>
+		<footer>
+			<div class="bottom">
+				<a href="http://cz.xsbmxt.cn/wechat/user.jsp"
+					tppabs="http://cz.xsbmxt.cn/gowechat/initEnrollStudent?openId=" target="_self" style="width:25%;">
+					<i><img src="../images/add-account.png" width="32" height="32"></i>
+					<p>我要报名</p>
+				</a>
+				<a href="http://cz.xsbmxt.cn/wechat/user.jsp" tppabs="http://cz.xsbmxt.cn/gowechat/getEnrollStudentList"
+					target="_self" style="width:25%;">
+					<i><img src="../images/inspection.png" width="32" height="32"></i>
+					<p>查看进度</p>
+				</a>
+				<a href="http://cz.xsbmxt.cn/wechat/help.jsp" tppabs="http://cz.xsbmxt.cn/wechat/help.jsp"
+					target="_self" style="width:25%;">
+					<i><img src="../images/help.png" width="32" height="32"></i>
+					<p>操作指南</p>
+				</a>
+				<a href="areanewlist.htm" target="_self" style="width:25%;">
+					<i><img src="../images/p_02.png" width="32" height="32"></i>
+					<p>新闻中心</p>
+				</a>
+			</div>
+
+
+		</footer>
+	</div>
 	<div class="mask_win opacity_win areawin"></div>
 	<div class="wins areawin">
 		<div class="wins_panel">
-			  <div style="text-align: right;"><input type="button" class="g_btn" value="关 闭" onclick="javascript:$('.areawin').hide();" style="background: #fff; width: 80px; color: #000; margin-top: 0px; border: none;"/></div>
-			   <div style="clear: both;"></div>
-			   <h2 style="text-align: center;" >请选择招生区域</h2>
-			   <div id="areas_div"></div>
+			<div style="text-align: right;"><input type="button" class="g_btn" value="关 闭"
+					onclick="javascript:$('.areawin').hide();"
+					style="background: #fff; width: 80px; color: #000; margin-top: 0px; border: none;" /></div>
+			<div style="clear: both;"></div>
+			<h2 style="text-align: center;">请选择招生区域</h2>
+			<div id="areas_div"></div>
 		</div>
-    </div>
-   
-  </body>
+	</div>
+
+</body>
+
 </html>
-	
