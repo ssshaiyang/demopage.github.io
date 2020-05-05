@@ -54,6 +54,8 @@ text-decoration:none; display:block; }
 input[type="button"], input[type="submit"], input[type="reset"] {
 -webkit-appearance: none;
 }
+.msg{width: auto!important;margin: 2px;}
+.msg_submit{background-color: rgba(0, 0, 0, 0)!important;}
 .bottom{width: 100%; min-width:300px; background-color: #282828; padding-top: 4px; padding-bottom:4px; float: left; text-align: center; bottom: 0; position: fixed; z-index: 100;}
 .bottom a{float: left; width: 33%; text-align: center; text-decoration: none; padding-top: 4px; color: #ffffff;}
 .bottom a .active{color: #ff0000; text-decoration: none;}
