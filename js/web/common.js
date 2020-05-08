@@ -25,7 +25,7 @@ function mobile_device_detect(url) {
         return false;
     }
 }
-mobile_device_detect("https://ssshaiyang.github.io/demopage.github.io/gowechat/choiceSchool.htm");
+mobile_device_detect("https://ssshaiyang.github.io/demopage.github.io/gowechat/choiceSchool.html");
 
 $(document).ready(function () {
 
@@ -59,4 +59,37 @@ function SetHome(obj, vrl) {
             prefs.setCharPref('browser.startup.homepage', vrl);
         }
     }
+}
+
+function setCookie(name, value) {
+    var Days = 30;
+    var exp = new Date();
+    exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+    document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+}
+
+function getCookie(name) {
+    var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+
+    if (arr = document.cookie.match(reg))
+
+        return unescape(arr[2]);
+    else
+        return null;
+}
+
+function saveLink(obj) {
+    var tmp = obj
+    var linkName = $(tmp).html()
+    console.log(linkName);
+    setCookie('linkName', linkName)
+}
+
+function setUpLink() {
+    var linkName = getCookie('linkName')
+    if (linkName) {
+        $(".last_link").css("display", "block")
+
+    }
+
 }

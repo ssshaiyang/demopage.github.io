@@ -1,43 +1,68 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>新生报名网后台登录页面</title>
-<link href="css/login.css"  rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
-<script type="text/javascript" src="js/jquery.cookie.js" ></script>
-<script type="text/javascript" src="js/iphone.check.js" ></script>
-<script type="text/javascript" src="js/jquery-jrumble.js" ></script>
-<script type="text/javascript" src="js/jquery.tipsy.js" ></script>
-<script type="text/javascript" src="js/operation/login.js" ></script>
-<style type="text/css">
-	#overlay{width: 100%; height: 600px; background: #ccc; position: absolute; top: 0; z-index: 100;}
-#preloader{text-align: center; left: 50%; top: 50%; z-index: 101; position: absolute; font-size: 20px; color: #ff0000;}
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>新生报名网后台登录页面</title>
+	<link href="css/login.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="js/iphone.check.js"></script>
+	<script type="text/javascript" src="js/jquery-jrumble.js"></script>
+	<script type="text/javascript" src="js/jquery.tipsy.js"></script>
+	<script type="text/javascript" src="js/operation/login.js"></script>
+	<style type="text/css">
+		#overlay {
+			width: 100%;
+			height: 600px;
+			background: #ccc;
+			position: absolute;
+			top: 0;
+			z-index: 100;
+		}
+
+		#preloader {
+			text-align: center;
+			left: 50%;
+			top: 50%;
+			z-index: 101;
+			position: absolute;
+			font-size: 20px;
+			color: #ff0000;
+		}
 	</style>
 </head>
 
 <body>
-<div class="topbg">
-	<div class="toppanel">
-		<div class="l_f">欢迎登录新生报名网后台管理系统</div>
-		<div class="r_f"><a href="index.htm" >回首页</a></div>
+	<div class="topbg">
+		<div class="toppanel">
+			<div class="l_f">欢迎登录新生报名网后台管理系统</div>
+			<div class="r_f"><a href="index.html">回首页</a></div>
+		</div>
 	</div>
-</div>
-<div class="panel">
-	<div class="land">
-		<form action="http://cz.xsbmxt.cn/loginIn.do" method="post" id="myForm">
-			<div style=" clear:both;"></div>
-			<div class="land_bj">
-				<div class="zh"><input type="text" class="box u" name="username" id="username" placeholder="请输入用户名" /></div>
-				<div class="mm"><input  class="box p" name="password" type="password" id="password" placeholder="请输入密码" /></div>
-				<div class="dlfs"><input name="" type="checkbox" value="" />记住帐号　 <font color="red" size="3"></font></div>
-				<input type="button" class="button_an" id="but_login" value="登　录" />
+	<div class="panel">
+		<div class="land">
+			<form action="http://cz.xsbmxt.cn/loginIn.do" method="post" id="myForm">
+				<div style=" clear:both;"></div>
+				<div class="land_bj">
+					<div class="zh"><input type="text" class="box u" name="username" id="username"
+							placeholder="请输入用户名" /></div>
+					<div class="mm"><input class="box p" name="password" type="password" id="password"
+							placeholder="请输入密码" /></div>
+					<div class="dlfs"><input name="" type="checkbox" value="" />记住帐号　 <font color="red" size="3"></font>
+					</div>
+					<input type="button" class="button_an" id="but_login" value="登　录" />
+				</div>
+			</form>
+			<div style="clear:both;"></div>
+			<div class="bottom">
+				<p>Copyright © 2017 All rights reserved. 技术支持：湖南亿谷科技发展股份有限公司 电话：4008087989</p>
+				<p>建议使用谷歌Chrome、火狐Firefox、360极速模式、Internet Explorer 9及以上版本浏览器以便系统正常运行</p>
 			</div>
-		</form>
-		<div style="clear:both;"></div>
-		<div class="bottom"><p>Copyright © 2017 All rights reserved. 技术支持：湖南亿谷科技发展股份有限公司	电话：4008087989</p><p>建议使用谷歌Chrome、火狐Firefox、360极速模式、Internet Explorer 9及以上版本浏览器以便系统正常运行</p></div>
+		</div>
 	</div>
-</div>
 
 </body>
+
 </html>

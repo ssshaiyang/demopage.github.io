@@ -1,167 +1,190 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>杭州市义务教育阶段新生入学管理平台</title>
-<link href="css/style.css"  rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
-<script type="text/javascript" src="js/web/picture.info.js" ></script>
-<script type="text/javascript">
-	function findpwd(){
-		var userName = $("#userName").val();
-		var identityCard = $("#identityCard").val();
-		if(userName==''){
-			 msgAlert("warning","提示", "请输入手机号码！");
-			 return false;
-		}
-		if(identityCard==''){
-			msgAlert("warning","提示", "请输入注册人身份证号码！");
-			 return false;
-		}
-		$.post("findUserByUserNameAndIden",{userName:userName,identityCard:identityCard},function(result){
-			if(result=="0"){
-				 msgAlert("warning","提示", "操作失败！");
-				 return false;
-			} else if(result=="2"){
-				 msgAlert("warning","提示", "手机号码或注册人身份号错误！");
-				 return false;
-			} else {
-				$("#find_tab").hide();
-				$("#reset_tab").show();
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>杭州市义务教育阶段新生入学管理平台</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/web/picture.info.js"></script>
+	<script type="text/javascript">
+		function findpwd() {
+			var userName = $("#userName").val();
+			var identityCard = $("#identityCard").val();
+			if (userName == '') {
+				msgAlert("warning", "提示", "请输入手机号码！");
+				return false;
 			}
-		});
-	}  
-	
-	function resetpwd(){
-		var password = $("#password").val();
-		var surePassword = $("#surePassword").val();
-		if(password==''){
-			 msgAlert("warning","提示", "请输入新密码！");
-			 return false;
-		}
-		if(password.length < 6){
-			 msgAlert("warning","提示", "新密码长度不够！");
-			 return false;
-		}
-		if(password!=surePassword){
-			msgAlert("warning","提示", "密码不一致");
-			 return false;
-		}
-		var userName = $("#userName").val();
-		var identityCard = $("#identityCard").val();
-		$.post("updateOnlineUser",{userName:userName,identityCard:identityCard,password:password},function(result){
-			if(result=="0"){
-				 msgAlert("warning","提示", "密码设置失败！");
-				 return false;
-			} else {
-				location.href = "index.htm"/*tpa=http://cz.xsbmxt.cn/*/;
+			if (identityCard == '') {
+				msgAlert("warning", "提示", "请输入注册人身份证号码！");
+				return false;
 			}
-		});
-	}
-  
-</script>
+			$.post("findUserByUserNameAndIden", {
+				userName: userName,
+				identityCard: identityCard
+			}, function (result) {
+				if (result == "0") {
+					msgAlert("warning", "提示", "操作失败！");
+					return false;
+				} else if (result == "2") {
+					msgAlert("warning", "提示", "手机号码或注册人身份号错误！");
+					return false;
+				} else {
+					$("#find_tab").hide();
+					$("#reset_tab").show();
+				}
+			});
+		}
+
+		function resetpwd() {
+			var password = $("#password").val();
+			var surePassword = $("#surePassword").val();
+			if (password == '') {
+				msgAlert("warning", "提示", "请输入新密码！");
+				return false;
+			}
+			if (password.length < 6) {
+				msgAlert("warning", "提示", "新密码长度不够！");
+				return false;
+			}
+			if (password != surePassword) {
+				msgAlert("warning", "提示", "密码不一致");
+				return false;
+			}
+			var userName = $("#userName").val();
+			var identityCard = $("#identityCard").val();
+			$.post("updateOnlineUser", {
+				userName: userName,
+				identityCard: identityCard,
+				password: password
+			}, function (result) {
+				if (result == "0") {
+					msgAlert("warning", "提示", "密码设置失败！");
+					return false;
+				} else {
+					location.href = "index.html" /*tpa=http://cz.xsbmxt.cn/*/ ;
+				}
+			});
+		}
+	</script>
 </head>
+
 <body style="background: #F2F2F2;">
 	<div id="header">
- <div class="topbj" id="top">
-		<div class="top">
-			<div class="top_info">
-				 <div class="l_f">
-				 	<span id="currDate"></span>       
-			  	 	您好，欢迎来到杭州市2019年义务教育阶段新生报名系统！ 
-				 </div>
-				 <div class="r_f" id="user_div">
-				 	 　　<a href="javascript:void(0);" onclick="AddFavorite(window.location,document.title)">添加收藏</a>
-				 </div>
+		<div class="topbj" id="top">
+			<div class="top">
+				<div class="top_info">
+					<div class="l_f">
+						<span id="currDate"></span>
+						您好，欢迎来到杭州市2019年义务教育阶段新生报名系统！
+					</div>
+					<div class="r_f" id="user_div">
+						　　
+					</div>
+				</div>
 			</div>
-		</div>
-		<div style="clear:both"></div>
-		<div class="menu">
-			  <div class="logo">
-			  	 <div class="l_f">
-			  	 	 <h1 style="color: #fff; font-size: 36px; font-weight: 600;">杭州市2019年义务教育阶段新生报名系统</h1> 
-			  	 </div>
-			  	 <ul class="menu_ul">
-			  	 	<li><a href="index.htm" >首页</a></li>
-			  	 	<li><a href="areanewlist.htm" >新闻中心</a></li>
-			  	 	<li><a href="goChoiceSchool-pid=103.htm" >学校介绍</a></li>
-			  	 	<li><a href="http://cz.xsbmxt.cn/goIndex?orgId=103&message=0" >我要报名</a></li>
-			  	 	<li><a href="http://cz.xsbmxt.cn/goIndex?message=0&orgId=103" >查看进度</a></li>
-			  	 </ul>
-			  </div>
-		</div>
-	</div>
-</div>
-    <div id= "content">
-    	 <div class="second_bg" >
-           	  &nbsp;
-            </div>
-          <h2 align="center" style="margin-top: 30px; color: #000000; margin-bottom: 30px;">用户找回密码</h2>
-          <div class="content" style="background: #ffffff; border: 1px solid #DCDCDC; width: 1000px;">
-          	 <form action="" name="myForm" id="myForm" method="post">
-          	 	<input type="hidden" name="orgId" id="orgId" value="103"/>
-	          	 <table cellpadding="0" cellspacing="0" border="0" class="en_table" style="width: 1000px;" id="find_tab">
-	          	 	<tr>
-	          	 		<td class="bg" colspan="3"><span style="margin-left:85px;">找回密码</span></td>
-	          	 	</tr>
-	          	 	<tr>
-	          	 		<td rowspan="2" style="width:360px; text-align: left; padding: 0px 20px; line-height: 30px; border-right: 1px solid #efefef; padding-top: 20px;">
-	          	 		<p style="color: #2483EB; font-weight: bold;">忘记密码说明：</p>
-						<p>请输入注册时填写的手机号码和身份证来找回密码。</p>
-	          	 		</td>
-	          	 		<td style="height: 60px;">手机号码：</td>
-	          	 		<td style="text-align:left;"><input name="userName" id="userName" class="required" value="" style="width:350px;height: 30px;"/><em style="color: red;">*</em></td>
-	          	 	</tr>
-	          	 	 <tr>
-	          	 		<td style="height: 60px;">注册人身份证号：</td>
-	          	 		<td style="text-align:left;"><input name="identityCard" id="identityCard" class="required" value="" style="width:350px;height: 30px;"/><em style="color: red;">*</em></td>
-	          	 	</tr>  
-	          	 	<tr>
-	          	 		<td></td>
-	          	 		<td colspan="2" style="text-align: center;">
-	          	 			<input type="button" value="提交" class="btn_b" style="float: none; width: 200px; height: 40px;" onclick="findpwd();"/>
-	          	 		</td>
-	          	 	</tr>
-	          	 </table>
-	          	 <table cellpadding="0" cellspacing="0" border="0" class="en_table" style="width: 1000px;display: none;" id="reset_tab">
-	          	 	<tr>
-	          	 		<td class="bg" colspan="3"><span style="margin-left:85px;">密码重设</span></td>
-	          	 	</tr>
-	          	 	<tr>
-	          	 		<td style="width:200px;">　</td>
-	          	 		<td style="height: 60px;">新密码：</td>
-	          	 		<td style="text-align:left;"><input name="password" id="password" class="required" value="" type="password" style="width:350px;height: 30px;"/><em style="color: red;">*</em><span>6位或以上长度的字母或数字组成</span></td>
-	          	 	</tr>
-	          	 	 <tr>
-	          	 		<td style="width:200px;">　</td>
-	          	 		<td style="height: 60px;">确认密码：</td>
-	          	 		<td style="text-align:left;"><input name="surePassword" id="surePassword" class="required" type="password" value="" style="width:350px;height: 30px;"/><em style="color: red;">*</em></td>
-	          	 	</tr>  
-	          	 	<tr>
-	          	 		<td colspan="3" style="text-align: center;">
-	          	 			<input type="button" value="提交" class="btn_b" style="float: none; width: 200px; height: 40px;" onclick="resetpwd();"/>
-	          	 		</td>
-	          	 	</tr>
-	          	 </table>
-          	 </form>
-          </div>
-          
-    </div>
-   <div id= "footer"> <div style="clear:both;"></div>
-	<div class="bottom" style="height: 120px; padding-top: 10px;">
-		<div style="padding-bottom: 0; width:1000px; margin: auto;">
-			<div style="width: 700px; float: left; text-align: left;">
-				<p>主办单位：杭州市教育局</p>
-				<p>技术支持：湖南亿谷科技发展股份有限公司　　技术支持电话：4008087989（周一至周五：8：30-17：30）</p>
-				<p><a href="http://beian.miit.gov.cn/"  style="color: #fff;" target="_blank">湘ICP备14004282号-9</a>　　　</p><p><a href="gologin.htm"  style="color: #fff;" target="_blank">管理员登录入口</a></p>
-			</div>
-			  <div style="float: right; padding-left: 30px;">
-				<img src="images/wechat.jpg"  width="90" height="90"/>
-				<p>【微信扫一扫】</p>
+			<div style="clear:both"></div>
+			<div class="menu">
+				<div class="logo">
+					<div class="l_f">
+						<h1 style="color: #fff; font-size: 36px; font-weight: 600;">杭州市2019年义务教育阶段新生报名系统</h1>
+					</div>
+					<ul class="menu_ul">
+						<li><a href="index.html">首页</a></li>
+						<li><a href="areanewlist.html">新闻中心</a></li>
+						<li><a href="goChoiceSchool.html">学校介绍</a></li>
+						<li><a href="http://cz.xsbmxt.cn/goIndex?orgId=103&message=0">我要报名</a></li>
+						<li><a href="http://cz.xsbmxt.cn/goIndex?message=0&orgId=103">查看进度</a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
- 
-</div>
+	<div id="content">
+		<div class="second_bg">
+			&nbsp;
+		</div>
+		<h2 align="center" style="margin-top: 30px; color: #000000; margin-bottom: 30px;">用户找回密码</h2>
+		<div class="content" style="background: #ffffff; border: 1px solid #DCDCDC; width: 1000px;">
+			<form action="" name="myForm" id="myForm" method="post">
+				<input type="hidden" name="orgId" id="orgId" value="103" />
+				<table cellpadding="0" cellspacing="0" border="0" class="en_table" style="width: 1000px;" id="find_tab">
+					<tr>
+						<td class="bg" colspan="3"><span style="margin-left:85px;">找回密码</span></td>
+					</tr>
+					<tr>
+						<td rowspan="2"
+							style="width:360px; text-align: left; padding: 0px 20px; line-height: 30px; border-right: 1px solid #efefef; padding-top: 20px;">
+							<p style="color: #2483EB; font-weight: bold;">忘记密码说明：</p>
+							<p>请输入注册时填写的手机号码和身份证来找回密码。</p>
+						</td>
+						<td style="height: 60px;">手机号码：</td>
+						<td style="text-align:left;"><input name="userName" id="userName" class="required" value=""
+								style="width:350px;height: 30px;" /><em style="color: red;">*</em></td>
+					</tr>
+					<tr>
+						<td style="height: 60px;">注册人身份证号：</td>
+						<td style="text-align:left;"><input name="identityCard" id="identityCard" class="required"
+								value="" style="width:350px;height: 30px;" /><em style="color: red;">*</em></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td colspan="2" style="text-align: center;">
+							<input type="button" value="提交" class="btn_b"
+								style="float: none; width: 200px; height: 40px;" onclick="findpwd();" />
+						</td>
+					</tr>
+				</table>
+				<table cellpadding="0" cellspacing="0" border="0" class="en_table" style="width: 1000px;display: none;"
+					id="reset_tab">
+					<tr>
+						<td class="bg" colspan="3"><span style="margin-left:85px;">密码重设</span></td>
+					</tr>
+					<tr>
+						<td style="width:200px;">　</td>
+						<td style="height: 60px;">新密码：</td>
+						<td style="text-align:left;"><input name="password" id="password" class="required" value=""
+								type="password" style="width:350px;height: 30px;" /><em
+								style="color: red;">*</em><span>6位或以上长度的字母或数字组成</span></td>
+					</tr>
+					<tr>
+						<td style="width:200px;">　</td>
+						<td style="height: 60px;">确认密码：</td>
+						<td style="text-align:left;"><input name="surePassword" id="surePassword" class="required"
+								type="password" value="" style="width:350px;height: 30px;" /><em
+								style="color: red;">*</em></td>
+					</tr>
+					<tr>
+						<td colspan="3" style="text-align: center;">
+							<input type="button" value="提交" class="btn_b"
+								style="float: none; width: 200px; height: 40px;" onclick="resetpwd();" />
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+
+	</div>
+	<div id="footer">
+		<div style="clear:both;"></div>
+		<div class="bottom" style="height: 120px; padding-top: 10px;">
+			<div style="padding-bottom: 0; width:1000px; margin: auto;">
+				<div style="width: 700px; float: left; text-align: left;">
+					<p>主办单位：杭州市教育局</p>
+					<p>技术支持：湖南亿谷科技发展股份有限公司　　技术支持电话：4008087989（周一至周五：8：30-17：30）</p>
+					<p><a href="http://beian.miit.gov.cn/" style="color: #fff;" target="_blank">湘ICP备14004282号-9</a>　　　
+					</p>
+					<p><a href="gologin.html" style="color: #fff;" target="_blank">管理员登录入口</a></p>
+				</div>
+				<div style="float: right; padding-left: 30px;">
+					<img src="images/wechat.jpg" width="90" height="90" />
+					<p>【微信扫一扫】</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
 </body>
+
 </html>

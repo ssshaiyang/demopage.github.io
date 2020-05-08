@@ -43,7 +43,7 @@
 				"<button style='width:200px; height:40px;border-radius: 20px; line-height:40px; background-color:#0099FF; color:#fff; font-size:18px; font-weight:bolder; border:1px solid #0099FF;cursor:pointer;' onclick='sureSubmit2()'>我知道了</button>";
 			htmls += "</div>";
 			$('.msg_submit').html(htmls);
-			$(".msg").css("z-index", "1003").css("left", "50%").css("transform","translate(-50%,0 )");
+			$(".msg").css("z-index", "1003").css("left", "50%").css("transform", "translate(-50%,0 )");
 			$('.msg_submit').animate({
 				'top': '20%'
 			}, 1000);
@@ -69,7 +69,7 @@
 						您好，欢迎来到杭州市2020年义务教育阶段新生报名系统！
 					</div>
 					<div class="r_f" id="user_div">
-						　　<a href="javascript:void(0);" onclick="AddFavorite(window.location,document.title)">添加收藏</a>
+						　　
 					</div>
 				</div>
 			</div>
@@ -80,11 +80,10 @@
 						<h1 style="color: #fff; font-size: 36px; font-weight: 600;">杭州市2020年义务教育阶段新生报名系统</h1>
 					</div>
 					<ul class="menu_ul">
-						<li><a href="index.htm">首页</a></li>
-						<li><a href="areanewlist.htm">新闻中心</a></li>
-						<li><a href="goChoiceSchool-pid=103.htm">学校介绍</a></li>
-						<li><a href="goIndex-orgId=103&message=0.htm">待定链接</a></li>
-						<li><a href="goIndex-message=0&orgId=103.htm">待定链接</a></li>
+						<li><a href="index.html">首页</a></li>
+						<li><a href="areanewlist.html">新闻中心</a></li>
+						<li><a href="goChoiceSchool.html">学校介绍</a></li>
+						<li><a href="goSignup.html">报名入口页面</a></li>
 					</ul>
 				</div>
 			</div>
@@ -122,7 +121,7 @@
 				<div style="text-align: center;">
 					<div style="position: relative;">
 						<h2 align="left" style="width: 200px;" class="head_content">新闻中心 / NEWS</h2>
-						<span style="position: absolute;top:6px;right: 6px;"><a href="areanewlist.htm" id="many_news"
+						<span style="position: absolute;top:6px;right: 6px;"><a href="areanewlist.html" id="many_news"
 								class="more">更多</a></span>
 					</div>
 					<div class="CharData"></div>
@@ -142,24 +141,30 @@
 				</div>
 				<ul class="news_ul">
 					<li>
-						<a href="goNewInfo-id=25.htm" title="2019杭州市义务教育阶段学校新生入学政策解读"
-							target="_blank">待替换文章</a>
+						<a href="goNewInfo.html" title="2019杭州市义务教育阶段学校新生入学政策解读" target="_blank">待替换文章</a>
 						<span>[2019-03-27]</span>
 					</li>
 				</ul>
 			</div>
 			<div class="content" id="attach_content">
 				<div style="text-align: center;width: 225px;">
-					<h2 align="left" class="head_content">附件查看 / FILES</h2>
+					<h2 align="left" class="head_content">入学报名</h2>
 					<div class="CharData"></div>
 					<div class="fileChar"></div>
+					<div class="last_link">上次浏览：<span></span><a href="">点击进入</a></div>
 					<div class="fj">
+
+						<a href="goSignup.html" class="fj_03" target="_blank">
+							<span>我要报名</span>
+							<br />
+							SIGN UP ENTRY
+						</a>
 						<a href="help.pdf" class="fj_01" target="_blank">
 							<span>操作指南</span>
 							<br />
 							OPERATION MANUAL
 						</a>
-						<a href="goNewInfo-id=25.htm" class="fj_02" target="_blank">
+						<a href="goNewInfo.html" class="fj_02" target="_blank">
 							<span>报名须知</span>
 							<br />
 							CONDITIONS OVERLEAF
@@ -170,8 +175,8 @@
 			<div class="select_school">
 				<div style="position: relative;" id="a-commentId">
 					<h2 align="left" class="head_content" style="margin-bottom: 5px;">学校介绍/ SCHOOL</h2>
-					<span style="position: absolute;top:6px;right: 6px;"><a href="goChoiceSchool-pid=103.htm"
-							id="many_news" class="more">更多</a></span>
+					<span style="position: absolute;top:6px;right: 6px;"><a href="goChoiceSchool.html" id="many_news"
+							class="more">更多</a></span>
 					<div class="city_div" style="position: absolute;">
 						<ul class="city_ul">
 							<li>
@@ -229,7 +234,7 @@
 				</div>
 				<ul class="school_ul" style="margin: 2em 2em;">
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=53&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=53&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市二完小</p>
@@ -239,7 +244,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=54&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=54&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市四十三完小</p>
@@ -249,7 +254,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=56&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=56&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市五中</p>
@@ -259,7 +264,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=57&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=57&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市三完小</p>
@@ -269,7 +274,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=58&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=58&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市十九完小</p>
@@ -279,7 +284,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=59&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=59&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市十八完小</p>
@@ -289,7 +294,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=60&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=60&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市二十完小</p>
@@ -299,7 +304,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=61&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=61&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市十七完小</p>
@@ -309,7 +314,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=63&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=63&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市十一完小</p>
@@ -319,7 +324,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=65&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=65&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市四十一完小</p>
@@ -329,7 +334,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=66&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=66&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市第三十九完全小学</p>
@@ -339,7 +344,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=67&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=67&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市十六完小</p>
@@ -349,7 +354,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=68&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=68&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市二十二完小</p>
@@ -359,7 +364,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=69&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=69&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市二十二中(小学部)</p>
@@ -369,7 +374,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=70&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=70&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市四中</p>
@@ -379,7 +384,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=71&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=71&orgId=103.html" target="_blank">
 							<img src="../storage.xsbmxt.com/fl_c8edbc5d73b94da79686591f054c7aa3.jpg"
 								style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
@@ -390,7 +395,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=73&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=73&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市十八中(初中部)</p>
@@ -400,7 +405,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=75&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=75&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市九完小</p>
@@ -410,7 +415,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=76&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=76&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市九中</p>
@@ -420,7 +425,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=78&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=78&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市十八中(小学部)</p>
@@ -430,7 +435,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=88&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=88&orgId=103.html" target="_blank">
 							<img src="../storage.xsbmxt.com/fl_f73359e92b234ae0ab4313a87b2f5938.JPG"
 								style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
@@ -441,7 +446,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=94&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=94&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">北湖实验学校(小学部)</p>
@@ -451,7 +456,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=98&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=98&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市十九中(小学部)</p>
@@ -461,7 +466,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=107&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=107&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">北湖实验学校(初中部)</p>
@@ -471,7 +476,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=116&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=116&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市十九中(初中部)</p>
@@ -481,7 +486,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=117&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=117&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市湖南师大附属五雅中学(初中部)</p>
@@ -491,7 +496,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=118&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=118&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市第四十六完全小学</p>
@@ -501,7 +506,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=148&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=148&orgId=103.html" target="_blank">
 							<img src="../cz.storage.xsbmxt.com/fl_092cf9f082e04618858c57bb099e8631.png"
 								style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
@@ -512,7 +517,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=149&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=149&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市八完小</p>
@@ -522,7 +527,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=150&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=150&orgId=103.html" target="_blank">
 							<img src="../cz.storage.xsbmxt.com/fl_95c3096c3aa64dc3b50c8900acb30d22.jpg"
 								style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
@@ -533,7 +538,7 @@
 						</a>
 					</li>
 					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=166&orgId=103.htm" target="_blank">
+						<a href="goSchoolInfo-id=166&orgId=103.html" target="_blank">
 							<img src="images/school.png" style="float: left;" height="53" width="53" />
 							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 								<p class="title">杭州市六完小</p>
@@ -570,7 +575,7 @@
 					<p></p>
 					<!-- <p><a href="http://beian.miit.gov.cn/" style="color: #fff;" target="_blank">湘ICP备14004282号-9</a>　　　
 					</p> -->
-					<p><a href="gologin.htm" style="color: #fff;" target="_blank">管理员登录入口</a></p>
+					<p><a href="gologin.html" style="color: #fff;" target="_blank">管理员登录入口</a></p>
 				</div>
 				<div style="float: right; padding-left: 30px;">
 					<img src="images/wechat.jpg" width="90" height="90" />

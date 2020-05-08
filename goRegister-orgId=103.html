@@ -1,111 +1,126 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>杭州市义务教育阶段新生入学管理平台</title>
-<link href="css/style.css"  rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
-<script type="text/javascript" src="js/web/picture.info.js" ></script>
-<script type="text/javascript" src="js/validate.iden.js" ></script>
-<script type="text/javascript" src="js/web/register.js-20190425" ></script>
 
-<script type="text/javascript">
-  $(document).ready(function(){
-	  ctx = "index.htm"/*tpa=http://cz.xsbmxt.cn/*/;
-  });
-  
-  </script>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>杭州市义务教育阶段新生入学管理平台</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/web/picture.info.js"></script>
+	<script type="text/javascript" src="js/validate.iden.js"></script>
+	<script type="text/javascript" src="js/web/register.js-20190425"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			ctx = "index.html" /*tpa=http://cz.xsbmxt.cn/*/ ;
+		});
+	</script>
 </head>
+
 <body style="background: #F2F2F2;">
 	<div id="header">
- <div class="topbj" id="top">
-		<div class="top">
-			<div class="top_info">
-				 <div class="l_f">
-				 	<span id="currDate"></span>       
-			  	 	您好，欢迎来到杭州市2019年义务教育阶段新生报名系统！ 
-				 </div>
-				 <div class="r_f" id="user_div">
-				 	 　　<a href="javascript:void(0);" onclick="AddFavorite(window.location,document.title)">添加收藏</a>
-				 </div>
+		<div class="topbj" id="top">
+			<div class="top">
+				<div class="top_info">
+					<div class="l_f">
+						<span id="currDate"></span>
+						您好，欢迎来到杭州市2019年义务教育阶段新生报名系统！
+					</div>
+					<div class="r_f" id="user_div">
+						　　
+					</div>
+				</div>
 			</div>
-		</div>
-		<div style="clear:both"></div>
-		<div class="menu">
-			  <div class="logo">
-			  	 <div class="l_f">
-			  	 	 <h1 style="color: #fff; font-size: 36px; font-weight: 600;">杭州市2019年义务教育阶段新生报名系统</h1> 
-			  	 </div>
-			  	 <ul class="menu_ul">
-			  	 	<li><a href="index.htm" >首页</a></li>
-			  	 	<li><a href="areanewlist.htm" >新闻中心</a></li>
-			  	 	<li><a href="goChoiceSchool-pid=103.htm" >学校介绍</a></li>
-			  	 	<li><a href="http://cz.xsbmxt.cn/goIndex?orgId=103&message=0" >我要报名</a></li>
-			  	 	<li><a href="http://cz.xsbmxt.cn/goIndex?message=0&orgId=103" >查看进度</a></li>
-			  	 </ul>
-			  </div>
-		</div>
-	</div>
-</div>
-    <div id= "content">
-    	 <div class="second_bg" >
-           	  &nbsp;
-            </div>
-          <h2 align="center" style="margin-top: 30px; color: #000000; margin-bottom: 30px;">用户注册</h2>
-          <div class="content" style="background: #ffffff; border: 1px solid #DCDCDC; width: 1000px;">
-          	 <form action="" name="myForm" id="myForm" method="post">
-          	 	<input type="hidden" name="orgId" id="orgId" value="103"/>
-	          	 <table cellpadding="0" cellspacing="0" border="0" class="en_table" style="width: 1000px;">
-	          	 	<tr>
-	          	 		<td class="bg" colspan="3"><span style="margin-left:85px;">填写注册信息</span></td>
-	          	 	</tr>
-	          	 	<tr>
-	          	 		<td rowspan="4" style="width:360px; text-align: left; padding: 20px 20px; line-height: 30px; border-right: 1px solid #efefef; padding-top: 20px;">
-	          	 		<p style="color: #2483EB; font-weight: bold;">系统操作说明：</p>
-						<p>1.注册账号：注册时，请填写注册人的手机号码和身份证号。提交后，输入手机号和密码登录系统，点击【我要报名】填写入学信息。</p>
-						<p>2.建议使用谷歌Chrome、火狐Firefox、360极速模式、Internet Explorer 9及以上版本浏览器以便系统正常运行。</p>
-	          	 		</td>
-	          	 		<td style="height: 60px;">手机号码：</td>
-	          	 		<td style="text-align:left;"><input name="userName" id="userName" class="required" value="" style="width:350px;height: 30px;"/><em style="color: red;">*</em></td>
-	          	 	</tr>
-	          	 	 <tr>
-	          	 		<td style="height: 60px;">注册人身份证号：</td>
-	          	 		<td style="text-align:left;"><input name="identityCard" id="identityCard" autocomplete= "off" class="required" value="" style="width:350px;height: 30px;"/><em style="color: red;">*</em></td>
-	          	 	</tr>  
-	          	 	<tr>
-	          	 		<td style="height: 60px;">密码：</td>
-	          	 		<td style="text-align:left;"><input name="password" type="password" id="password" class="required" value="" style="width:350px;height: 30px;"/><em style="color: red;">*</em><br/><span>6位或以上长度的字母或数字组成</span></td>
-	          	 	</tr>
-	          	 	<tr>
-	          	 		<td style="height: 60px;">确认密码：</td>
-	          	 		<td style="text-align:left;"><input name="surePassword" type="password" id="surePassword" class="required" value="" style="width:350px;height: 30px;"/><em style="color: red;">*</em></td>
-	          	 	</tr>
-	          	 	<tr>
-	          	 		<td></td>
-	          	 		<td colspan="2" style="text-align: center;">
-	          	 			  <input type="button" value="立即注册" class="btn_b" style="float: none; width: 200px; height: 40px;" onclick="register();"/>  
-	          	 		</td>
-	          	 	</tr>
-	          	 </table>
-          	 </form>
-          </div>
-          
-    </div>
-   <div id= "footer"> <div style="clear:both;"></div>
-	<div class="bottom" style="height: 120px; padding-top: 10px;">
-		<div style="padding-bottom: 0; width:1000px; margin: auto;">
-			<div style="width: 700px; float: left; text-align: left;">
-				<p>主办单位：杭州市教育局</p>
-				<p>技术支持：湖南亿谷科技发展股份有限公司　　技术支持电话：4008087989（周一至周五：8：30-17：30）</p>
-				<p><a href="http://beian.miit.gov.cn/"  style="color: #fff;" target="_blank">湘ICP备14004282号-9</a>　　　</p><p><a href="gologin.htm"  style="color: #fff;" target="_blank">管理员登录入口</a></p>
-			</div>
-			  <div style="float: right; padding-left: 30px;">
-				<img src="images/wechat.jpg"  width="90" height="90"/>
-				<p>【微信扫一扫】</p>
+			<div style="clear:both"></div>
+			<div class="menu">
+				<div class="logo">
+					<div class="l_f">
+						<h1 style="color: #fff; font-size: 36px; font-weight: 600;">杭州市2019年义务教育阶段新生报名系统</h1>
+					</div>
+					<ul class="menu_ul">
+						<li><a href="index.html">首页</a></li>
+						<li><a href="areanewlist.html">新闻中心</a></li>
+						<li><a href="goChoiceSchool.html">学校介绍</a></li>
+						<li><a href="http://cz.xsbmxt.cn/goIndex?orgId=103&message=0">我要报名</a></li>
+						<li><a href="http://cz.xsbmxt.cn/goIndex?message=0&orgId=103">查看进度</a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
- 
-</div>
+	<div id="content">
+		<div class="second_bg">
+			&nbsp;
+		</div>
+		<h2 align="center" style="margin-top: 30px; color: #000000; margin-bottom: 30px;">用户注册</h2>
+		<div class="content" style="background: #ffffff; border: 1px solid #DCDCDC; width: 1000px;">
+			<form action="" name="myForm" id="myForm" method="post">
+				<input type="hidden" name="orgId" id="orgId" value="103" />
+				<table cellpadding="0" cellspacing="0" border="0" class="en_table" style="width: 1000px;">
+					<tr>
+						<td class="bg" colspan="3"><span style="margin-left:85px;">填写注册信息</span></td>
+					</tr>
+					<tr>
+						<td rowspan="4"
+							style="width:360px; text-align: left; padding: 20px 20px; line-height: 30px; border-right: 1px solid #efefef; padding-top: 20px;">
+							<p style="color: #2483EB; font-weight: bold;">系统操作说明：</p>
+							<p>1.注册账号：注册时，请填写注册人的手机号码和身份证号。提交后，输入手机号和密码登录系统，点击【我要报名】填写入学信息。</p>
+							<p>2.建议使用谷歌Chrome、火狐Firefox、360极速模式、Internet Explorer 9及以上版本浏览器以便系统正常运行。</p>
+						</td>
+						<td style="height: 60px;">手机号码：</td>
+						<td style="text-align:left;"><input name="userName" id="userName" class="required" value=""
+								style="width:350px;height: 30px;" /><em style="color: red;">*</em></td>
+					</tr>
+					<tr>
+						<td style="height: 60px;">注册人身份证号：</td>
+						<td style="text-align:left;"><input name="identityCard" id="identityCard" autocomplete="off"
+								class="required" value="" style="width:350px;height: 30px;" /><em
+								style="color: red;">*</em></td>
+					</tr>
+					<tr>
+						<td style="height: 60px;">密码：</td>
+						<td style="text-align:left;"><input name="password" type="password" id="password"
+								class="required" value="" style="width:350px;height: 30px;" /><em
+								style="color: red;">*</em><br /><span>6位或以上长度的字母或数字组成</span></td>
+					</tr>
+					<tr>
+						<td style="height: 60px;">确认密码：</td>
+						<td style="text-align:left;"><input name="surePassword" type="password" id="surePassword"
+								class="required" value="" style="width:350px;height: 30px;" /><em
+								style="color: red;">*</em></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td colspan="2" style="text-align: center;">
+							<input type="button" value="立即注册" class="btn_b"
+								style="float: none; width: 200px; height: 40px;" onclick="register();" />
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+
+	</div>
+	<div id="footer">
+		<div style="clear:both;"></div>
+		<div class="bottom" style="height: 120px; padding-top: 10px;">
+			<div style="padding-bottom: 0; width:1000px; margin: auto;">
+				<div style="width: 700px; float: left; text-align: left;">
+					<p>主办单位：杭州市教育局</p>
+					<p>技术支持：湖南亿谷科技发展股份有限公司　　技术支持电话：4008087989（周一至周五：8：30-17：30）</p>
+					<p><a href="http://beian.miit.gov.cn/" style="color: #fff;" target="_blank">湘ICP备14004282号-9</a>　　　
+					</p>
+					<p><a href="gologin.html" style="color: #fff;" target="_blank">管理员登录入口</a></p>
+				</div>
+				<div style="float: right; padding-left: 30px;">
+					<img src="images/wechat.jpg" width="90" height="90" />
+					<p>【微信扫一扫】</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
 </body>
+
 </html>

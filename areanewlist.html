@@ -7,6 +7,11 @@
 	<title>杭州市义务教育阶段新生入学管理平台</title>
 	<link href="css/style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$($(".menu_ul").find("li")[1]).addClass("active");
+		});
+	</script>
 	<style type="text/css">
 		.tt {
 			background: #2483EB;
@@ -47,7 +52,7 @@
 						您好，欢迎来到杭州市2019年义务教育阶段新生报名系统！
 					</div>
 					<div class="r_f" id="user_div">
-						　　<a href="javascript:void(0);" onclick="AddFavorite(window.location,document.title)">添加收藏</a>
+						　　
 					</div>
 				</div>
 			</div>
@@ -58,15 +63,10 @@
 						<h1 style="color: #fff; font-size: 36px; font-weight: 600;">杭州市2019年义务教育阶段新生报名系统</h1>
 					</div>
 					<ul class="menu_ul">
-						<li><a href="index.htm">首页</a></li>
-						<li><a href="areanewlist.htm">新闻中心</a></li>
-						<li><a href="goChoiceSchool-pid=103.htm">学校介绍</a></li>
-						<li><a
-								href="http://cz.xsbmxt.cn/goIndex?orgId=103&message=0">我要报名</a>
-						</li>
-						<li><a
-								href="http://cz.xsbmxt.cn/goIndex?message=0&orgId=103">查看进度</a>
-						</li>
+						<li><a href="index.html">首页</a></li>
+						<li><a href="areanewlist.html">新闻中心</a></li>
+						<li><a href="goChoiceSchool.html">学校介绍</a></li>
+						<li><a href="goSignup.html">报名入口页面</a></li>
 					</ul>
 				</div>
 			</div>
@@ -84,14 +84,13 @@
 				</div>
 				<ul class="news_ul">
 					<li>
-						<a href="goNewInfo-id=40.htm" title="待定城区新闻<"
-							target="_blank">待定城区新闻</a>
+						<a href="goNewInfo.html" title="待定城区新闻<" target="_blank">待定城区新闻</a>
 						<span>[2019-03-27]</span>
 					</li>
-					
+
 				</ul>
 			</div>
-			
+
 		</div>
 	</div>
 	<div id="footer">
@@ -101,9 +100,9 @@
 				<div style="width: 700px; float: left; text-align: left;">
 					<p>主办单位：杭州市教育局</p>
 					<p>技术支持：湖南亿谷科技发展股份有限公司　　技术支持电话：4008087989（周一至周五：8：30-17：30）</p>
-					<p><a href="http://beian.miit.gov.cn/"
-							style="color: #fff;" target="_blank">湘ICP备14004282号-9</a>　　　</p>
-					<p><a href="gologin.htm" style="color: #fff;" target="_blank">管理员登录入口</a></p>
+					<p><a href="http://beian.miit.gov.cn/" style="color: #fff;" target="_blank">湘ICP备14004282号-9</a>　　　
+					</p>
+					<p><a href="gologin.html" style="color: #fff;" target="_blank">管理员登录入口</a></p>
 				</div>
 				<div style="float: right; padding-left: 30px;">
 					<img src="images/wechat.jpg" width="90" height="90" />
