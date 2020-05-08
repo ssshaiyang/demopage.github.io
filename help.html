@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>新闻中心</title>
+
+
+
+
+	<meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
+	<meta content="telephone=no, address=no" name="format-detection">
+	<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		name="viewport">
+
+	<link rel="stylesheet" type="text/css" href="css/app.css-20190411.css">
+
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+
+	<script type="text/javascript" src="js/wechat/app.info.js"></script>
+	<script type="text/javascript">
+        $(document).ready(function () {
+            $($(".bottom-mobile").find("p")[2]).addClass("bottom-active");
+            $($(".bottom-mobile").find("img")[2]).attr("src", "images/help-active.png");
+        });
+
+        
+
+        function sureSubmit2() {
+            $('.msg_submit').animate({
+                'top': '-1000px'
+            }, 10);
+            $('.mask_s').hide();
+        }
+    </script>
+</head>
+
+<body>
+    <div data-role="page" class="containter">
+        <div data-role="header">
+     
+          </div>
+        <section class="body" data-role="body">
+            <div class="goodslist">
+                 <img src="images/help/2-1.png">
+                 <img src="images/help/2-2.png">
+                 <img src="images/help/2-3.png">
+                 <img src="images/help/2-4.png">
+                 <img src="images/help/2-5.png">
+                 <img src="images/help/2-6.png">
+                 <img src="images/help/2-7.png">
+                 <img src="images/help/3-8.png">
+                 <img src="images/help/2-9.png">
+                 <img src="images/help/2-10.png">
+            </div>
+        </section>
+</div>
+	<footer>
+		<div class="bottom-mobile">
+			<a href="index.html" target="_self" style="width:25%;">
+				<i><img src="images/index.png" width="32" height="32"></i>
+				<p>首页</p>
+			</a>
+			<a href="goSignup.html" target="_self" style="width:25%;">
+				<i><img src="images/add-account.png" width="32" height="32"></i>
+				<p>我要报名</p>
+			</a>
+			<a href="help.html" target="_self" style="width:25%;">
+				<i><img src="images/help.png" width="32" height="32"></i>
+				<p>报名须知</p>
+			</a>
+			<a href="areanewlist.html" target="_self" style="width:25%;">
+				<i><img src="images/p_02.png" width="32" height="32"></i>
+				<p>新闻中心</p>
+			</a>
+		</div>
+
+
+	</footer>
+</body>
+
+</html>

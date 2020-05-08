@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>按区学校介绍</title>
+
+
+
+
+    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        name="viewport">
+
+    <link rel="stylesheet" type="text/css" href="../css/app.css-20190411.css">
+
+    <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+
+    <script type="text/javascript" src="../js/operation/info.bm.js"></script>
+    <script type="text/javascript" src="../js/wechat/app.info.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $($(".bottom").find("p")[1]).addClass("bottom-active");
+            $($(".bottom").find("img")[1]).attr("src", "../images/add-account-active.png");
+        });
+
+        
+
+        function sureSubmit2() {
+            $('.msg_submit').animate({
+                'top': '-1000px'
+            }, 10);
+            $('.mask_s').hide();
+        }
+    </script>
+</head>
+
+<body>
+    <div data-role="page" class="containter">
+
+        <section class="body" data-role="body">
+            <div class="goodslist">
+                <img src="../images/wechatbg.jpg" width="100%" />
+                <div style="text-align: center; margin-top: 2px;">
+                    <input type="hidden" name="openId" id="openId" value="" />
+                </div>
+                <!--  <p style="text-align: center; line-height: 40px;">网上报名时间：2019-04-25 08至06-30 18</p> -->
+                <h3 style="text-align: center; color: #2483EB;font-size:18px">重要提示</h3>
+                <p style="font-size: 16px;letter-spacing: 1px; padding: 15px;">     请选择正确的行政区域报名入学，每一个行政区域必须使用身份证独立注册。同一身份证同时只能在一个入学区域进行入学申请审核。如已在一个行政区域申请并进入审核，该申请必须被驳回至初始申请状态（不在审核中），才能在其他行政区域重新正式提交申请。请勿随意跨区申请。
+                    <ul class="sign_ul_mobile">
+                        <li>
+                            <div onclick="saveLink(this)">111湖区</div>
+                        </li>
+                        <li>
+                            <div onclick="saveLink(this)">222湖区</div>
+                        </li>
+                        <li>
+                            <div onclick="saveLink(this)">333湖区</div>
+                        </li>
+                        <li>
+                            <div onclick="saveLink(this)">444湖区</div>
+                        </li>
+                    </ul>
+                
+
+
+                <!-- <div style="height: 70px; line-height: 26px; text-align: center;">
+					如遇到系统操作问题，请咨询电话热线：4008087989<br />（周一至周五：8：30-17：30）</div> -->
+            </div>
+
+        </section>
+        <footer>
+            <div class="bottom-mobile">
+                <a href="choiceSchool.html" target="_self" style="width:25%;">
+                    <i><img src="../images/index.png" width="32" height="32"></i>
+                    <p>首页</p>
+                </a>
+                <a href="goSignup.html" target="_self" style="width:25%;">
+                    <i><img src="../images/add-account.png" width="32" height="32"></i>
+                    <p>我要报名</p>
+                </a>
+                <a href="help.html" target="_self" style="width:25%;">
+                    <i><img src="../images/help.png" width="32" height="32"></i>
+                    <p>报名须知</p>
+                </a>
+                <a href="areanewlist.html" target="_self" style="width:25%;">
+                    <i><img src="../images/p_02.png" width="32" height="32"></i>
+                    <p>新闻中心</p>
+                </a>
+            </div>
+
+
+        </footer>
+    </div>
+    <div class="mask_win opacity_win areawin"></div>
+    <div class="wins areawin">
+        <div class="wins_panel">
+            <div style="text-align: right;"><input type="button" class="g_btn" value="关 闭"
+                    onclick="javascript:$('.areawin').hide();"
+                    style="background: #fff; width: 80px; color: #000; margin-top: 0px; border: none;" /></div>
+            <div style="clear: both;"></div>
+            <h2 style="text-align: center;">请选择招生区域</h2>
+            <div id="areas_div"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

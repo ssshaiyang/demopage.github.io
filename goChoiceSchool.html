@@ -6,10 +6,13 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>杭州市义务教育阶段新生入学管理平台</title>
 	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<link href="css/app.css-20190411.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="js/web/common.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
+			$($(".bottom-mobile").find("p")[0]).addClass("bottom-active");
+			$($(".bottom-mobile").find("img")[0]).attr("src", "images/index-active.png");
 			$($(".menu_ul").find("li")[2]).addClass("active");
 			$("#search_btn2").click(function () {
 				$("#type").val("1");
@@ -20,6 +23,7 @@
 </head>
 
 <body style="background: #F2F2F2;">
+	<div class="pc">
 	<div id="header">
 		<div class="topbj" id="top">
 			<div class="top">
@@ -29,7 +33,7 @@
 						您好，欢迎来到杭州市2019年义务教育阶段新生报名系统！
 					</div>
 					<div class="r_f" id="user_div">
-						　　<a href="javascript:void(0);" onclick="AddFavorite(window.location,document.title)">添加收藏</a>
+						　　
 					</div>
 				</div>
 			</div>
@@ -40,11 +44,10 @@
 						<h1 style="color: #fff; font-size: 36px; font-weight: 600;">杭州市2019年义务教育阶段新生报名系统</h1>
 					</div>
 					<ul class="menu_ul">
-						<li><a href="index.htm">首页</a></li>
-						<li><a href="areanewlist.htm">新闻中心</a></li>
-						<li><a href="goChoiceSchool-pid=103.htm">学校介绍</a></li>
-						<li><a href="http://cz.xsbmxt.cn/goIndex?orgId=103&message=0">我要报名</a></li>
-						<li><a href="http://cz.xsbmxt.cn/goIndex?message=0&orgId=103">查看进度</a></li>
+						<li><a href="index.html">首页</a></li>
+						<li><a href="areanewlist.html">新闻中心</a></li>
+						<li><a href="goChoiceSchool.html">学校介绍</a></li>
+						<li><a href="goSignup.html">报名入口页面</a></li>
 					</ul>
 				</div>
 			</div>
@@ -59,17 +62,17 @@
 			<div class="city_div" style="position: absolute;left: 200px;top:25px;">
 				<ul class="city_ul">
 					<li>
-						<a href="goChoiceSchool-pid=103&orgId=48.htm" class="acl-name  on ">
+						<a href="goChoiceSchool-pid=103&orgId=48.html" class="acl-name  on ">
 							待定第一个区域
 						</a>
 						<div class="trigon_div "></div>
 					</li>
-					<li>
-						<a href="goChoiceSchool-pid=103&orgId=63.htm" class="acl-name ">
+					<!-- <li>
+						<a href="goChoiceSchool-pid=103&orgId=63.html" class="acl-name ">
 							第二个区域
 						</a>
 						<div class="trigon_div  none "></div>
-					</li>
+					</li> -->
 				</ul>
 			</div>
 			<div style="text-align: center; margin-top: 30px; margin-bottom: 20px;position: relative;">
@@ -81,7 +84,7 @@
 			</div>
 			<ul class="school_ul">
 				<li style="height: 80px;">
-					<a href="goSchoolInfo-id=53&orgId=48.htm" target="_blank">
+					<a href="goSchoolInfo.html" target="_blank">
 						<img src="images/school.png" style="float: left;" height="53" width="53" />
 						<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
 							<p class="title">杭州市二完小</p>
@@ -103,7 +106,7 @@
 					<p>技术支持：湖南亿谷科技发展股份有限公司　　技术支持电话：4008087989（周一至周五：8：30-17：30）</p>
 					<p><a href="http://beian.miit.gov.cn/" style="color: #fff;" target="_blank">湘ICP备14004282号-9</a>　　　
 					</p>
-					<p><a href="gologin.htm" style="color: #fff;" target="_blank">管理员登录入口</a></p>
+					<p><a href="gologin.html" style="color: #fff;" target="_blank">管理员登录入口</a></p>
 				</div>
 				<div style="float: right; padding-left: 30px;">
 					<img src="images/wechat.jpg" width="90" height="90" />
@@ -113,6 +116,84 @@
 		</div>
 
 	</div>
+</div>
+<div class="mobile">
+	<div data-role="page" class="containter">
+		<div data-role="header" class="head bg">
+			<div class="l_span search"><span id="area-name"></span>学校介绍</div>
+			<span class="go-sign-btn">进入报名</span>
+		</div>
+		<section class="body" data-role="body">
+			<div class="goodslist">
+				<div style="text-align: center; margin-top: 2px;">
+					<input type="hidden" name="openId" id="openId" value="" />
+					<input type="hidden" name="totalPage" id="totalPage" value="2" />
+					<input type="hidden" name="total" id="total" value="31" />
+					<input type="hidden" name="pid" id="pid" value="48" />
+					<input type="hidden" name="type" id="type2" value="" />
+					<input class="u_search" name="schoolName" id="schoolName" placeholder="请输入学校名称" /><input
+						type="button" class="u_search_btn" value="　" onclick="searchSchool2();" />
+				</div>
+				<ul class="g_ul">
+
+					<li>
+						<a href="getSchoolInfo.html" target="_self" style="padding-top: 1px;">
+
+
+
+							<img src="images/school.png" style="float: left;" height="53" width="53" />
+
+
+							<div style="float: left; margin-left: 10px; width: 72%;white-space:normal;">
+								<p class="title">杭州市二完小</p>
+								<p class="ctn">地址：湖南省杭州市北湖区北湖路32号</p>
+
+							</div>
+						</a>
+					</li>
+
+					<li>
+						<a href="getSchoolInfo.html" target="_self" style="padding-top: 1px;">
+
+
+
+							<img src="images/school.png" style="float: left;" height="53" width="53" />
+
+
+							<div style="float: left; margin-left: 10px; width: 72%;white-space:normal;">
+								<p class="title">杭州市四十三完小</p>
+								<p class="ctn">地址：湖南省杭州市北湖区骆仙街道高壁村（新107国道与同心路交叉路口向西前行100米）</p>
+
+							</div>
+						</a>
+					</li>
+				</ul>
+
+			</div>
+		</section>
+		<footer>
+			<div class="bottom-mobile">
+				<a href="index.html" target="_self" style="width:25%;">
+					<i><img src="images/index.png" width="32" height="32"></i>
+					<p>首页</p>
+				</a>
+				<a href="goSignup.html" target="_self" style="width:25%;">
+					<i><img src="images/add-account.png" width="32" height="32"></i>
+					<p>我要报名</p>
+				</a>
+				<a href="help.html" target="_self" style="width:25%;">
+					<i><img src="images/help.png" width="32" height="32"></i>
+					<p>报名须知</p>
+				</a>
+				<a href="areanewlist.html" target="_self" style="width:25%;">
+					<i><img src="images/p_02.png" width="32" height="32"></i>
+					<p>新闻中心</p>
+				</a>
+			</div>
+	
+		</footer>
+	</div>
+</div>
 </body>
 
 </html>

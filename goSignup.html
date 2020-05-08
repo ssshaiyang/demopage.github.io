@@ -1,0 +1,185 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>杭州市义务教育阶段新生入学管理平台</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+	<link href="css/app.css-20190411.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/web/common.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+            $($(".bottom-mobile").find("p")[1]).addClass("bottom-active");
+            $($(".bottom-mobile").find("img")[1]).attr("src", "images/add-account-active.png");
+        });
+        $(document).ready(function () {
+            $($(".menu_ul").find("li")[3]).addClass("active");
+            $("#search_btn2").click(function () {
+                $("#type").val("1");
+                queryForm.submit();
+            });
+        });
+    </script>
+</head>
+
+<body style="background: #F2F2F2;">
+    <div class="pc">
+    <div id="header">
+        <div class="topbj" id="top">
+            <div class="top">
+                <div class="top_info">
+                    <div class="l_f">
+                        <span id="currDate"></span>
+                        您好，欢迎来到杭州市2019年义务教育阶段新生报名系统！
+                    </div>
+                    <div class="r_f" id="user_div">
+                        　　
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both"></div>
+            <div class="menu">
+                <div class="logo">
+                    <div class="l_f">
+                        <h1 style="color: #fff; font-size: 36px; font-weight: 600;">杭州市2019年义务教育阶段新生报名系统</h1>
+                    </div>
+                    <ul class="menu_ul">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="areanewlist.html">新闻中心</a></li>
+                        <li><a href="goChoiceSchool.html">学校介绍</a></li>
+                        <li><a href="goSignup.html">报名入口页面</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <div class="second_bg">
+            &nbsp;
+        </div>
+
+        <div class="content" style="background: #ffffff; width: 1000px;">
+            <div class="signup-div">
+                <div class="tt">
+                    <h2 align="center" style="margin-top: 30px; color: #000000; margin-bottom: 30px;">重要提示</h2>
+                    <p>请选择正确的行政区域报名入学，每一个行政区域必须使用身份证独立注册。同一身份证同时只能在一个入学区域进行入学申请审核。如已在一个行政区域申请并进入审核，该申请必须被驳回至初始申请状态（不在审核中），才能在其他行政区域重新正式提交申请。请勿随意跨区申请。
+                    </p>
+                </div>
+                <div>
+
+                </div>
+                <ul class="sign_ul">
+                    <li>
+                        <div onclick="saveLink(this)">111湖区</div>
+                    </li>
+                    <li>
+                        <div onclick="saveLink(this)">222湖区</div>
+                    </li>
+                    <li>
+                        <div onclick="saveLink(this)">333湖区</div>
+                    </li>
+                    <li>
+                        <div onclick="saveLink(this)">444湖区</div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <div id="footer">
+            <div style="clear:both;"></div>
+            <div class="bottom" style="height: 120px; padding-top: 10px;">
+                <div style="padding-bottom: 0; width:1000px; margin: auto;">
+                    <div style="width: 700px; float: left; text-align: left;">
+                        <p>主办单位：杭州市教育局</p>
+                        <p>技术支持：湖南亿谷科技发展股份有限公司　　技术支持电话：4008087989（周一至周五：8：30-17：30）</p>
+                        <p><a href="http://beian.miit.gov.cn/" style="color: #fff;"
+                                target="_blank">湘ICP备14004282号-9</a>　　　
+                        </p>
+                        <p><a href="gologin.html" style="color: #fff;" target="_blank">管理员登录入口</a></p>
+                    </div>
+                    <div style="float: right; padding-left: 30px;">
+                        <img src="images/wechat.jpg" width="90" height="90" />
+                        <p>【微信扫一扫】</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <div class="mobile">
+        <div data-role="page" class="containter">
+
+            <section class="body" data-role="body">
+                <div class="goodslist">
+                    <img src="images/wechatbg.jpg" width="100%" />
+                    <div style="text-align: center; margin-top: 2px;">
+                        <input type="hidden" name="openId" id="openId" value="" />
+                    </div>
+                    <!--  <p style="text-align: center; line-height: 40px;">网上报名时间：2019-04-25 08至06-30 18</p> -->
+                    <h3 style="text-align: center; color: #2483EB;font-size:18px">重要提示</h3>
+                    <p style="font-size: 16px;letter-spacing: 1px; padding: 15px;">     请选择正确的行政区域报名入学，每一个行政区域必须使用身份证独立注册。同一身份证同时只能在一个入学区域进行入学申请审核。如已在一个行政区域申请并进入审核，该申请必须被驳回至初始申请状态（不在审核中），才能在其他行政区域重新正式提交申请。请勿随意跨区申请。
+                        <ul class="sign_ul_mobile">
+                            <li>
+                                <div onclick="saveLink(this)">111湖区</div>
+                            </li>
+                            <li>
+                                <div onclick="saveLink(this)">222湖区</div>
+                            </li>
+                            <li>
+                                <div onclick="saveLink(this)">333湖区</div>
+                            </li>
+                            <li>
+                                <div onclick="saveLink(this)">444湖区</div>
+                            </li>
+                        </ul>
+                    
+    
+    
+                    <!-- <div style="height: 70px; line-height: 26px; text-align: center;">
+                        如遇到系统操作问题，请咨询电话热线：4008087989<br />（周一至周五：8：30-17：30）</div> -->
+                </div>
+    
+            </section>
+            <footer>
+                <div class="bottom-mobile">
+                    <a href="index.html" target="_self" style="width:25%;">
+                        <i><img src="images/index.png" width="32" height="32"></i>
+                        <p>首页</p>
+                    </a>
+                    <a href="goSignup.html" target="_self" style="width:25%;">
+                        <i><img src="images/add-account.png" width="32" height="32"></i>
+                        <p>我要报名</p>
+                    </a>
+                    <a href="help.html" target="_self" style="width:25%;">
+                        <i><img src="images/help.png" width="32" height="32"></i>
+                        <p>报名须知</p>
+                    </a>
+                    <a href="areanewlist.html" target="_self" style="width:25%;">
+                        <i><img src="images/p_02.png" width="32" height="32"></i>
+                        <p>新闻中心</p>
+                    </a>
+                </div>
+    
+    
+            </footer>
+        </div>
+        <div class="mask_win opacity_win areawin"></div>
+        <div class="wins areawin">
+            <div class="wins_panel">
+                <div style="text-align: right;"><input type="button" class="g_btn" value="关 闭"
+                        onclick="javascript:$('.areawin').hide();"
+                        style="background: #fff; width: 80px; color: #000; margin-top: 0px; border: none;" /></div>
+                <div style="clear: both;"></div>
+                <h2 style="text-align: center;">请选择招生区域</h2>
+                <div id="areas_div"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+</html>
