@@ -1414,6 +1414,7 @@ img {
     text-align: left;
     color: #FF0000;
     text-decoration: underline;
+    margin-left: 12px;
 }
 
 .last_link a:link {
