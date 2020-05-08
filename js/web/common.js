@@ -89,7 +89,7 @@ function setUpLink() {
     var linkName = getCookie('linkName')
     if (linkName) {
         $(".last_link").css("display", "block")
-        $("#link_name").text("linkName")
+        $("#link_name").text(linkName)
     }
 
 }
