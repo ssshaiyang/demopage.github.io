@@ -1,0 +1,1 @@
+Ren *.htm *html
