@@ -30,6 +30,7 @@
 				msgAlert("warning", "提示", "请登录或注册帐号后登录");
 			}
 			alertInfoTestPC();
+			setUpLink();
 		});
 
 		function alertInfoTestPC() {
@@ -151,7 +152,7 @@
 					<h2 align="left" class="head_content">入学报名</h2>
 					<div class="CharData"></div>
 					<div class="fileChar"></div>
-					<div class="last_link">上次浏览：<span></span><a href="">点击进入</a></div>
+					<div class="last_link">上次浏览：<span id="link_name"></span><a href="">点击进入</a></div>
 					<div class="fj">
 
 						<a href="goSignup.html" class="fj_03" target="_blank">
