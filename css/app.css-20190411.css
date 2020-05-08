@@ -328,7 +328,7 @@ input[type="reset"] {
 	background-color: rgba(0, 0, 0, 0) !important;
 }
 
-.bottom {
+.bottom-mobile {
 	width: 100%;
 	min-width: 300px;
 	background-color: #282828;
@@ -341,7 +341,7 @@ input[type="reset"] {
 	z-index: 100;
 }
 
-.bottom a {
+.bottom-mobile a {
 	float: left;
 	width: 33%;
 	text-align: center;
@@ -350,24 +350,24 @@ input[type="reset"] {
 	color: #ffffff;
 }
 
-.bottom a .active {
+.bottom-mobile a .active {
 	color: #ff0000;
 	text-decoration: none;
 }
 
-.bottom.g_bg {
+.bottom-mobile.g_bg {
 	background-color: #009b26;
 }
 
-.bottom.gy_bg {
+.bottom-mobile.gy_bg {
 	background-color: #ccc;
 }
 
-.bottom.w_bg {
+.bottom-mobile.w_bg {
 	background-color: #ffffff;
 }
 
-.bottom.w_bg a {
+.bottom-mobile.w_bg a {
 	width: 40%;
 	background-color: #009b26;
 	margin-left: 5%;
@@ -1265,3 +1265,38 @@ input[type="reset"] {
 .bottom-active {
 	color: #3399FF;
 }
+.go-sign-btn{
+	float: right;
+	margin-right: 15px;
+}
+.go-sign-btn-2{
+	float: right;
+	margin-right: 15px;
+	color: #ffffff;
+	background-color: #3399FF;
+	height: 30px;
+	width: 60px;
+	line-height: 30px;
+	text-align: center;
+	border-radius: 5px;
+	border-left: 4px solid #3399FF;
+	margin-top: 15px;
+}
+.sign_ul_mobile{
+	list-style-type:none
+}
+.sign_ul_mobile li{
+	width: 45%;
+	float: left;
+	margin: 2.5%;
+}
+.sign_ul_mobile li div{
+	text-align: center;
+    height: 40px;
+    line-height: 40px;
+    border: solid 1px RGB(79, 86, 42);
+    border-radius: 10px;
+    background-color: RGB(140, 144, 122);
+    color: #ffffff;
+}
+

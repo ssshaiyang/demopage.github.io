@@ -25,7 +25,7 @@ function mobile_device_detect(url) {
         return false;
     }
 }
-mobile_device_detect("https://ssshaiyang.github.io/demopage.github.io/gowechat/choiceSchool.html");
+//mobile_device_detect("https://ssshaiyang.github.io/demopage.github.io/gowechat/choiceSchool.html");
 
 $(document).ready(function () {
 
@@ -92,4 +92,11 @@ function setUpLink() {
         $("#link_name").text(linkName)
     }
 
+}
+
+function setUpArea(){
+    var linkName = getCookie('linkName')
+    if (linkName) {
+        $("#area-name").text(linkName)
+    }
 }

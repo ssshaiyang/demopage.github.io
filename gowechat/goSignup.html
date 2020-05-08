@@ -20,28 +20,11 @@
     <script type="text/javascript" src="../js/wechat/app.info.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            alertInfoTestPC();
-            $($(".bottom").find("p")[0]).addClass("bottom-active");
-            $($(".bottom").find("img")[0]).attr("src", "../images/index-active.png");
+            $($(".bottom").find("p")[1]).addClass("bottom-active");
+            $($(".bottom").find("img")[1]).attr("src", "../images/add-account-active.png");
         });
 
-        function alertInfoTestPC() {
-            var htmls =
-                "<div style='background:#fff; padding:10px 10px;max-height:25em;overflow-y:auto;'><h2 style='color:red;text-align:center;'>温馨提示</h2>";
-            htmls +=
-                "<p style='text-indent:2em; color:#666; text-align:left;font-family:Microsoft YaHei; padding-top:10px; padding-bottom:10px;font-size:14px;'>各位家长，中心城区义务教育阶段新生入学网络报名已于5月30日18:00截止。因教育部门目前忙于学考和中考等重点工作，近段时间不受理新生入学咨询（含电话咨询）。6月28日-6月30日，将集中受理入学咨询、处理市中心城区户籍居民子女未网上报名和报名信息已保存但未提交等遗留问题。给您带来不便，敬请谅解！</p>";
-            htmls +=
-                "<p style='text-indent:2em; color:#666; text-align:left;font-family:Microsoft YaHei; padding-bottom:10px;font-size:14px;'>永兴县网上报名系统启动，报名截止时间7月1日-7月25日。资兴市网上报名系统启动，报名截止时间6月10日-7月10日。 请家长准备报名材料，并在规定时间内完成报名.若填报信息有误需修改，则点击“查看进度”再点击“申请修改”，等待审核通过后再点击“修改”就可以修改资料了，修改完确认无误后再点“提交”。</p>";
-
-            htmls +=
-                "<button style='width:200px; height:40px; line-height:40px; background-color:#0099FF; color:#fff; font-size:18px; font-weight:bolder; border:1px solid #0099FF;width:200px; height:40px; line-height:40px; background-color:#0099FF;border-radius: 19px; color:#fff; font-size:18px; font-weight:bolder; border:1px solid #0099FF;' onclick='sureSubmit2()'>我知道了</button>";
-            htmls += "</div>";
-            $('.msg_submit').html(htmls);
-            $('.msg_submit').animate({
-                'top': '2rem'
-            }, 1000);
-            $('.mask_s').show();
-        }
+        
 
         function sureSubmit2() {
             $('.msg_submit').animate({
@@ -62,17 +45,23 @@
                     <input type="hidden" name="openId" id="openId" value="" />
                 </div>
                 <!--  <p style="text-align: center; line-height: 40px;">网上报名时间：2019-04-25 08至06-30 18</p> -->
-                <h3 style="text-align: center; color: #2483EB;font-size:18px">按区学校介绍</h3>
-
-                <div class="a_div">
-                    <a href="choiceSchoolArea-pid=48&openId=.html" target="_self" class="button blue_btn">北湖区</a>
-                    <a class="grey" href="">进入报名</a>
-                </div>
-
-                <div class="a_div">
-                    <a href="choiceSchoolArea-pid=63&openId=.html" target="_self" class="button blue_btn">苏仙区</a>
-                    <a href="">进入报名</a>
-                </div>
+                <h3 style="text-align: center; color: #2483EB;font-size:18px">重要提示</h3>
+                <p style="font-size: 16px;letter-spacing: 1px; padding: 15px;">     请选择正确的行政区域报名入学，每一个行政区域必须使用身份证独立注册。同一身份证同时只能在一个入学区域进行入学申请审核。如已在一个行政区域申请并进入审核，该申请必须被驳回至初始申请状态（不在审核中），才能在其他行政区域重新正式提交申请。请勿随意跨区申请。
+                    <ul class="sign_ul_mobile">
+                        <li>
+                            <div onclick="saveLink(this)">111湖区</div>
+                        </li>
+                        <li>
+                            <div onclick="saveLink(this)">222湖区</div>
+                        </li>
+                        <li>
+                            <div onclick="saveLink(this)">333湖区</div>
+                        </li>
+                        <li>
+                            <div onclick="saveLink(this)">444湖区</div>
+                        </li>
+                    </ul>
+                
 
 
                 <!-- <div style="height: 70px; line-height: 26px; text-align: center;">
@@ -81,8 +70,8 @@
 
         </section>
         <footer>
-            <div class="bottom">
-                <a href="http://cz.xsbmxt.cn/wechat/user.jsp" target="_self" style="width:25%;">
+            <div class="bottom-mobile">
+                <a href="choiceSchool.html" target="_self" style="width:25%;">
                     <i><img src="../images/index.png" width="32" height="32"></i>
                     <p>首页</p>
                 </a>
@@ -90,7 +79,7 @@
                     <i><img src="../images/add-account.png" width="32" height="32"></i>
                     <p>我要报名</p>
                 </a>
-                <a href="http://cz.xsbmxt.cn/wechat/help.jsp" target="_self" style="width:25%;">
+                <a href="help.html" target="_self" style="width:25%;">
                     <i><img src="../images/help.png" width="32" height="32"></i>
                     <p>报名须知</p>
                 </a>

@@ -14,15 +14,22 @@
 	<meta http-equiv="Description" content="欢迎进入杭州市义务教育阶段新生入学报名系统" />
 
 	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<link href="css/app.css-20190411.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="js/focus.js"></script>
 	<script type="text/javascript" src="js/web/login.js"></script>
 	<script type="text/javascript" src="js/web/common.js"></script>
 	<script type="text/javascript" src="js/web/picture.info.js"></script>
 	<script type="text/javascript" src="js/web/index.info.js"></script>
+	<script type="text/javascript" src="/js/wechat/app.info.js"></script>
+	<script type="text/javascript" src="/js/wechat/validate.js-20170407"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function () {
+			$(document).ready(function () {
+			$($(".bottom-mobile").find("p")[0]).addClass("bottom-active");
+			$($(".bottom-mobile").find("img")[0]).attr("src", "images/index-active.png");
+		});
 			$($(".menu_ul").find("li")[0]).addClass("active");
 			var message = "";
 			var isweblogin = "";
@@ -61,562 +68,627 @@
 </head>
 
 <body>
-	<div id="header">
-		<div class="topbj" id="top">
-			<div class="top">
-				<div class="top_info">
-					<div class="l_f">
-						<span id="currDate"></span>
-						您好，欢迎来到杭州市2020年义务教育阶段新生报名系统！
-					</div>
-					<div class="r_f" id="user_div">
-						　　
-					</div>
-				</div>
-			</div>
-			<div style="clear:both"></div>
-			<div class="menu">
-				<div class="logo">
-					<div class="l_f">
-						<h1 style="color: #fff; font-size: 36px; font-weight: 600;">杭州市2020年义务教育阶段新生报名系统</h1>
-					</div>
-					<ul class="menu_ul">
-						<li><a href="index.html">首页</a></li>
-						<li><a href="areanewlist.html">新闻中心</a></li>
-						<li><a href="goChoiceSchool.html">学校介绍</a></li>
-						<li><a href="goSignup.html">报名入口页面</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="content">
-
-		<div class="banner">
-			<div class="banner">
-				<div class="banner_show" id="banner_show">
-					<a href="#" class="bannger_inbox"><img src="images/index_01.jpg" width="1920" height="528" /></a>
-					<a href="#" class="bannger_inbox" style="display: none;"><img src="images/index_02.jpg" width="1920"
-							height="528" /></a>
-					<a href="#" class="bannger_inbox" style="display: none;"><img src="images/index_03.jpg" width="1920"
-							height="528" /></a>
-					<a href="#" class="bannger_inbox" style="display: none;"><img src="images/index_04.jpg" width="1920"
-							height="528" /></a>
-					<div class="banner_mag">
-						<div class="yq_banner_list" id="yq_banner_list">
-							<a href="javascript:;" rel="0" class="hover">&nbsp;</a>
-							<a href="javascript:;" rel="1">&nbsp;</a>
-							<a href="javascript:;" rel="2">&nbsp;</a>
-							<a href="javascript:;" rel="3">&nbsp;</a>
+	<div class="pc">
+		<div id="header">
+			<div class="topbj" id="top">
+				<div class="top">
+					<div class="top_info">
+						<div class="l_f">
+							<span id="currDate"></span>
+							您好，欢迎来到杭州市2020年义务教育阶段新生报名系统！
+						</div>
+						<div class="r_f" id="user_div">
+							　　
 						</div>
 					</div>
-					<div class="banner_pre_next">
-						<a href="javascript:;" class="banner_btn_left">上一个</a>
-						<a href="javascript:;" class="banner_btn_right">下一个</a>
+				</div>
+				<div style="clear:both"></div>
+				<div class="menu">
+					<div class="logo">
+						<div class="l_f">
+							<h1 style="color: #fff; font-size: 36px; font-weight: 600;">杭州市2020年义务教育阶段新生报名系统</h1>
+						</div>
+						<ul class="menu_ul">
+							<li><a href="index.html">首页</a></li>
+							<li><a href="areanewlist.html">新闻中心</a></li>
+							<li><a href="goChoiceSchool.html">学校介绍</a></li>
+							<li><a href="goSignup.html">报名入口页面</a></li>
+						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div id="parent_content">
-			<div class="content" id="news_content">
-				<div style="text-align: center;">
-					<div style="position: relative;">
-						<h2 align="left" style="width: 200px;" class="head_content">新闻中心 / NEWS</h2>
-						<span style="position: absolute;top:6px;right: 6px;"><a href="areanewlist.html" id="many_news"
-								class="more">更多</a></span>
-					</div>
-					<div class="CharData"></div>
-					<div class="newsChar"></div>
-				</div>
-				<div class="new_pic">
-					<div id="scrollPics">
-						<ul class="slider">
-							<li class="sli0"><img src="images/img.jpg" /></li>
-							<li class="sli1"><img src="images/img01.jpg" /></li>
-						</ul>
-						<ul class="num">
-							<li><a class="li0"></a></li>
-							<li><a class="li1"></a></li>
-						</ul>
-					</div>
-				</div>
-				<ul class="news_ul">
-					<li>
-						<a href="goNewInfo.html" title="2019杭州市义务教育阶段学校新生入学政策解读" target="_blank">待替换文章</a>
-						<span>[2019-03-27]</span>
-					</li>
-				</ul>
-			</div>
-			<div class="content" id="attach_content">
-				<div style="text-align: center;width: 225px;">
-					<h2 align="left" class="head_content">入学报名</h2>
-					<div class="CharData"></div>
-					<div class="fileChar"></div>
-					<div class="last_link">上次浏览：<span id="link_name"></span><a href="">点击进入</a></div>
-					<div class="fj">
+		<div id="content">
 
-						<a href="goSignup.html" class="fj_03" target="_blank">
-							<span>我要报名</span>
-							<br />
-							SIGN UP ENTRY
-						</a>
-						<a href="help.pdf" class="fj_01" target="_blank">
-							<span>操作指南</span>
-							<br />
-							OPERATION MANUAL
-						</a>
-						<a href="goNewInfo.html" class="fj_02" target="_blank">
-							<span>报名须知</span>
-							<br />
-							CONDITIONS OVERLEAF
-						</a>
+			<div class="banner">
+				<div class="banner">
+					<div class="banner_show" id="banner_show">
+						<a href="#" class="bannger_inbox"><img src="images/index_01.jpg" width="1920"
+								height="528" /></a>
+						<a href="#" class="bannger_inbox" style="display: none;"><img src="images/index_02.jpg"
+								width="1920" height="528" /></a>
+						<a href="#" class="bannger_inbox" style="display: none;"><img src="images/index_03.jpg"
+								width="1920" height="528" /></a>
+						<a href="#" class="bannger_inbox" style="display: none;"><img src="images/index_04.jpg"
+								width="1920" height="528" /></a>
+						<div class="banner_mag">
+							<div class="yq_banner_list" id="yq_banner_list">
+								<a href="javascript:;" rel="0" class="hover">&nbsp;</a>
+								<a href="javascript:;" rel="1">&nbsp;</a>
+								<a href="javascript:;" rel="2">&nbsp;</a>
+								<a href="javascript:;" rel="3">&nbsp;</a>
+							</div>
+						</div>
+						<div class="banner_pre_next">
+							<a href="javascript:;" class="banner_btn_left">上一个</a>
+							<a href="javascript:;" class="banner_btn_right">下一个</a>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="select_school">
-				<div style="position: relative;" id="a-commentId">
-					<h2 align="left" class="head_content" style="margin-bottom: 5px;">学校介绍/ SCHOOL</h2>
-					<span style="position: absolute;top:6px;right: 6px;"><a href="goChoiceSchool.html" id="many_news"
-							class="more">更多</a></span>
-					<div class="city_div" style="position: absolute;">
-						<ul class="city_ul">
-							<li>
-								<a class="acl-name  on " data-val="0" data-key="48">北湖区</a>
-								<div class="trigon_div"></div>
-							</li>
-							<li>
-								<a class="acl-name " data-val="1" data-key="63">苏仙区</a>
-								<div class="trigon_div none"></div>
-							</li>
-							<li>
-								<a class="acl-name " data-val="2" data-key="99">高新区(六十七完小)</a>
-								<div class="trigon_div none"></div>
-							</li>
-							<li>
-								<a class="acl-name " data-val="3" data-key="105">市直属</a>
-								<div class="trigon_div none"></div>
-							</li>
-							<li>
-								<a class="acl-name " data-val="4" data-key="139">桂阳县</a>
-								<div class="trigon_div none"></div>
-							</li>
-							<li>
-								<a class="acl-name " data-val="5" data-key="140">临武县</a>
-								<div class="trigon_div none"></div>
-							</li>
-							<li>
-								<a class="acl-name " data-val="6" data-key="141">嘉禾县</a>
-								<div class="trigon_div none"></div>
-							</li>
-							<li>
-								<a class="acl-name " data-val="7" data-key="142">资兴市</a>
-								<div class="trigon_div none"></div>
-							</li>
-							<li>
-								<a class="acl-name " data-val="8" data-key="143">永兴县</a>
-								<div class="trigon_div none"></div>
-							</li>
-							<li>
-								<a class="acl-name " data-val="9" data-key="144">宜章县</a>
-								<div class="trigon_div none"></div>
-							</li>
-							<li>
-								<a class="acl-name " data-val="10" data-key="145">汝城县</a>
-								<div class="trigon_div none"></div>
-							</li>
-							<li>
-								<a class="acl-name " data-val="11" data-key="147">安仁县</a>
-								<div class="trigon_div none"></div>
-							</li>
-						</ul>
+			<div id="parent_content">
+				<div class="content" id="news_content">
+					<div style="text-align: center;">
+						<div style="position: relative;">
+							<h2 align="left" style="width: 200px;" class="head_content">新闻中心 / NEWS</h2>
+							<span style="position: absolute;top:6px;right: 6px;"><a href="areanewlist.html"
+									id="many_news" class="more">更多</a></span>
+						</div>
+						<div class="CharData"></div>
+						<div class="newsChar"></div>
 					</div>
-					<div class="CharData"></div>
-					<div class="schoolChar"></div>
+					<div class="new_pic">
+						<div id="scrollPics">
+							<ul class="slider">
+								<li class="sli0"><img src="images/img.jpg" /></li>
+								<li class="sli1"><img src="images/img01.jpg" /></li>
+							</ul>
+							<ul class="num">
+								<li><a class="li0"></a></li>
+								<li><a class="li1"></a></li>
+							</ul>
+						</div>
+					</div>
+					<ul class="news_ul">
+						<li>
+							<a href="goNewInfo.html" title="2019杭州市义务教育阶段学校新生入学政策解读" target="_blank">待替换文章</a>
+							<span>[2019-03-27]</span>
+						</li>
+					</ul>
 				</div>
-				<ul class="school_ul" style="margin: 2em 2em;">
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=53&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市二完小</p>
-								<p class="ctn">地址：湖南省杭州市北湖区北湖路32号</p>
-								<p class="ctn">招生热线：0735-2121306</p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=54&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市四十三完小</p>
-								<p class="ctn">地址：湖南省杭州市北湖区骆仙街道高壁村（新107国道与同心路交叉路口向西前行100米）</p>
-								<p class="ctn">招生热线：0735—2373937 </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=56&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市五中</p>
-								<p class="ctn">地址：湖南省杭州市北湖区竹叶冲路11号</p>
-								<p class="ctn">招生热线：2355070 </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=57&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市三完小</p>
-								<p class="ctn">地址：湖南省杭州市北湖区杭州市东风路4号</p>
-								<p class="ctn">招生热线： 0735—2859611 </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=58&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市十九完小</p>
-								<p class="ctn">地址：湖南省杭州市北湖区人民西路24号</p>
-								<p class="ctn">招生热线：0735-2332615 </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=59&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市十八完小</p>
-								<p class="ctn">地址：湖南省杭州市北湖区工业大道38号</p>
-								<p class="ctn">招生热线： 0735—2262280</p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=60&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市二十完小</p>
-								<p class="ctn">地址：湖南省杭州市北湖区香雪路4号</p>
-								<p class="ctn">招生热线： </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=61&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市十七完小</p>
-								<p class="ctn">地址：湖南省杭州市北湖区下湄桥街道铜坑湖村</p>
-								<p class="ctn">招生热线： 0735—2268477</p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=63&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市十一完小</p>
-								<p class="ctn">地址：湖南省杭州市北湖区南岭大道黄毛奎巷36号</p>
-								<p class="ctn">招生热线： 2829531</p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=65&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市四十一完小</p>
-								<p class="ctn">地址：湖南省杭州市北湖区香雪路369号</p>
-								<p class="ctn">招生热线： 0735---2990031 </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=66&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市第三十九完全小学</p>
-								<p class="ctn">地址：湖南省杭州市民权路东湾居民区</p>
-								<p class="ctn">招生热线： 07352322175 </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=67&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市十六完小</p>
-								<p class="ctn">地址：湖南省杭州市青年大道43号</p>
-								<p class="ctn">招生热线： 0735-7685056 </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=68&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市二十二完小</p>
-								<p class="ctn">地址：湖南省杭州市北湖区五岭大道12号</p>
-								<p class="ctn">招生热线：(0735)2182098 </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=69&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市二十二中(小学部)</p>
-								<p class="ctn">地址：湖南省杭州市杭州市国庆南路延伸段槐树下村</p>
-								<p class="ctn">招生热线： </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=70&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市四中</p>
-								<p class="ctn">地址：湖南省杭州市北湖区工业大道37号（下湄桥温泉路）</p>
-								<p class="ctn">招生热线： 0735--2832175 0735—2831675 </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=71&orgId=103.html" target="_blank">
-							<img src="../storage.xsbmxt.com/fl_c8edbc5d73b94da79686591f054c7aa3.jpg"
-								style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市四十完小</p>
-								<p class="ctn">地址：湖南省杭州市杭州市南岭大道拥军支路</p>
-								<p class="ctn">招生热线：0735-2230970 </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=73&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市十八中(初中部)</p>
-								<p class="ctn">地址：湖南省杭州市杭州市国庆北路28号</p>
-								<p class="ctn">招生热线： 0735—6777195 </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=75&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市九完小</p>
-								<p class="ctn">地址：湖南省杭州市杭州市北湖区中山西街八号</p>
-								<p class="ctn">招生热线： 0735-2831562 </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=76&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市九中</p>
-								<p class="ctn">地址：湖南省杭州市五岭广场北侧的燕泉南路29号</p>
-								<p class="ctn">招生热线： 0735-2863513 </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=78&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市十八中(小学部)</p>
-								<p class="ctn">地址：湖南省杭州市北湖区国庆北路28号</p>
-								<p class="ctn">招生热线： 0735—6777195 </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=88&orgId=103.html" target="_blank">
-							<img src="../storage.xsbmxt.com/fl_f73359e92b234ae0ab4313a87b2f5938.JPG"
-								style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市四十二完小</p>
-								<p class="ctn">地址：湖南省杭州市北湖区华府路1号恒大华府斜对面</p>
-								<p class="ctn">招生热线：0735—2380512 </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=94&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">北湖实验学校(小学部)</p>
-								<p class="ctn">地址：湖南省杭州市骆仙东路</p>
-								<p class="ctn">招生热线：0735-2158513 </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=98&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市十九中(小学部)</p>
-								<p class="ctn">地址：湖南省杭州市北湖区九子塘路与梨树山大道交汇处</p>
-								<p class="ctn">招生热线：0735—2283010 </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=107&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">北湖实验学校(初中部)</p>
-								<p class="ctn">地址：湖南省杭州市骆仙东路</p>
-								<p class="ctn">招生热线：0735-2150949 </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=116&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市十九中(初中部)</p>
-								<p class="ctn">地址：湖南省杭州市北湖区九子塘路与梨树山大道交汇处</p>
-								<p class="ctn">招生热线： </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=117&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市湖南师大附属五雅中学(初中部)</p>
-								<p class="ctn">地址：湖南省杭州市北湖区华府路1号</p>
-								<p class="ctn">招生热线：0735-7777577、7777677 </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=118&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市第四十六完全小学</p>
-								<p class="ctn">地址：湖南省杭州市北湖区</p>
-								<p class="ctn">招生热线： </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=148&orgId=103.html" target="_blank">
-							<img src="../cz.storage.xsbmxt.com/fl_092cf9f082e04618858c57bb099e8631.png"
-								style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市四十四完小</p>
-								<p class="ctn">地址：湖南省杭州市高铁西站兴城路（月形山公园旁）</p>
-								<p class="ctn">招生热线： </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=149&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市八完小</p>
-								<p class="ctn">地址：湖南省杭州市杭州市同心路38号</p>
-								<p class="ctn">招生热线： 0735-2820198 </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=150&orgId=103.html" target="_blank">
-							<img src="../cz.storage.xsbmxt.com/fl_95c3096c3aa64dc3b50c8900acb30d22.jpg"
-								style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市四十五完小</p>
-								<p class="ctn">地址：湖南省杭州市北湖区</p>
-								<p class="ctn">招生热线： </p>
-							</div>
-						</a>
-					</li>
-					<li style="height: 80px;">
-						<a href="goSchoolInfo-id=166&orgId=103.html" target="_blank">
-							<img src="images/school.png" style="float: left;" height="53" width="53" />
-							<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
-								<p class="title">杭州市六完小</p>
-								<p class="ctn">地址：湖南省杭州市杭州市建设里路122号</p>
-								<p class="ctn">招生热线： </p>
-							</div>
-						</a>
-					</li>
-				</ul>
-				<ul class="school_ul none" style="margin: 2em 2em;"></ul>
-				<ul class="school_ul none" style="margin: 2em 2em;"></ul>
-				<ul class="school_ul none" style="margin: 2em 2em;"></ul>
-				<ul class="school_ul none" style="margin: 2em 2em;"></ul>
-				<ul class="school_ul none" style="margin: 2em 2em;"></ul>
-				<ul class="school_ul none" style="margin: 2em 2em;"></ul>
-				<ul class="school_ul none" style="margin: 2em 2em;"></ul>
-				<ul class="school_ul none" style="margin: 2em 2em;"></ul>
-				<ul class="school_ul none" style="margin: 2em 2em;"></ul>
-				<ul class="school_ul none" style="margin: 2em 2em;"></ul>
-				<ul class="school_ul none" style="margin: 2em 2em;"></ul>
-				<ul class="school_ul none" style="margin: 2em 2em;"></ul>
-				<ul class="school_ul none" style="margin: 2em 2em;"></ul>
-				<ul class="school_ul none" style="margin: 2em 2em;"></ul>
-				<ul class="school_ul none" style="margin: 2em 2em;"></ul>
+				<div class="content" id="attach_content">
+					<div style="text-align: center;width: 225px;">
+						<h2 align="left" class="head_content">入学报名</h2>
+						<div class="CharData"></div>
+						<div class="fileChar"></div>
+						<div class="last_link">上次浏览：<span id="link_name"></span><a href="">点击进入</a></div>
+						<div class="fj">
+
+							<a href="goSignup.html" class="fj_03" target="_blank">
+								<span>我要报名</span>
+								<br />
+								SIGN UP ENTRY
+							</a>
+							<a href="help.pdf" class="fj_01" target="_blank">
+								<span>操作指南</span>
+								<br />
+								OPERATION MANUAL
+							</a>
+							<a href="goNewInfo.html" class="fj_02" target="_blank">
+								<span>报名须知</span>
+								<br />
+								CONDITIONS OVERLEAF
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="select_school">
+					<div style="position: relative;" id="a-commentId">
+						<h2 align="left" class="head_content" style="margin-bottom: 5px;">学校介绍/ SCHOOL</h2>
+						<span style="position: absolute;top:6px;right: 6px;"><a href="goChoiceSchool.html"
+								id="many_news" class="more">更多</a></span>
+						<div class="city_div" style="position: absolute;">
+							<ul class="city_ul">
+								<li>
+									<a class="acl-name  on " data-val="0" data-key="48">北湖区</a>
+									<div class="trigon_div"></div>
+								</li>
+								<li>
+									<a class="acl-name " data-val="1" data-key="63">苏仙区</a>
+									<div class="trigon_div none"></div>
+								</li>
+								<li>
+									<a class="acl-name " data-val="2" data-key="99">高新区(六十七完小)</a>
+									<div class="trigon_div none"></div>
+								</li>
+								<li>
+									<a class="acl-name " data-val="3" data-key="105">市直属</a>
+									<div class="trigon_div none"></div>
+								</li>
+								<li>
+									<a class="acl-name " data-val="4" data-key="139">桂阳县</a>
+									<div class="trigon_div none"></div>
+								</li>
+								<li>
+									<a class="acl-name " data-val="5" data-key="140">临武县</a>
+									<div class="trigon_div none"></div>
+								</li>
+								<li>
+									<a class="acl-name " data-val="6" data-key="141">嘉禾县</a>
+									<div class="trigon_div none"></div>
+								</li>
+								<li>
+									<a class="acl-name " data-val="7" data-key="142">资兴市</a>
+									<div class="trigon_div none"></div>
+								</li>
+								<li>
+									<a class="acl-name " data-val="8" data-key="143">永兴县</a>
+									<div class="trigon_div none"></div>
+								</li>
+								<li>
+									<a class="acl-name " data-val="9" data-key="144">宜章县</a>
+									<div class="trigon_div none"></div>
+								</li>
+								<li>
+									<a class="acl-name " data-val="10" data-key="145">汝城县</a>
+									<div class="trigon_div none"></div>
+								</li>
+								<li>
+									<a class="acl-name " data-val="11" data-key="147">安仁县</a>
+									<div class="trigon_div none"></div>
+								</li>
+							</ul>
+						</div>
+						<div class="CharData"></div>
+						<div class="schoolChar"></div>
+					</div>
+					<ul class="school_ul" style="margin: 2em 2em;">
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=53&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市二完小</p>
+									<p class="ctn">地址：湖南省杭州市北湖区北湖路32号</p>
+									<p class="ctn">招生热线：0735-2121306</p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=54&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市四十三完小</p>
+									<p class="ctn">地址：湖南省杭州市北湖区骆仙街道高壁村（新107国道与同心路交叉路口向西前行100米）</p>
+									<p class="ctn">招生热线：0735—2373937 </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=56&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市五中</p>
+									<p class="ctn">地址：湖南省杭州市北湖区竹叶冲路11号</p>
+									<p class="ctn">招生热线：2355070 </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=57&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市三完小</p>
+									<p class="ctn">地址：湖南省杭州市北湖区杭州市东风路4号</p>
+									<p class="ctn">招生热线： 0735—2859611 </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=58&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市十九完小</p>
+									<p class="ctn">地址：湖南省杭州市北湖区人民西路24号</p>
+									<p class="ctn">招生热线：0735-2332615 </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=59&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市十八完小</p>
+									<p class="ctn">地址：湖南省杭州市北湖区工业大道38号</p>
+									<p class="ctn">招生热线： 0735—2262280</p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=60&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市二十完小</p>
+									<p class="ctn">地址：湖南省杭州市北湖区香雪路4号</p>
+									<p class="ctn">招生热线： </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=61&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市十七完小</p>
+									<p class="ctn">地址：湖南省杭州市北湖区下湄桥街道铜坑湖村</p>
+									<p class="ctn">招生热线： 0735—2268477</p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=63&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市十一完小</p>
+									<p class="ctn">地址：湖南省杭州市北湖区南岭大道黄毛奎巷36号</p>
+									<p class="ctn">招生热线： 2829531</p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=65&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市四十一完小</p>
+									<p class="ctn">地址：湖南省杭州市北湖区香雪路369号</p>
+									<p class="ctn">招生热线： 0735---2990031 </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=66&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市第三十九完全小学</p>
+									<p class="ctn">地址：湖南省杭州市民权路东湾居民区</p>
+									<p class="ctn">招生热线： 07352322175 </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=67&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市十六完小</p>
+									<p class="ctn">地址：湖南省杭州市青年大道43号</p>
+									<p class="ctn">招生热线： 0735-7685056 </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=68&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市二十二完小</p>
+									<p class="ctn">地址：湖南省杭州市北湖区五岭大道12号</p>
+									<p class="ctn">招生热线：(0735)2182098 </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=69&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市二十二中(小学部)</p>
+									<p class="ctn">地址：湖南省杭州市杭州市国庆南路延伸段槐树下村</p>
+									<p class="ctn">招生热线： </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=70&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市四中</p>
+									<p class="ctn">地址：湖南省杭州市北湖区工业大道37号（下湄桥温泉路）</p>
+									<p class="ctn">招生热线： 0735--2832175 0735—2831675 </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=71&orgId=103.html" target="_blank">
+								<img src="../storage.xsbmxt.com/fl_c8edbc5d73b94da79686591f054c7aa3.jpg"
+									style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市四十完小</p>
+									<p class="ctn">地址：湖南省杭州市杭州市南岭大道拥军支路</p>
+									<p class="ctn">招生热线：0735-2230970 </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=73&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市十八中(初中部)</p>
+									<p class="ctn">地址：湖南省杭州市杭州市国庆北路28号</p>
+									<p class="ctn">招生热线： 0735—6777195 </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=75&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市九完小</p>
+									<p class="ctn">地址：湖南省杭州市杭州市北湖区中山西街八号</p>
+									<p class="ctn">招生热线： 0735-2831562 </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=76&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市九中</p>
+									<p class="ctn">地址：湖南省杭州市五岭广场北侧的燕泉南路29号</p>
+									<p class="ctn">招生热线： 0735-2863513 </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=78&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市十八中(小学部)</p>
+									<p class="ctn">地址：湖南省杭州市北湖区国庆北路28号</p>
+									<p class="ctn">招生热线： 0735—6777195 </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=88&orgId=103.html" target="_blank">
+								<img src="../storage.xsbmxt.com/fl_f73359e92b234ae0ab4313a87b2f5938.JPG"
+									style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市四十二完小</p>
+									<p class="ctn">地址：湖南省杭州市北湖区华府路1号恒大华府斜对面</p>
+									<p class="ctn">招生热线：0735—2380512 </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=94&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">北湖实验学校(小学部)</p>
+									<p class="ctn">地址：湖南省杭州市骆仙东路</p>
+									<p class="ctn">招生热线：0735-2158513 </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=98&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市十九中(小学部)</p>
+									<p class="ctn">地址：湖南省杭州市北湖区九子塘路与梨树山大道交汇处</p>
+									<p class="ctn">招生热线：0735—2283010 </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=107&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">北湖实验学校(初中部)</p>
+									<p class="ctn">地址：湖南省杭州市骆仙东路</p>
+									<p class="ctn">招生热线：0735-2150949 </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=116&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市十九中(初中部)</p>
+									<p class="ctn">地址：湖南省杭州市北湖区九子塘路与梨树山大道交汇处</p>
+									<p class="ctn">招生热线： </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=117&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市湖南师大附属五雅中学(初中部)</p>
+									<p class="ctn">地址：湖南省杭州市北湖区华府路1号</p>
+									<p class="ctn">招生热线：0735-7777577、7777677 </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=118&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市第四十六完全小学</p>
+									<p class="ctn">地址：湖南省杭州市北湖区</p>
+									<p class="ctn">招生热线： </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=148&orgId=103.html" target="_blank">
+								<img src="../cz.storage.xsbmxt.com/fl_092cf9f082e04618858c57bb099e8631.png"
+									style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市四十四完小</p>
+									<p class="ctn">地址：湖南省杭州市高铁西站兴城路（月形山公园旁）</p>
+									<p class="ctn">招生热线： </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=149&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市八完小</p>
+									<p class="ctn">地址：湖南省杭州市杭州市同心路38号</p>
+									<p class="ctn">招生热线： 0735-2820198 </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=150&orgId=103.html" target="_blank">
+								<img src="../cz.storage.xsbmxt.com/fl_95c3096c3aa64dc3b50c8900acb30d22.jpg"
+									style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市四十五完小</p>
+									<p class="ctn">地址：湖南省杭州市北湖区</p>
+									<p class="ctn">招生热线： </p>
+								</div>
+							</a>
+						</li>
+						<li style="height: 80px;">
+							<a href="goSchoolInfo-id=166&orgId=103.html" target="_blank">
+								<img src="images/school.png" style="float: left;" height="53" width="53" />
+								<div style="float: left; margin-left: 10px; width: 250px; white-space:normal;">
+									<p class="title">杭州市六完小</p>
+									<p class="ctn">地址：湖南省杭州市杭州市建设里路122号</p>
+									<p class="ctn">招生热线： </p>
+								</div>
+							</a>
+						</li>
+					</ul>
+					<ul class="school_ul none" style="margin: 2em 2em;"></ul>
+					<ul class="school_ul none" style="margin: 2em 2em;"></ul>
+					<ul class="school_ul none" style="margin: 2em 2em;"></ul>
+					<ul class="school_ul none" style="margin: 2em 2em;"></ul>
+					<ul class="school_ul none" style="margin: 2em 2em;"></ul>
+					<ul class="school_ul none" style="margin: 2em 2em;"></ul>
+					<ul class="school_ul none" style="margin: 2em 2em;"></ul>
+					<ul class="school_ul none" style="margin: 2em 2em;"></ul>
+					<ul class="school_ul none" style="margin: 2em 2em;"></ul>
+					<ul class="school_ul none" style="margin: 2em 2em;"></ul>
+					<ul class="school_ul none" style="margin: 2em 2em;"></ul>
+					<ul class="school_ul none" style="margin: 2em 2em;"></ul>
+					<ul class="school_ul none" style="margin: 2em 2em;"></ul>
+					<ul class="school_ul none" style="margin: 2em 2em;"></ul>
+					<ul class="school_ul none" style="margin: 2em 2em;"></ul>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div id="footer">
-		<div style="clear:both;"></div>
-		<div class="bottom" style="height: 120px; padding-top: 10px;">
-			<div style="padding-bottom: 0; width:1000px; margin: auto;">
-				<div style="width: 700px; float: left; text-align: left;">
-					<p>主办单位：杭州市教育局</p>
-					<p></p>
-					<!-- <p><a href="http://beian.miit.gov.cn/" style="color: #fff;" target="_blank">湘ICP备14004282号-9</a>　　　
+		<div id="footer">
+			<div style="clear:both;"></div>
+			<div class="bottom" style="height: 120px; padding-top: 10px;">
+				<div style="padding-bottom: 0; width:1000px; margin: auto;">
+					<div style="width: 700px; float: left; text-align: left;">
+						<p>主办单位：杭州市教育局</p>
+						<p></p>
+						<!-- <p><a href="http://beian.miit.gov.cn/" style="color: #fff;" target="_blank">湘ICP备14004282号-9</a>　　　
 					</p> -->
-					<p><a href="gologin.html" style="color: #fff;" target="_blank">管理员登录入口</a></p>
-				</div>
-				<div style="float: right; padding-left: 30px;">
-					<img src="images/wechat.jpg" width="90" height="90" />
-					<p>【微信扫一扫】</p>
+						<p><a href="gologin.html" style="color: #fff;" target="_blank">管理员登录入口</a></p>
+					</div>
+					<div style="float: right; padding-left: 30px;">
+						<img src="images/wechat.jpg" width="90" height="90" />
+						<p>【微信扫一扫】</p>
+					</div>
 				</div>
 			</div>
+
 		</div>
+		<script type="text/jscript">
+			//滚动广告
+			var len = $(".num > li").length;
+			$(".slider").css("width", 400 * len + "px");
+			var index = 0; //图片序号
+			var adTimer;
+			$(".num li").mouseover(function () {
+				index = $(".num li").index(this); //获取鼠标悬浮 li 的index
+				showImg(index);
+			}).eq(0).mouseover();
+			//滑入停止动画，滑出开始动画.
+			$('#scrollPics').hover(function () {
+				clearInterval(adTimer);
+			}, function () {
+				adTimer = setInterval(function () {
+					showImg(index)
+					index++;
+					if (index == len) { //最后一张图片之后，转到第一张
+						index = 0;
+					}
+				}, 4000);
+			}).trigger("mouseleave");
 
+			function showImg(index) {
+				var adHeight = $("#scrollPics>ul>li:first").width();
+				$(".slider").stop(true, false).animate({
+					"marginLeft": -adHeight * index + "px" //改变 marginTop 属性的值达到轮播的效果
+				}, 10);
+				$(".num li a").removeClass("on").eq(index).addClass("on");
+			}
+		</script>
 	</div>
-	<script type="text/jscript">
-		//滚动广告
-		var len = $(".num > li").length;
-		$(".slider").css("width", 400 * len + "px");
-		var index = 0; //图片序号
-		var adTimer;
-		$(".num li").mouseover(function () {
-			index = $(".num li").index(this); //获取鼠标悬浮 li 的index
-			showImg(index);
-		}).eq(0).mouseover();
-		//滑入停止动画，滑出开始动画.
-		$('#scrollPics').hover(function () {
-			clearInterval(adTimer);
-		}, function () {
-			adTimer = setInterval(function () {
-				showImg(index)
-				index++;
-				if (index == len) { //最后一张图片之后，转到第一张
-					index = 0;
-				}
-			}, 4000);
-		}).trigger("mouseleave");
-
-		function showImg(index) {
-			var adHeight = $("#scrollPics>ul>li:first").width();
-			$(".slider").stop(true, false).animate({
-				"marginLeft": -adHeight * index + "px" //改变 marginTop 属性的值达到轮播的效果
-			}, 10);
-			$(".num li a").removeClass("on").eq(index).addClass("on");
-		}
-	</script>
+	<div class="mobile">
+		<div data-role="page" class="containter">
+			<section class="body" data-role="body">
+				<div class="goodslist">
+					<img src="images/wechatbg.jpg" width="100%" />
+					<div style="text-align: center; margin-top: 2px;">
+						<input type="hidden" name="openId" id="openId" value="" />
+					</div>
+					<!--  <p style="text-align: center; line-height: 40px;">网上报名时间：2019-04-25 08至06-30 18</p> -->
+					<h3 style="text-align: center; color: #2483EB;font-size:18px">按区学校介绍</h3>
+	
+					<div class="a_div">
+						<a href="goChoiceSchool.html" target="_self" onclick="saveLink(this)" class="button blue_btn">北湖区</a>
+						<a class="grey" href="">进入报名</a>
+					</div>
+	
+					<div class="a_div">
+						<a href="goChoiceSchool.html" onclick="saveLink(this)" target="_self" class="button blue_btn">苏仙区</a>
+						<a href="">进入报名</a>
+					</div>
+	
+	
+					<!-- <div style="height: 70px; line-height: 26px; text-align: center;">
+						如遇到系统操作问题，请咨询电话热线：4008087989<br />（周一至周五：8：30-17：30）</div> -->
+				</div>
+	
+			</section>
+			<footer>
+				<div class="bottom-mobile">
+					<a href="index.html" target="_self" style="width:25%;">
+						<i><img src="images/index.png" width="32" height="32"></i>
+						<p>首页</p>
+					</a>
+					<a href="goSignup.html" target="_self" style="width:25%;">
+						<i><img src="images/add-account.png" width="32" height="32"></i>
+						<p>我要报名</p>
+					</a>
+					<a href="help.html" target="_self" style="width:25%;">
+						<i><img src="images/help.png" width="32" height="32"></i>
+						<p>报名须知</p>
+					</a>
+					<a href="areanewlist.html" target="_self" style="width:25%;">
+						<i><img src="images/p_02.png" width="32" height="32"></i>
+						<p>新闻中心</p>
+					</a>
+				</div>
+	
+	
+			</footer>
+		</div>
+		<div class="mask_win opacity_win areawin"></div>
+		<div class="wins areawin">
+			<div class="wins_panel">
+				<div style="text-align: right;"><input type="button" class="g_btn" value="关 闭"
+						onclick="javascript:$('.areawin').hide();"
+						style="background: #fff; width: 80px; color: #000; margin-top: 0px; border: none;" /></div>
+				<div style="clear: both;"></div>
+				<h2 style="text-align: center;">请选择招生区域</h2>
+				<div id="areas_div"></div>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>

@@ -1435,3 +1435,10 @@ img {
 .last_link a:active {
     color: #FF0000
 }
+
+@media screen and (min-width:900px) {
+	.mobile {display: none;}
+  }
+  @media screen and (max-width:900px) {
+	.pc {display: none;}
+  }
