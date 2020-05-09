@@ -79,6 +79,7 @@ function getCookie(name) {
 }
 
 function saveLink(obj) {
+    location.href="pleaseBack.html"
     var tmp = obj
     var linkName = $(tmp).html()
     console.log(linkName);
