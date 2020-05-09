@@ -655,7 +655,7 @@ input[type="reset"] {
 	color: #fff;
 	border: solid 1px #3399FF;
 	background: #3399FF;
-	width: 75%;
+	width: 68%;
 	margin-left: 5%;
 	padding: .6em 0;
 	margin-top: 1em;
@@ -1268,6 +1268,13 @@ input[type="reset"] {
 .go-sign-btn{
 	float: right;
 	margin-right: 15px;
+	
+}
+.go-sign-btn a{
+	color: #ffffff;
+}
+.go-sign-btn-2 a{
+	color: #ffffff;
 }
 .go-sign-btn-2{
 	float: right;
@@ -1282,6 +1289,18 @@ input[type="reset"] {
 	border-left: 4px solid #3399FF;
 	margin-top: 15px;
 }
+.go-sign-index-btn{
+	display: inline-block;
+	color: #fff;
+    border: solid 1px #FF9933;
+    background: #FF9933;
+	width: 20%;
+	text-align: center;
+	border-radius: 8px;
+    margin-left: 1%;
+    padding: .6em 0;
+    margin-top: 1em;
+}
 .sign_ul_mobile{
 	list-style-type:none
 }
@@ -1291,12 +1310,14 @@ input[type="reset"] {
 	margin: 2.5%;
 }
 .sign_ul_mobile li div{
+	cursor: pointer	;
+	font-size:   18px;
 	text-align: center;
     height: 40px;
     line-height: 40px;
-    border: solid 1px RGB(79, 86, 42);
+    border: solid 1px #3399FF;
     border-radius: 10px;
-    background-color: RGB(140, 144, 122);
+    background-color: #3399FF;
     color: #ffffff;
 }
 
