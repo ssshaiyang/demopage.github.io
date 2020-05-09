@@ -13,6 +13,7 @@
 	<script type="text/javascript" src="js/web/common.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
+			setUpArea()
 			$($(".bottom-mobile").find("p")[0]).addClass("bottom-active");
 			$($(".bottom-mobile").find("img")[0]).attr("src", "images/index-active.png");
 			$($(".menu_ul").find("li")[2]).addClass("active");
@@ -123,7 +124,7 @@
 	<div data-role="page" class="containter">
 		<div data-role="header" class="head bg">
 			<div class="l_span search"><span id="area-name"></span>学校介绍</div>
-			<span class="go-sign-btn">进入报名</span>
+			<span class="go-sign-btn"><a href="pleaseBack.html">进入报名</a></span>
 		</div>
 		<section class="body" data-role="body">
 			<div class="goodslist">
