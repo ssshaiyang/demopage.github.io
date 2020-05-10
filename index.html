@@ -18,47 +18,32 @@
 	<link href="css/style.css" rel="stylesheet" type="text/css" />
 	<link href="css/app.css-20190411.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-	<script type="text/javascript" src="js/focus.js"></script>
 	<script type="text/javascript" src="js/web/login.js"></script>
 	<script type="text/javascript" src="js/web/common.js"></script>
 	<script type="text/javascript" src="js/web/picture.info.js"></script>
 	<script type="text/javascript" src="js/web/index.info.js"></script>
 	<script type="text/javascript" src="/js/wechat/app.info.js"></script>
 	<script type="text/javascript" src="/js/wechat/validate.js-20170407"></script>
+	<script type="text/javascript" src="js/focus.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function () {
-			$(document).ready(function () {
+			getPortalInfo()
+			getIndexNewsList()
+			
 			$($(".bottom-mobile").find("p")[0]).addClass("bottom-active");
 			$($(".bottom-mobile").find("img")[0]).attr("src", "images/index-active.png");
-		});
 			$($(".menu_ul").find("li")[0]).addClass("active");
 			var message = "";
 			var isweblogin = "";
 			if (message == '0' && isweblogin == '') {
 				msgAlert("warning", "提示", "请登录或注册帐号后登录");
 			}
-			alertInfoTestPC();
+			
 			setUpLink();
 		});
 
-		function alertInfoTestPC() {
-			var htmls =
-				"<div style='min-width:340px;max-width:540px; background:#fff; padding:10px 10px;'><h2 style='color:red;text-align:center;'>温馨提示</h2>";
-			htmls +=
-				"<p style='text-indent:2em; color:#666; text-align:left;font-family:Microsoft YaHei; padding-top:10px; padding-bottom:10px;'>提示内容</p>";
-			//htmls += "<p style='text-indent:2em; color:#666; text-align:left;font-family:Microsoft YaHei; padding-bottom:10px;'>永兴县网上报名系统启动，报名截止时间7月1日-7月25日。资兴市网上报名系统启动，报名截止时间6月10日-7月10日。 请家长准备报名材料，并在规定时间内完成报名.若填报信息有误需修改，则点击“查看进度”再点击“申请修改”，等待审核通过后再点击“修改”就可以修改资料了，修改完确认无误后再点“提交”。</p>";
-
-			htmls +=
-				"<button style='width:200px; height:40px;border-radius: 20px; line-height:40px; background-color:#0099FF; color:#fff; font-size:18px; font-weight:bolder; border:1px solid #0099FF;cursor:pointer;' onclick='sureSubmit2()'>我知道了</button>";
-			htmls += "</div>";
-			$('.msg_submit').html(htmls);
-			$(".msg").css("z-index", "1003").css("left", "50%").css("transform", "translate(-50%,0 )");
-			$('.msg_submit').animate({
-				'top': '20%'
-			}, 1000);
-			$('.mask_s').show();
-		}
+		
 
 		function sureSubmit2() {
 			$('.msg_submit').animate({
@@ -77,7 +62,7 @@
 					<div class="top_info">
 						<div class="l_f">
 							<span id="currDate"></span>
-							您好，欢迎来到杭州市2020年义务教育阶段新生报名系统！
+						<span id="index-subTitle"></span>	
 						</div>
 						<div class="r_f" id="user_div">
 							　　
@@ -88,11 +73,11 @@
 				<div class="menu">
 					<div class="logo">
 						<div class="l_f">
-							<h1 style="color: #fff; font-size: 36px; font-weight: 600;">杭州市2020年义务教育阶段新生报名系统</h1>
+							<h1 style="color: #fff; font-size: 36px; font-weight: 600;"><span id="index-title"></span></h1>
 						</div>
 						<ul class="menu_ul">
 							<li><a href="index.html">首页</a></li>
-							<li><a href="areanewlist.html">新闻中心</a></li>
+							<li><a href="areanewlist.html?pid=0">新闻中心</a></li>
 							<li><a href="goChoiceSchool.html">学校介绍</a></li>
 							<li><a href="goSignup.html">报名入口页面</a></li>
 						</ul>
@@ -101,24 +86,17 @@
 			</div>
 		</div>
 		<div id="content">
-
 			<div class="banner">
 				<div class="banner">
 					<div class="banner_show" id="banner_show">
-						<a href="#" class="bannger_inbox"><img src="images/index_01.jpg" width="1920"
-								height="528" /></a>
-						<a href="#" class="bannger_inbox" style="display: none;"><img src="images/index_02.jpg"
-								width="1920" height="528" /></a>
-						<a href="#" class="bannger_inbox" style="display: none;"><img src="images/index_03.jpg"
-								width="1920" height="528" /></a>
-						<a href="#" class="bannger_inbox" style="display: none;"><img src="images/index_04.jpg"
-								width="1920" height="528" /></a>
+						<div id="banner_img">
+						</div>
 						<div class="banner_mag">
 							<div class="yq_banner_list" id="yq_banner_list">
-								<a href="javascript:;" rel="0" class="hover">&nbsp;</a>
+								<!-- <a href="javascript:;" rel="0" class="hover">&nbsp;</a>
 								<a href="javascript:;" rel="1">&nbsp;</a>
 								<a href="javascript:;" rel="2">&nbsp;</a>
-								<a href="javascript:;" rel="3">&nbsp;</a>
+								<a href="javascript:;" rel="3">&nbsp;</a> -->
 							</div>
 						</div>
 						<div class="banner_pre_next">
@@ -133,7 +111,7 @@
 					<div style="text-align: center;">
 						<div style="position: relative;">
 							<h2 align="left" style="width: 200px;" class="head_content">新闻中心 / NEWS</h2>
-							<span style="position: absolute;top:6px;right: 6px;"><a href="areanewlist.html"
+							<span style="position: absolute;top:6px;right: 6px;"><a href="areanewlist.html?pid=0"
 									id="many_news" class="more">更多</a></span>
 						</div>
 						<div class="CharData"></div>
@@ -152,10 +130,7 @@
 						</div>
 					</div>
 					<ul class="news_ul">
-						<li>
-							<a href="goNewInfo.html" title="2019杭州市义务教育阶段学校新生入学政策解读" target="_blank">待替换文章</a>
-							<span>[2019-03-27]</span>
-						</li>
+						
 					</ul>
 				</div>
 				<div class="content" id="attach_content">
@@ -171,12 +146,12 @@
 								<br />
 								SIGN UP ENTRY
 							</a>
-							<a href="help.pdf" class="fj_01" target="_blank">
+							<a href="userManual.html" class="fj_01" target="_blank">
 								<span>操作指南</span>
 								<br />
 								OPERATION MANUAL
 							</a>
-							<a href="goNewInfo.html" class="fj_02" target="_blank">
+							<a href="help.html" class="fj_02" target="_blank">
 								<span>报名须知</span>
 								<br />
 								CONDITIONS OVERLEAF
@@ -191,54 +166,15 @@
 								id="many_news" class="more">更多</a></span>
 						<div class="city_div" style="position: absolute;">
 							<ul class="city_ul">
-								<li>
+								<!-- <li>
 									<a class="acl-name  on " data-val="0" data-key="48">北湖区</a>
 									<div class="trigon_div"></div>
 								</li>
 								<li>
 									<a class="acl-name " data-val="1" data-key="63">苏仙区</a>
 									<div class="trigon_div none"></div>
-								</li>
-								<li>
-									<a class="acl-name " data-val="2" data-key="99">高新区(六十七完小)</a>
-									<div class="trigon_div none"></div>
-								</li>
-								<li>
-									<a class="acl-name " data-val="3" data-key="105">市直属</a>
-									<div class="trigon_div none"></div>
-								</li>
-								<li>
-									<a class="acl-name " data-val="4" data-key="139">桂阳县</a>
-									<div class="trigon_div none"></div>
-								</li>
-								<li>
-									<a class="acl-name " data-val="5" data-key="140">临武县</a>
-									<div class="trigon_div none"></div>
-								</li>
-								<li>
-									<a class="acl-name " data-val="6" data-key="141">嘉禾县</a>
-									<div class="trigon_div none"></div>
-								</li>
-								<li>
-									<a class="acl-name " data-val="7" data-key="142">资兴市</a>
-									<div class="trigon_div none"></div>
-								</li>
-								<li>
-									<a class="acl-name " data-val="8" data-key="143">永兴县</a>
-									<div class="trigon_div none"></div>
-								</li>
-								<li>
-									<a class="acl-name " data-val="9" data-key="144">宜章县</a>
-									<div class="trigon_div none"></div>
-								</li>
-								<li>
-									<a class="acl-name " data-val="10" data-key="145">汝城县</a>
-									<div class="trigon_div none"></div>
-								</li>
-								<li>
-									<a class="acl-name " data-val="11" data-key="147">安仁县</a>
-									<div class="trigon_div none"></div>
-								</li>
+								</li> -->
+								
 							</ul>
 						</div>
 						<div class="CharData"></div>
@@ -583,14 +519,14 @@
 			<div class="bottom" style="height: 120px; padding-top: 10px;">
 				<div style="padding-bottom: 0; width:1000px; margin: auto;">
 					<div style="width: 700px; float: left; text-align: left;">
-						<p>主办单位：杭州市教育局</p>
+						<p id="bottom_text"></p>
 						<p></p>
 						<!-- <p><a href="http://beian.miit.gov.cn/" style="color: #fff;" target="_blank">湘ICP备14004282号-9</a>　　　
 					</p> -->
-						<p><a href="gologin.html" style="color: #fff;" target="_blank">管理员登录入口</a></p>
+						<!-- <p><a href="gologin.html" style="color: #fff;" target="_blank">管理员登录入口</a></p> -->
 					</div>
 					<div style="float: right; padding-left: 30px;">
-						<img src="images/wechat.jpg" width="90" height="90" />
+						<img id="wechat_img" src="" width="90" height="90" />
 						<p>【微信扫一扫】</p>
 					</div>
 				</div>
@@ -633,7 +569,7 @@
 		<div data-role="page" class="containter">
 			<section class="body" data-role="body">
 				<div class="goodslist">
-					<img src="images/wechatbg.jpg" width="100%" />
+					<img id="mobbile_banner" src="" width="100%" />
 					<div style="text-align: center; margin-top: 2px;">
 						<input type="hidden" name="openId" id="openId" value="" />
 					</div>
@@ -670,7 +606,7 @@
 						<i><img src="images/help.png" width="32" height="32"></i>
 						<p>报名须知</p>
 					</a>
-					<a href="areanewlist.html" target="_self" style="width:25%;">
+					<a href="areanewlist.html?pid=0" target="_self" style="width:25%;">
 						<i><img src="images/p_02.png" width="32" height="32"></i>
 						<p>新闻中心</p>
 					</a>

@@ -1,10 +1,11 @@
 /* power by 风情剑客 www.uu6c.com 2013.11.20*/
 /*banner*/
-$(function(){
+function setBanner(){
 var timer=5000;
 var showtime = 800;
 var showbox = $("#banner_show");
 var inbox = $(".bannger_inbox");
+console.log(inbox)
 var movelist = $("#yq_banner_list");
 var s;
 var b = 0;
@@ -86,7 +87,7 @@ function(){
 		$(".banner_pre_next").fadeOut();
 		})
 		*/
-});
+};
 
 /*menu*/
 $(function(){

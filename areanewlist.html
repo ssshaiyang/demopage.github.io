@@ -10,11 +10,15 @@
 	<link href="css/style.css" rel="stylesheet" type="text/css" />
 	<link href="css/app.css-20190411.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/web/common.js"></script>
+
 	<script type="text/javascript" src="/js/wechat/app.info.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
+			getNotIndexInfo()
+			getNewsList()
 			$($(".bottom-mobile").find("p")[3]).addClass("bottom-active");
-            $($(".bottom-mobile").find("img")[3]).attr("src", "images/calculator-active.png");
+			$($(".bottom-mobile").find("img")[3]).attr("src", "images/calculator-active.png");
 			$($(".menu_ul").find("li")[1]).addClass("active");
 		});
 	</script>
@@ -50,129 +54,121 @@
 
 <body style="background: #F2F2F2;">
 	<div class="pc">
-	<div id="header">
-		<div class="topbj" id="top">
-			<div class="top">
-				<div class="top_info">
-					<div class="l_f">
-						<span id="currDate"></span>
-						您好，欢迎来到杭州市2019年义务教育阶段新生报名系统！
+		<div id="header">
+			<div class="topbj" id="top">
+				<div class="top">
+					<div class="top_info">
+						<div class="l_f">
+							<span id="currDate"></span>
+							<span id="index-subTitle"></span>
+						</div>
+						<div class="r_f" id="user_div">
+							　　
+						</div>
 					</div>
-					<div class="r_f" id="user_div">
-						　　
+				</div>
+				<div style="clear:both"></div>
+				<div class="menu">
+					<div class="logo">
+						<div class="l_f">
+							<h1 style="color: #fff; font-size: 36px; font-weight: 600;"><span id="index-title"></span>
+							</h1>
+						</div>
+						<ul class="menu_ul">
+							<li><a href="index.html">首页</a></li>
+							<li><a href="areanewlist.html?pid=0">新闻中心</a></li>
+							<li><a href="goChoiceSchool.html">学校介绍</a></li>
+							<li><a href="goSignup.html">报名入口页面</a></li>
+						</ul>
 					</div>
 				</div>
 			</div>
-			<div style="clear:both"></div>
-			<div class="menu">
-				<div class="logo">
-					<div class="l_f">
-						<h1 style="color: #fff; font-size: 36px; font-weight: 600;">杭州市2019年义务教育阶段新生报名系统</h1>
-					</div>
-					<ul class="menu_ul">
-						<li><a href="index.html">首页</a></li>
-						<li><a href="areanewlist.html">新闻中心</a></li>
-						<li><a href="goChoiceSchool.html">学校介绍</a></li>
-						<li><a href="goSignup.html">报名入口页面</a></li>
-					</ul>
-				</div>
+		</div>
+		<div id="content">
+			<div class="second_bg">
+				&nbsp;
 			</div>
-		</div>
-	</div>
-	<div id="content">
-		<div class="second_bg">
-			&nbsp;
-		</div>
-		<h2 align="center" style="margin-top: 30px; color: #000000; margin-bottom: 30px;">新闻中心</h2>
-		<div class="content" style="background: #ffffff; width: 1000px;">
-			<div class="area-div">
-				<div class="tt">
+			<h2 align="center" style="margin-top: 30px; color: #000000; margin-bottom: 30px;">新闻中心</h2>
+			<div class="content" style="background: #ffffff; width: 1000px;">
+				<div class="area-div">
+					<!-- <div class="tt">
 					<h2>待定城区</h2>
-				</div>
-				<ul class="news_ul">
-					<li>
-						<a href="goNewInfo.html" title="待定城区新闻<" target="_blank">待定城区新闻</a>
-						<span>[2019-03-27]</span>
-					</li>
+				</div> -->
+					<ul class="news_ul">
 
-				</ul>
+					</ul>
+					<div class="page_div">
+						<a href="" class="last_page_btn">上一页</a>
+						<div class="page_pno"></div>
+						<a href="" class="next_page_btn">下一页</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div id="footer">
+			<div style="clear:both;"></div>
+			<div class="bottom" style="height: 120px; padding-top: 10px;">
+				<div style="padding-bottom: 0; width:1000px; margin: auto;">
+					<div style="width: 700px; float: left; text-align: left;">
+						<p id="bottom_text"></p>
+						<p></p>
+						<p><a href="http://beian.miit.gov.cn/" style="color: #fff;"
+								target="_blank">湘ICP备14004282号-9</a>　　　
+						</p>
+						<p><a href="gologin.html" style="color: #fff;" target="_blank">管理员登录入口</a></p>
+					</div>
+					<div style="float: right; padding-left: 30px;">
+						<img id="wechat_img" src="" width="90" height="90" />
+						<p>【微信扫一扫】</p>
+					</div>
+				</div>
 			</div>
 
 		</div>
 	</div>
-	<div id="footer">
-		<div style="clear:both;"></div>
-		<div class="bottom" style="height: 120px; padding-top: 10px;">
-			<div style="padding-bottom: 0; width:1000px; margin: auto;">
-				<div style="width: 700px; float: left; text-align: left;">
-					<p>主办单位：杭州市教育局</p>
-					<p>技术支持：湖南亿谷科技发展股份有限公司　　技术支持电话：4008087989（周一至周五：8：30-17：30）</p>
-					<p><a href="http://beian.miit.gov.cn/" style="color: #fff;" target="_blank">湘ICP备14004282号-9</a>　　　
-					</p>
-					<p><a href="gologin.html" style="color: #fff;" target="_blank">管理员登录入口</a></p>
+	<div class="mobile">
+		<div data-role="page" class="containter">
+
+			<section class="body" data-role="body">
+				<div class="goodslist">
+					<div data-role="header" class="head bg">
+						<div class="l_span">新闻中心</div>
+					</div>
+					<ul class="new_ul">
+
+					</ul>
+					<div class="page_div_mobile">
+						<a href="" class="last_page_btn">上一页</a>
+						<div class="page_pno"></div>
+						<a href="" class="next_page_btn">下一页</a>
+					</div>
 				</div>
-				<div style="float: right; padding-left: 30px;">
-					<img src="images/wechat.jpg" width="90" height="90" />
-					<p>【微信扫一扫】</p>
-				</div>
+			</section>
+		</div>
+		<footer>
+			<div class="bottom-mobile">
+				<a href="index.html" target="_self" style="width:25%;">
+					<i><img src="images/index.png" width="32" height="32"></i>
+					<p>首页</p>
+				</a>
+				<a href="goSignup.html" target="_self" style="width:25%;">
+					<i><img src="images/add-account.png" width="32" height="32"></i>
+					<p>我要报名</p>
+				</a>
+				<a href="help.html" target="_self" style="width:25%;">
+					<i><img src="images/help.png" width="32" height="32"></i>
+					<p>报名须知</p>
+				</a>
+				<a href="areanewlist.html?pid=0" target="_self" style="width:25%;">
+					<i><img src="images/p_02.png" width="32" height="32"></i>
+					<p>新闻中心</p>
+				</a>
 			</div>
-		</div>
 
+
+		</footer>
 	</div>
-</div>	
-<div class="mobile">
-	<div data-role="page" class="containter">
-
-		<section class="body" data-role="body">
-			<div class="goodslist">
-				<div data-role="header" class="head bg">
-					<div class="l_span">新闻中心</div>
-				</div>
-				<ul class="new_ul">
-
-					<li>
-						<a href="goNewInfo.html">
-							<div class="title">待定待定待定待定待定待定待定待定</div>
-						</a>
-
-						<p class="dt"><span class="f_s">发布日期：2019-04-27</span></p>
-					</li>
-
-					<li>
-						<a href="goNewInfo.html">
-							<div class="title">待定待定待定待定待定待定</div>
-						</a>
-
-						<p class="dt"><span class="f_s">发布日期：2019-03-27</span></p>
-					</li>
-
-			</ul>
-	</div>
-	</section>
-	</div>
-	<footer>
-		<div class="bottom-mobile">
-			<a href="index.html" target="_self" style="width:25%;">
-				<i><img src="images/index.png" width="32" height="32"></i>
-				<p>首页</p>
-			</a>
-			<a href="goSignup.html" target="_self" style="width:25%;">
-				<i><img src="images/add-account.png" width="32" height="32"></i>
-				<p>我要报名</p>
-			</a>
-			<a href="help.html" target="_self" style="width:25%;">
-				<i><img src="images/help.png" width="32" height="32"></i>
-				<p>报名须知</p>
-			</a>
-			<a href="areanewlist.html" target="_self" style="width:25%;">
-				<i><img src="images/p_02.png" width="32" height="32"></i>
-				<p>新闻中心</p>
-			</a>
-		</div>
-
-
-	</footer>
-</div>
 </body>
 
 </html>

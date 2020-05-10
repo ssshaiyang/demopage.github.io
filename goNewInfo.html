@@ -13,6 +13,8 @@
 	<script type="text/javascript" src="js/web/common.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
+			getNotIndexInfo()
+			getNewsDetail()
 			$($(".bottom-mobile").find("p")[3]).addClass("bottom-active");
             $($(".bottom-mobile").find("img")[3]).attr("src", "images/calculator-active.png");
 			$($(".menu_ul").find("li")[1]).addClass("active");
@@ -30,7 +32,7 @@
 				<div class="top_info">
 					<div class="l_f">
 						<span id="currDate"></span>
-						您好，欢迎来到杭州市2019年义务教育阶段新生报名系统！
+						<span id="index-subTitle"></span>
 					</div>
 					<div class="r_f" id="user_div">
 						　　
@@ -41,11 +43,11 @@
 			<div class="menu">
 				<div class="logo">
 					<div class="l_f">
-						<h1 style="color: #fff; font-size: 36px; font-weight: 600;">杭州市2019年义务教育阶段新生报名系统</h1>
+							<h1 style="color: #fff; font-size: 36px; font-weight: 600;"><span id="index-title"></span></h1>
 					</div>
 					<ul class="menu_ul">
 						<li><a href="index.html">首页</a></li>
-						<li><a href="areanewlist.html">新闻中心</a></li>
+						<li><a href="areanewlist.html?pid=0">新闻中心</a></li>
 						<li><a href="goChoiceSchool.html">学校介绍</a></li>
 						<li><a href="goSignup.html">报名入口页面</a></li>
 					</ul>
@@ -59,7 +61,7 @@
 		</div>
 		<div class="content">
 			<div class="news_info" style="width: 900px;margin: auto; padding: 20px 20px; ">
-				<div class="news_info_tilte">待确认标题<br /><span>发布日期：</span>
+				<div class="news_info_tilte"><div id="news_title"></div><br /><span id="news_createTime"></span>
 					<br />
 					<!-- JiaThis Button BEGIN -->
 					<div class="jiathis_style_24x24" style="float:right;margin-top:2px; margin-right: 160px;">
@@ -74,7 +76,7 @@
 					<!-- JiaThis Button END -->
 				</div>
 
-				待定内容
+				<div id="news_content">待定内容</div>
 				<div style="margin-bottom:30px; border-bottom:1px; margin-top: 10px;">
 				</div>
 			</div>
@@ -88,11 +90,11 @@
 		<div class="bottom" style="height: 120px; padding-top: 10px;">
 			<div style="padding-bottom: 0; width:1000px; margin: auto;">
 				<div style="width: 700px; float: left; text-align: left;">
-					<p>主办单位：杭州市教育局</p>
+					<p id="bottom_text"></p>
 					<!-- <p><a href="http://beian.miit.gov.cn/"  style="color: #fff;" target="_blank">湘ICP备14004282号-9</a>　　　</p><a><a href="gologin.html"  style="color: #fff;" target="_blank">管理员登录入口</a></a> -->
 				</div>
 				<div style="float: right; padding-left: 30px;">
-					<img src="images/wechat.jpg" width="90" height="90" />
+					<img id="wechat_img" src="" width="90" height="90" />
 					<p>【微信扫一扫】</p>
 				</div>
 			</div>
@@ -109,11 +111,11 @@
 			<div class="goodslist" style="padding: 10px 10px;">
 				 <ul class="g_ul" style="white-space:normal;">
 					 <li style="text-align: center; height: 100px; border-bottom:none;">
-					 <span style=" color: #2483EB; font-size: 16px; font-weight: bold;">关于杭州市义务教育阶段新生入学报名房产填报的说明</span>
+					 <span style=" color: #2483EB; font-size: 16px; font-weight: bold;" id="news_title_monile"></span>
 					 <br/>
-					 <p style="font-size: 12px; color: #666; background: #eaeaea; padding: 10px 0; margin-top: 1em;">发布日期：2019-05-08 </p></li>
+					 <p style="font-size: 12px; color: #666; background: #eaeaea; padding: 10px 0; margin-top: 1em;">发布日期：<span id="news_time_monile"></span> </p></li>
 				 </ul>
-				 <div style="text-align: center;">待定待定待定待定<br>待定待定待定</div>
+				 <div  id="news_content_monile"></div>
 				 <div style="clear: both;"></div>
 				 
 			</div>
@@ -132,7 +134,7 @@
 					<i><img src="images/help.png" width="32" height="32"></i>
 					<p>报名须知</p>
 				</a>
-				<a href="areanewlist.html" target="_self" style="width:25%;">
+				<a href="areanewlist.html?pid=0" target="_self" style="width:25%;">
 					<i><img src="images/p_02.png" width="32" height="32"></i>
 					<p>新闻中心</p>
 				</a>

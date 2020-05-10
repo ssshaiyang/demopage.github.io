@@ -260,6 +260,7 @@ img {
     opacity: 0.6;
     filter: alpha(opacity=60);
     color: #ffffff;
+    margin: 3px;
 }
 
 .yq_banner_list a.hover {
@@ -591,7 +592,7 @@ img {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 320px;
+    width: 310px;
     *width: 320px;
     color: #838383;
 }
@@ -1436,6 +1437,41 @@ img {
     color: #FF0000
 }
 
+.page_div{
+    display: flex;
+    justify-content: center;
+}
+.page_div a{
+    background-color: #3399FF;
+    color: #ffffff;
+    width: 70px;
+    line-height: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 15px;
+    margin: 10px;
+    cursor: pointer;
+}
+.page_div_mobile{
+    display: flex;
+    justify-content: center;
+}
+.page_div_mobile a{
+    background-color: #3399FF;
+    color: #ffffff;
+    width: 70px;
+    line-height: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 15px;
+    margin: 10px;
+    cursor: pointer;
+}
+.page_pno{
+    line-height: 50px;
+    height: 50px;
+}
+    
 @media screen and (min-width:900px) {
 	.mobile {display: none;}
   }
